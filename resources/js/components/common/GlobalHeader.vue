@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import styleVariables from "../styleVariables.js";
+import STYLE_VARIABLES from "../styleVariables.js";
 
 export default {
     setup() {
-        const { color } = styleVariables;
+        const { color } = STYLE_VARIABLES;
         return {
             color,
         };

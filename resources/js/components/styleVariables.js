@@ -1,5 +1,5 @@
-const styleVariables = {
+const STYLE_VARIABLES = {
     color: 'red'
 }
 
-export default styleVariables;
+export default STYLE_VARIABLES;
