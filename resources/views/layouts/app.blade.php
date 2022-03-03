@@ -28,13 +28,15 @@
 </head>
 
 <body>
-    {{-- ヘッダー --}}
-    @section('header')
-    @include('components.global_header')
-    @show
+    <div id="app">
+        {{-- ヘッダー --}}
+        @section('header')
+        @include('components.global_header')
+        @show
 
-    {{-- コンテンツ --}}
-    @yield('content')
+        {{-- コンテンツ --}}
+        @yield('content')
+    </div>
 </body>
 
 </html>
