@@ -1,7 +1,7 @@
 /**
  * bladeで使用するコンポーネント
  */
-import GlobalHeader from "./components/GlobalHeader.vue";
+import GlobalHeader from "./components/common/GlobalHeader.vue";
 
 const bladeComponents = {
     GlobalHeader,
