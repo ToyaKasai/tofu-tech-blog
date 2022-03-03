@@ -1,7 +1,7 @@
 require("./bootstrap");
 
 import { createApp } from "vue";
-import bladeComponents from "./BladeComponents";
+import bladeComponents from "./bladeComponents";
 
 createApp({
     components: {
