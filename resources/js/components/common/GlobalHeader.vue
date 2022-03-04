@@ -63,7 +63,7 @@ export default {
     }
 
     > .header > .title > .link {
-        font-size: 18px;
+        font-size: 1.8rem;
         color: var(--black);
         font-weight: 600;
     }
