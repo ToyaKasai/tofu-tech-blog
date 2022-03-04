@@ -2,9 +2,12 @@ require("./bootstrap");
 
 import { createApp } from "vue";
 import bladeComponents from "./bladeComponents";
+import SvgVue from "svg-vue3";
 
 createApp({
     components: {
         ...bladeComponents,
     },
-}).mount("#app");
+})
+    .use(SvgVue)
+    .mount("#app");

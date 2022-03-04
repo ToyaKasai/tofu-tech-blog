@@ -22597,14 +22597,19 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "a", -1
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "logo"
+  }, "TOFU TECH BLOG", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, _hoisted_3);
+  var _component_svg_vue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("svg-vue");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_svg_vue, {
+    icon: "setting"
+  })]);
 }
 
 /***/ }),
@@ -22619,6 +22624,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _bladeComponents__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bladeComponents */ "./resources/js/bladeComponents.js");
+/* harmony import */ var svg_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! svg-vue3 */ "./node_modules/svg-vue3/dist/svg-vue.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -22629,9 +22635,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   components: _objectSpread({}, _bladeComponents__WEBPACK_IMPORTED_MODULE_1__["default"])
-}).mount("#app");
+}).use(svg_vue3__WEBPACK_IMPORTED_MODULE_2__["default"]).mount("#app");
 
 /***/ }),
 
@@ -45240,6 +45247,21 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/svg/setting.svg":
+/*!***********************************!*\
+  !*** ./resources/svg/setting.svg ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10.2 19.2a1.8 1.8 0 0 0 3.6 0v-1.16c.419-.126.82-.293 1.197-.497l.821.821a1.8 1.8 0 0 0 2.546-2.546l-.821-.82c.204-.378.371-.779.496-1.198H19.2a1.8 1.8 0 0 0 0-3.6h-1.16a6.264 6.264 0 0 0-.497-1.197l.821-.821a1.8 1.8 0 0 0-2.546-2.546l-.82.821a6.262 6.262 0 0 0-1.198-.496V4.8a1.8 1.8 0 0 0-3.6 0v1.16c-.419.126-.82.293-1.197.497l-.821-.82a1.8 1.8 0 1 0-2.546 2.545l.821.82a6.262 6.262 0 0 0-.496 1.198H4.8a1.8 1.8 0 0 0 0 3.6h1.16c.126.419.293.82.497 1.197l-.821.821a1.8 1.8 0 0 0 2.546 2.546l.82-.821c.378.204.779.371 1.198.496V19.2Zm1.8-4.5a2.7 2.7 0 1 0 0-5.4 2.7 2.7 0 0 0 0 5.4Z\" fill=\"#363853\"/></svg>");
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/common/GlobalHeader.vue?vue&type=style&index=0&id=6e61d9d9&lang=scss&scoped=true":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/common/GlobalHeader.vue?vue&type=style&index=0&id=6e61d9d9&lang=scss&scoped=true ***!
@@ -45546,6 +45568,77 @@ module.exports = function (list, options) {
     lastIdentifiers = newLastIdentifiers;
   };
 };
+
+/***/ }),
+
+/***/ "./node_modules/svg-vue3/dist/svg-vue.esm.js":
+/*!***************************************************!*\
+  !*** ./node_modules/svg-vue3/dist/svg-vue.esm.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var script = {
+  name: 'SvgVue',
+  props: {
+    icon: String
+  },
+
+  setup(props) {
+    const iconPath = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => props.icon.replace(new RegExp('.'.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1'), 'g'), '/') + '.svg');
+    const svgString = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => __webpack_require__("./resources/svg sync recursive ^\\.\\/.*$")(`./${iconPath.value}`).default);
+    const svgAttributes = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => {
+      if (!svgString) return {};
+      let wrapper = document.createElement('div');
+      wrapper.innerHTML = svgString.value;
+      let attributesList = wrapper.firstElementChild.attributes;
+      let attributes = {};
+      Object.keys(attributesList).map(i => attributes[attributesList[i].name] = attributesList[i].value);
+      return attributes;
+    });
+    const svgContent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(() => svgString ? svgString.value.replace(/^<svg[^>]*>|<\/svg>$/g, '') : null);
+    return {
+      svgAttributes,
+      svgContent
+    };
+  }
+
+};
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", (0,vue__WEBPACK_IMPORTED_MODULE_0__.mergeProps)($setup.svgAttributes, {
+    innerHTML: $setup.svgContent
+  }), null, 16, ["innerHTML"]);
+}
+
+script.render = render;
+
+// Import vue component
+// IIFE injects install function into component, allowing component
+// to be registered via Vue.use() as well as Vue.component(),
+
+var entry_esm = /*#__PURE__*/(() => {
+  // Get component instance
+  const installable = script; // Attach install function executed by Vue.use()
+
+  installable.install = app => {
+    app.component('SvgVue', installable);
+  };
+
+  return installable;
+})(); // It's possible to expose named exports when writing components that can
+// also be used as directives, etc. - eg. import { RollupDemoDirective } from 'rollup-demo';
+// export const RollupDemoDirective = directive;
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entry_esm);
+
 
 /***/ }),
 
@@ -45874,6 +45967,38 @@ function compileToFunction(template, options) {
 
 
 
+
+/***/ }),
+
+/***/ "./resources/svg sync recursive ^\\.\\/.*$":
+/*!**************************************!*\
+  !*** ./resources/svg/ sync ^\.\/.*$ ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./setting.svg": "./resources/svg/setting.svg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/svg sync recursive ^\\.\\/.*$";
 
 /***/ })
 

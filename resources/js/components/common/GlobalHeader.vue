@@ -1,6 +1,7 @@
 <template>
     <header class="global-header-wrapper">
-        <p>a</p>
+        <div class="logo">TOFU TECH BLOG</div>
+        <svg-vue icon="setting" />
     </header>
 </template>
 
