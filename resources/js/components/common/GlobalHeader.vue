@@ -1,20 +1,22 @@
 <template>
-    <header class="global-header-wrapper">
-        <div class="title">
-            <a class="link" href="/">
-                {{ headerTitle }}
-            </a>
-        </div>
-        <button class="setting">
-            <Icon name="setting" width="20px" />
-        </button>
-        <button class="search">
-            <Icon name="search" />
-        </button>
-        <div class="register">
-            <CommonButton>Add Article</CommonButton>
-        </div>
-    </header>
+    <div class="global-header-wrapper">
+        <header class="header">
+            <div class="title">
+                <a class="link" href="/">
+                    {{ headerTitle }}
+                </a>
+            </div>
+            <button class="setting">
+                <Icon name="setting" width="20px" />
+            </button>
+            <button class="search">
+                <Icon name="search" />
+            </button>
+            <div class="register">
+                <CommonButton>Add Article</CommonButton>
+            </div>
+        </header>
+    </div>
 </template>
 
 <script>
@@ -36,31 +38,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.global-header-wrapper {
-    position: fixed;
-    top: var(--margin-xs);
-    left: 50%;
-    transform: translateX(-50%);
-    display: grid;
-    grid-template-columns: 1fr repeat(3, auto);
-    column-gap: var(--margin-xs);
-    align-items: center;
-    background: var(--white);
-    box-sizing: border-box;
-    padding: var(--margin-xs) var(--margin-m);
-    width: var(--width-pc);
-    margin: auto;
-    box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.1);
-    border-radius: var(--margin-xxs);
+@import "../../../sass/_mixins.scss";
 
-    > .title > .link {
+// TODO: レスポンシブ対応
+.global-header-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    > .header {
+        position: fixed;
+        top: var(--margin-xs);
+        display: grid;
+        grid-template-columns: 1fr repeat(3, auto);
+        column-gap: var(--margin-xs);
+        align-items: center;
+        background: var(--white);
+        box-sizing: border-box;
+        padding: var(--margin-xs) var(--margin-m);
+        width: var(--width-pc);
+        margin: auto;
+        box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.1);
+        border-radius: var(--margin-xxs);
+    }
+
+    > .header > .title > .link {
         font-size: 18px;
         color: var(--black);
         font-weight: 600;
     }
 
-    > .setting,
-    > .search {
+    > .header > .setting,
+    > .header > .search {
         display: flex;
         align-items: center;
         color: var(--dark-gray);

@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
+  font-size: 10px;
 }
 
 p {
@@ -14,8 +15,29 @@ a {
   text-decoration: none;
 }
 
+button {
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+button :hover {
+  cursor: pointer;
+}
+
 :root {
+  /* font-family */
   --font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
       "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
-  --red: red;
+  /* color variable */
+  --white: #fff;
+  --black: #000;
+  --dark-blue: #0288d1;
+  --dark-gray: #455a64;
+  /* margin variable */
+  --margin-xxs: 12px;
+  --margin-xs: 20px;
+  --margin-s: 32px;
+  --margin-m: 48px;
+  --width-pc: 990px;
 }
