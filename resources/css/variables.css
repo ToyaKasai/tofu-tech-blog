@@ -6,13 +6,20 @@
     /* color variable */
     --white: #fff;
     --black: #000;
+    --yellow: #fbc02d;
     --dark-blue: #0288d1;
     --dark-gray: #455a64;
+    --light-gray: #eceff1;
 
     /* margin variable */
     --margin-xxs: 12px;
     --margin-xs: 20px;
     --margin-s: 32px;
     --margin-m: 48px;
+    --margin-l: 60px;
+    --margin-xl: 80px;
+
+    /* size */
     --width-pc: 990px;
+    --main-visual-height: 180px;
 }

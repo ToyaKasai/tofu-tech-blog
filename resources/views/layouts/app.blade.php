@@ -31,11 +31,16 @@
     <div id="app">
         {{-- ヘッダー --}}
         @section('header')
-        @include('components.global_header')
+        <global-header></global-header>
         @show
 
         {{-- コンテンツ --}}
         @yield('content')
+
+        {{-- フッター --}}
+        @section('footer')
+        <global-footer></global-footer>
+        @show
     </div>
 </body>
 

@@ -58,12 +58,12 @@ export default {
         padding: var(--margin-xs) var(--margin-m);
         width: var(--width-pc);
         margin: auto;
-        box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.1);
+        box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.3);
         border-radius: var(--margin-xxs);
     }
 
     > .header > .title > .link {
-        font-size: 18px;
+        font-size: 1.8rem;
         color: var(--black);
         font-weight: 600;
     }
