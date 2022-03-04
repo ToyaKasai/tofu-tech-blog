@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/** ブログ関連 */
+Route::get('/', 'App\Http\Controllers\TechBlogController@index')->name('blog.home');

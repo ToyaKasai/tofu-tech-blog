@@ -1,0 +1,14 @@
+// ブレイクポイント
+// 参考：https://crestadesign.org/responsive/
+$breakpoints: (
+    "sp": "screen and (max-width: 599px)",
+    "tablet": "screen and (max-width: 1024px)",
+    "pc": "screen and (min-width: 1025px)",
+) !default;
+
+// メディアクエリ
+@mixin mq($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
