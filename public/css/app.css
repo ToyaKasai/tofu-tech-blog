@@ -3,7 +3,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: var(--font-family);
 }
 
 p {
@@ -12,4 +12,10 @@ p {
 
 a {
   text-decoration: none;
+}
+
+:root {
+  --font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
+      "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  --red: red;
 }

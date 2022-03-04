@@ -22570,34 +22570,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _styleVariables_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styleVariables.js */ "./resources/js/components/styleVariables.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-var __default__ = {
-  setup: function setup() {
-    var color = _styleVariables_js__WEBPACK_IMPORTED_MODULE_0__["default"].color;
-    return {
-      color: color
-    };
-  }
-};
-
-
-var __injectCSSVars__ = function __injectCSSVars__() {
-  (0,vue__WEBPACK_IMPORTED_MODULE_1__.useCssVars)(function (_ctx) {
-    return {
-      "6e61d9d9-color": _ctx.color
-    };
-  });
-};
-
-var __setup__ = __default__.setup;
-__default__.setup = __setup__ ? function (props, ctx) {
-  __injectCSSVars__();
-
-  return __setup__(props, ctx);
-} : __injectCSSVars__;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -22718,24 +22691,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/components/styleVariables.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/styleVariables.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-var styleVariables = {
-  color: 'red'
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (styleVariables);
 
 /***/ }),
 
@@ -27783,7 +27738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "header[data-v-6e61d9d9] {\n  background: var(--6e61d9d9-color);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "header[data-v-6e61d9d9] {\n  background: var(--red);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

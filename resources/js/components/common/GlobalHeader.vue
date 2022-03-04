@@ -5,20 +5,11 @@
 </template>
 
 <script>
-import STYLE_VARIABLES from "../styleVariables.js";
-
-export default {
-    setup() {
-        const { color } = STYLE_VARIABLES;
-        return {
-            color,
-        };
-    },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
 header {
-    background: v-bind(color);
+    background: var(--red);
 }
 </style>
