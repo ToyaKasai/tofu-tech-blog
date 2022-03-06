@@ -13,7 +13,7 @@
                 <Icon name="search" />
             </button>
             <div class="register">
-                <CommonButton>Add Article</CommonButton>
+                <CommonButton :href="createPath">Add Article</CommonButton>
             </div>
         </header>
     </div>
@@ -32,6 +32,10 @@ export default {
         headerTitle: {
             type: String,
             default: "TOFU TECH BLOG",
+        },
+        createPath: {
+            type: String,
+            default: "",
         },
     },
 };

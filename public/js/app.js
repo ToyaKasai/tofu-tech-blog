@@ -22717,6 +22717,10 @@ __webpack_require__.r(__webpack_exports__);
     headerTitle: {
       type: String,
       "default": "TOFU TECH BLOG"
+    },
+    createPath: {
+      type: String,
+      "default": ""
     }
   }
 });
@@ -22999,14 +23003,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     width: "20px"
   })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "search"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CommonButton, null, {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CommonButton, {
+    href: $props.createPath
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_8];
     }),
     _: 1
     /* STABLE */
 
-  })])])]);
+  }, 8
+  /* PROPS */
+  , ["href"])])])]);
 }
 
 /***/ }),
