@@ -63,7 +63,7 @@ export default {
         width: var(--width-pc);
         margin: auto;
         box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.3);
-        border-radius: var(--margin-xxs);
+        border-radius: var(--border-radius-xs);
         z-index: var(--header-z-index);
     }
 
