@@ -22,4 +22,7 @@
     /* size */
     --width-pc: 990px;
     --main-visual-height: 180px;
+
+    /* z-index */
+    --header-z-index: 1000;
 }

@@ -51,28 +51,30 @@ export default {
         top: var(--margin-xs);
         display: grid;
         grid-template-columns: 1fr repeat(3, auto);
-        column-gap: var(--margin-xs);
+        column-gap: var(--margin-xxs);
         align-items: center;
-        background: var(--white);
+        background-color: var(--dark-gray);
         box-sizing: border-box;
-        padding: var(--margin-xs) var(--margin-m);
+        padding: var(--margin-xxs) var(--margin-s);
         width: var(--width-pc);
         margin: auto;
         box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.3);
         border-radius: var(--margin-xxs);
+        z-index: var(--header-z-index);
     }
 
     > .header > .title > .link {
         font-size: 1.8rem;
         color: var(--black);
-        font-weight: 600;
+        font-weight: bold;
+        color: var(--white);
     }
 
     > .header > .setting,
     > .header > .search {
         display: flex;
         align-items: center;
-        color: var(--dark-gray);
+        color: var(--white);
     }
 }
 </style>

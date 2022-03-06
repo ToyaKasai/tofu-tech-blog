@@ -7,6 +7,46 @@
                 description="説明文"
                 date="2022.03.04"
             />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
+            <ArticleCard
+                title="タイトル"
+                description="説明文"
+                date="2022.03.04"
+            />
         </section>
     </div>
 </template>
@@ -32,7 +72,7 @@ export default {
 
 <style lang="scss" scoped>
 .top-page-wrapper {
-    background-color: var(--light-gray);
+    background-color: var(--yellow);
     display: flex;
     flex-direction: column;
     align-items: center;

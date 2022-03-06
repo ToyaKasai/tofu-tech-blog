@@ -22,7 +22,7 @@ export default {
 .main-visual-wrapper {
     width: 100%;
     height: var(--main-visual-height);
-    background-color: var(--yellow);
+    background-color: var(--white);
     padding-bottom: var(--margin-xs);
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ export default {
 
     > .content > .heading {
         font-size: 2.8rem;
-        color: var(--white);
+        color: var(--dark-gray);
     }
 }
 </style>

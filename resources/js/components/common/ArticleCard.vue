@@ -1,19 +1,22 @@
 <template>
-    <div class="article-card-wrapper">
+    <!-- TODO: href props化 -->
+    <a href="#" class="article-card-wrapper">
         <div class="thumbnail">
-            <div class="img"></div>
-            <p class="title">{{ title }}</p>
+            <div class="inside">
+                <div class="img"></div>
+                <p class="title">{{ title }}</p>
+            </div>
         </div>
         <div class="content">
             <p class="description">{{ description }}</p>
             <p class="date">{{ date }}</p>
             <div class="save">
                 <button class="save-button">
-                    <Icon name="star_outline" />
+                    <Icon name="heart_outline" />
                 </button>
             </div>
         </div>
-    </div>
+    </a>
 </template>
 
 <script>
@@ -39,18 +42,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// TODO: レスポンシブ対応
+// TODO: img反映
 .article-card-wrapper {
     background-color: var(--white);
     border-radius: var(--margin-xs);
+    box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.4);
+    overflow: hidden;
+
+    &:hover > .thumbnail > .inside {
+        transform: scale(1.2);
+    }
 
     > .thumbnail {
         position: relative;
         height: 160px;
         border-radius: var(--margin-xs) var(--margin-xs) 0 0;
         background-color: var(--dark-gray);
+        overflow: hidden; // scale用
     }
 
-    > .thumbnail > .title {
+    > .thumbnail > .inside {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.2s;
+    }
+
+    > .thumbnail > .inside > .title {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -76,6 +94,7 @@ export default {
         align-items: center;
         font-size: 1.6rem;
         font-weight: 600;
+        color: var(--black);
     }
 
     > .content > .date {
@@ -96,12 +115,8 @@ export default {
 }
 
 .save-button {
-    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
 }
 </style>
