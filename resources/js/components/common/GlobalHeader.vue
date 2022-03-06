@@ -6,14 +6,14 @@
                     {{ headerTitle }}
                 </a>
             </div>
-            <button class="setting">
+            <a :href="settingPath" class="setting">
                 <Icon name="setting" width="20px" />
-            </button>
-            <button class="search">
+            </a>
+            <a :href="searchPath" class="search">
                 <Icon name="search" />
-            </button>
+            </a>
             <div class="register">
-                <CommonButton>Add Article</CommonButton>
+                <CommonButton :href="createPath">Add Article</CommonButton>
             </div>
         </header>
     </div>
@@ -32,6 +32,18 @@ export default {
         headerTitle: {
             type: String,
             default: "TOFU TECH BLOG",
+        },
+        createPath: {
+            type: String,
+            default: "",
+        },
+        settingPath: {
+            type: String,
+            default: "/setting",
+        },
+        searchPath: {
+            type: String,
+            default: "/search",
         },
     },
 };
@@ -59,7 +71,7 @@ export default {
         width: var(--width-pc);
         margin: auto;
         box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.3);
-        border-radius: var(--margin-xxs);
+        border-radius: var(--border-radius-xs);
         z-index: var(--header-z-index);
     }
 

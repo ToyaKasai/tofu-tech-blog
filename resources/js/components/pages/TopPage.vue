@@ -55,6 +55,7 @@
 import ArticleCard from "../common/ArticleCard.vue";
 import MainVisual from "../common/MainVisual.vue";
 
+/** トップページ */
 export default {
     name: "TopPage",
     components: {

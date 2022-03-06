@@ -19,6 +19,12 @@
     --margin-l: 60px;
     --margin-xl: 80px;
 
+    /* border radius variable */
+    --border-radius-xxs: 4px;
+    --border-radius-xs: 12px;
+    --border-radius-s: 20px;
+    --border-radius-circle: 50%;
+
     /* size */
     --width-pc: 990px;
     --main-visual-height: 180px;

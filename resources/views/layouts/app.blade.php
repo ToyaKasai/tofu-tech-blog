@@ -31,7 +31,7 @@
     <div id="app">
         {{-- ヘッダー --}}
         @section('header')
-        <global-header></global-header>
+        <global-header create-path="{{route('blog.create')}}"></global-header>
         @show
 
         {{-- コンテンツ --}}

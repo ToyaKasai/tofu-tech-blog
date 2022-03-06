@@ -46,7 +46,7 @@ export default {
 // TODO: img反映
 .article-card-wrapper {
     background-color: var(--white);
-    border-radius: var(--margin-xs);
+    border-radius: var(--border-radius-s);
     box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.4);
     overflow: hidden;
 
@@ -57,7 +57,7 @@ export default {
     > .thumbnail {
         position: relative;
         height: 160px;
-        border-radius: var(--margin-xs) var(--margin-xs) 0 0;
+        border-radius: var(--border-radius-s) var(--border-radius-s) 0 0;
         background-color: var(--dark-gray);
         overflow: hidden; // scale用
     }

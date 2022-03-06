@@ -38,7 +38,7 @@ export default {
     font-size: 1.4rem;
     line-height: 1;
     color: var(--white);
-    border-radius: 8px;
+    border-radius: var(--border-radius-xxs);
     box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
 
     &:hover {
