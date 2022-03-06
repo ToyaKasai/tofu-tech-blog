@@ -22822,13 +22822,17 @@ var _withScopeId = function _withScopeId(n) {
 };
 
 var _hoisted_1 = {
+  href: "#",
   "class": "article-card-wrapper"
 };
 var _hoisted_2 = {
   "class": "thumbnail"
 };
+var _hoisted_3 = {
+  "class": "inside"
+};
 
-var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "img"
   }, null, -1
@@ -22836,36 +22840,38 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_4 = {
+var _hoisted_5 = {
   "class": "title"
 };
-var _hoisted_5 = {
+var _hoisted_6 = {
   "class": "content"
 };
-var _hoisted_6 = {
+var _hoisted_7 = {
   "class": "description"
 };
-var _hoisted_7 = {
+var _hoisted_8 = {
   "class": "date"
 };
-var _hoisted_8 = {
+var _hoisted_9 = {
   "class": "save"
 };
-var _hoisted_9 = {
+var _hoisted_10 = {
   "class": "save-button"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Icon");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: href props化 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.description), 1
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.description), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.date), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.date), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
-    name: "star_outline"
-  })])])])]);
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+    name: "heart_outline"
+  })])])])])], 2112
+  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+  );
 }
 
 /***/ }),
@@ -23074,6 +23080,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , ["heading"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
+    title: "タイトル",
+    description: "説明文",
+    date: "2022.03.04"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_ArticleCard, {
     title: "タイトル",
     description: "説明文",
     date: "2022.03.04"
@@ -28243,7 +28281,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".article-card-wrapper[data-v-21d5f36d] {\n  background-color: var(--white);\n  border-radius: var(--margin-xs);\n}\n.article-card-wrapper > .thumbnail[data-v-21d5f36d] {\n  position: relative;\n  height: 160px;\n  border-radius: var(--margin-xs) var(--margin-xs) 0 0;\n  background-color: var(--dark-gray);\n}\n.article-card-wrapper > .thumbnail > .title[data-v-21d5f36d] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 1.4rem;\n  color: var(--white);\n}\n.article-card-wrapper > .content[data-v-21d5f36d] {\n  height: 200px;\n  box-sizing: border-box;\n  padding: var(--margin-s);\n  display: grid;\n  grid-template: 1fr 48px/1fr 1fr;\n  grid-template-areas: \"description description\" \"date save\";\n}\n.article-card-wrapper > .content > .description[data-v-21d5f36d] {\n  grid-area: description;\n  display: flex;\n  align-items: center;\n  font-size: 1.6rem;\n  font-weight: 600;\n}\n.article-card-wrapper > .content > .date[data-v-21d5f36d] {\n  grid-area: date;\n  font-size: 1.6rem;\n  font-weight: 600;\n  display: flex;\n  align-items: flex-end;\n  color: var(--dark-gray);\n}\n.article-card-wrapper > .content > .save[data-v-21d5f36d] {\n  grid-area: save;\n  display: flex;\n  align-items: flex-end;\n  justify-content: flex-end;\n}\n.save-button[data-v-21d5f36d] {\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  background-color: #fff;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".article-card-wrapper[data-v-21d5f36d] {\n  background-color: var(--white);\n  border-radius: var(--margin-xs);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);\n  overflow: hidden;\n}\n.article-card-wrapper:hover > .thumbnail > .inside[data-v-21d5f36d] {\n  transform: scale(1.2);\n}\n.article-card-wrapper > .thumbnail[data-v-21d5f36d] {\n  position: relative;\n  height: 160px;\n  border-radius: var(--margin-xs) var(--margin-xs) 0 0;\n  background-color: var(--dark-gray);\n  overflow: hidden;\n}\n.article-card-wrapper > .thumbnail > .inside[data-v-21d5f36d] {\n  width: 100%;\n  height: 100%;\n  transition: transform 0.2s;\n}\n.article-card-wrapper > .thumbnail > .inside > .title[data-v-21d5f36d] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 1.4rem;\n  color: var(--white);\n}\n.article-card-wrapper > .content[data-v-21d5f36d] {\n  height: 200px;\n  box-sizing: border-box;\n  padding: var(--margin-s);\n  display: grid;\n  grid-template: 1fr 48px/1fr 1fr;\n  grid-template-areas: \"description description\" \"date save\";\n}\n.article-card-wrapper > .content > .description[data-v-21d5f36d] {\n  grid-area: description;\n  display: flex;\n  align-items: center;\n  font-size: 1.6rem;\n  font-weight: 600;\n  color: var(--black);\n}\n.article-card-wrapper > .content > .date[data-v-21d5f36d] {\n  grid-area: date;\n  font-size: 1.6rem;\n  font-weight: 600;\n  display: flex;\n  align-items: flex-end;\n  color: var(--dark-gray);\n}\n.article-card-wrapper > .content > .save[data-v-21d5f36d] {\n  grid-area: save;\n  display: flex;\n  align-items: flex-end;\n  justify-content: flex-end;\n}\n.save-button[data-v-21d5f36d] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28315,7 +28353,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".global-header-wrapper[data-v-6e61d9d9] {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n}\n.global-header-wrapper > .header[data-v-6e61d9d9] {\n  position: fixed;\n  top: var(--margin-xs);\n  display: grid;\n  grid-template-columns: 1fr repeat(3, auto);\n  -moz-column-gap: var(--margin-xxs);\n       column-gap: var(--margin-xxs);\n  align-items: center;\n  background-color: var(--dark-gray);\n  box-sizing: border-box;\n  padding: var(--margin-xxs) var(--margin-s);\n  width: var(--width-pc);\n  margin: auto;\n  box-shadow: 0 0 var(--margin-xs) rgba(0, 0, 0, 0.3);\n  border-radius: var(--margin-xxs);\n}\n.global-header-wrapper > .header > .title > .link[data-v-6e61d9d9] {\n  font-size: 1.8rem;\n  color: var(--black);\n  font-weight: bold;\n  color: var(--white);\n}\n.global-header-wrapper > .header > .setting[data-v-6e61d9d9],\n.global-header-wrapper > .header > .search[data-v-6e61d9d9] {\n  display: flex;\n  align-items: center;\n  color: var(--white);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".global-header-wrapper[data-v-6e61d9d9] {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n}\n.global-header-wrapper > .header[data-v-6e61d9d9] {\n  position: fixed;\n  top: var(--margin-xs);\n  display: grid;\n  grid-template-columns: 1fr repeat(3, auto);\n  -moz-column-gap: var(--margin-xxs);\n       column-gap: var(--margin-xxs);\n  align-items: center;\n  background-color: var(--dark-gray);\n  box-sizing: border-box;\n  padding: var(--margin-xxs) var(--margin-s);\n  width: var(--width-pc);\n  margin: auto;\n  box-shadow: 0 0 var(--margin-xs) rgba(0, 0, 0, 0.3);\n  border-radius: var(--margin-xxs);\n  z-index: var(--header-z-index);\n}\n.global-header-wrapper > .header > .title > .link[data-v-6e61d9d9] {\n  font-size: 1.8rem;\n  color: var(--black);\n  font-weight: bold;\n  color: var(--white);\n}\n.global-header-wrapper > .header > .setting[data-v-6e61d9d9],\n.global-header-wrapper > .header > .search[data-v-6e61d9d9] {\n  display: flex;\n  align-items: center;\n  color: var(--white);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28363,7 +28401,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".top-page-wrapper[data-v-76a5cd5e] {\n  background-color: var(--light-gray);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.top-page-wrapper > .articles[data-v-76a5cd5e] {\n  width: var(--width-pc);\n  padding: var(--margin-xl) 0;\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: var(--margin-s);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".top-page-wrapper[data-v-76a5cd5e] {\n  background-color: var(--yellow);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.top-page-wrapper > .articles[data-v-76a5cd5e] {\n  width: var(--width-pc);\n  padding: var(--margin-xl) 0;\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: var(--margin-s);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45865,6 +45903,21 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/svg/heart_outline.svg":
+/*!*****************************************!*\
+  !*** ./resources/svg/heart_outline.svg ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.66 3.99c-2.64-1.8-5.9-.96-7.66 1.1-1.76-2.06-5.02-2.91-7.66-1.1-1.4.96-2.28 2.58-2.34 4.29-.14 3.88 3.3 6.99 8.55 11.76l.1.09c.76.69 1.93.69 2.69-.01l.11-.1c5.25-4.76 8.68-7.87 8.55-11.75-.06-1.7-.94-3.32-2.34-4.28ZM12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05Z\" fill=\"currentColor\"/></svg>");
+
+/***/ }),
+
 /***/ "./resources/svg/search.svg":
 /*!**********************************!*\
   !*** ./resources/svg/search.svg ***!
@@ -45892,21 +45945,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5Z\" fill=\"currentColor\"/></svg>");
-
-/***/ }),
-
-/***/ "./resources/svg/star_outline.svg":
-/*!****************************************!*\
-  !*** ./resources/svg/star_outline.svg ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m19.65 9.04-4.84-.42-1.89-4.45c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5 4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.73 3.67-3.18c.67-.58.32-1.68-.56-1.75ZM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4Z\" fill=\"currentColor\"/></svg>");
 
 /***/ }),
 
@@ -47261,9 +47299,9 @@ function compileToFunction(template, options) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./heart_outline.svg": "./resources/svg/heart_outline.svg",
 	"./search.svg": "./resources/svg/search.svg",
-	"./setting.svg": "./resources/svg/setting.svg",
-	"./star_outline.svg": "./resources/svg/star_outline.svg"
+	"./setting.svg": "./resources/svg/setting.svg"
 };
 
 
