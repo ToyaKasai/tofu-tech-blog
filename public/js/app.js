@@ -22721,6 +22721,14 @@ __webpack_require__.r(__webpack_exports__);
     createPath: {
       type: String,
       "default": ""
+    },
+    settingPath: {
+      type: String,
+      "default": "/setting"
+    },
+    searchPath: {
+      type: String,
+      "default": "/search"
     }
   }
 });
@@ -22767,7 +22775,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CommonButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CommonButton.vue */ "./resources/js/components/common/CommonButton.vue");
 
 
- // 記事作成フォームのサムネイルパーツ
+
+/** 画像アップローダー */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -22815,7 +22824,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-// 記事作成フォームのタイトルパーツ
+/** タイトルフォーム */
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FormTitleInput",
   props: {
@@ -22854,20 +22863,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
-/* harmony import */ var _common_MainVisual_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/MainVisual.vue */ "./resources/js/components/common/MainVisual.vue");
-/* harmony import */ var _common_form_FormTitleInput_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/form/FormTitleInput.vue */ "./resources/js/components/common/form/FormTitleInput.vue");
-/* harmony import */ var _common_form_FormImageUploader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/form/FormImageUploader.vue */ "./resources/js/components/common/form/FormImageUploader.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _common_MainVisual_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/MainVisual.vue */ "./resources/js/components/common/MainVisual.vue");
+/* harmony import */ var _common_form_FormTitleInput_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/form/FormTitleInput.vue */ "./resources/js/components/common/form/FormTitleInput.vue");
+/* harmony import */ var _common_form_FormImageUploader_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/form/FormImageUploader.vue */ "./resources/js/components/common/form/FormImageUploader.vue");
 
 
 
+
+/** 新規登録 */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BlogFormPage",
   components: {
-    MainVisual: _common_MainVisual_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    FormTitleInput: _common_form_FormTitleInput_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FormImageUploader: _common_form_FormImageUploader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    MainVisual: _common_MainVisual_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    FormTitleInput: _common_form_FormTitleInput_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    FormImageUploader: _common_form_FormImageUploader_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     heading: {
@@ -22876,17 +22887,23 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   setup: function setup() {
-    var state = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_3__.reactive)({
-      title: null
+    var state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      title: null,
+      image: null
     });
 
     var updateTitle = function updateTitle(value) {
       state.title = value;
     };
 
+    var updateImage = function updateImage(value) {
+      state.image = value;
+    };
+
     return {
       state: state,
-      updateTitle: updateTitle
+      updateTitle: updateTitle,
+      updateImage: updateImage
     };
   }
 });
@@ -22907,6 +22924,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_ArticleCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/ArticleCard.vue */ "./resources/js/components/common/ArticleCard.vue");
 /* harmony import */ var _common_MainVisual_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/MainVisual.vue */ "./resources/js/components/common/MainVisual.vue");
 
+
+/** トップページ */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "TopPage",
@@ -23122,12 +23141,8 @@ var _hoisted_4 = {
   "class": "link",
   href: "/"
 };
-var _hoisted_5 = {
-  "class": "setting"
-};
-var _hoisted_6 = {
-  "class": "search"
-};
+var _hoisted_5 = ["href"];
+var _hoisted_6 = ["href"];
 var _hoisted_7 = {
   "class": "register"
 };
@@ -23141,12 +23156,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.headerTitle), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $props.settingPath,
+    "class": "setting"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "setting",
     width: "20px"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+  })], 8
+  /* PROPS */
+  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $props.searchPath,
+    "class": "search"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "search"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CommonButton, {
+  })], 8
+  /* PROPS */
+  , _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CommonButton, {
     href: $props.createPath
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -23343,11 +23368,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     heading: $props.heading
   }, null, 8
   /* PROPS */
-  , ["heading"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTitleInput, {
+  , ["heading"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: csrf入れる "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: language 選択できるようにしたい "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTitleInput, {
     "onUpdate:title": $setup.updateTitle
   }, null, 8
   /* PROPS */
-  , ["onUpdate:title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormImageUploader)])]);
+  , ["onUpdate:title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormImageUploader, {
+    "onUpdate:image": $setup.updateImage
+  }, null, 8
+  /* PROPS */
+  , ["onUpdate:image"])])]);
 }
 
 /***/ }),
@@ -23473,8 +23502,16 @@ __webpack_require__.r(__webpack_exports__);
  * bladeで使用するコンポーネント
  */
 
+/** components */
+ // ヘッダー
 
+ // フッター
 
+/** pages */
+
+ // トップページ
+
+ // 新規登録ページ
 
 var bladeComponents = {
   GlobalHeader: _components_common_GlobalHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"],

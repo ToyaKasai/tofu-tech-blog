@@ -6,12 +6,12 @@
                     {{ headerTitle }}
                 </a>
             </div>
-            <button class="setting">
+            <a :href="settingPath" class="setting">
                 <Icon name="setting" width="20px" />
-            </button>
-            <button class="search">
+            </a>
+            <a :href="searchPath" class="search">
                 <Icon name="search" />
-            </button>
+            </a>
             <div class="register">
                 <CommonButton :href="createPath">Add Article</CommonButton>
             </div>
@@ -36,6 +36,14 @@ export default {
         createPath: {
             type: String,
             default: "",
+        },
+        settingPath: {
+            type: String,
+            default: "/setting",
+        },
+        searchPath: {
+            type: String,
+            default: "/search",
         },
     },
 };
