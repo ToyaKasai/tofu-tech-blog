@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// 記事作成フォームのタイトルパーツ
+/** タイトルフォーム */
 export default {
     name: "FormTitleInput",
     props: {

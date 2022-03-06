@@ -25,7 +25,8 @@
 import { computed, ref } from "@vue/runtime-core";
 import Icon from "../../Icon.vue";
 import CommonButton from "../CommonButton.vue";
-// 記事作成フォームのサムネイルパーツ
+
+/** 画像アップローダー */
 export default {
     components: {
         CommonButton,
