@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss">
 .global-footer-wrapper {
-    background-color: var(--yellow);
+    background-color: var(--dark-gray);
     height: 240px;
     display: flex;
     align-items: center;
