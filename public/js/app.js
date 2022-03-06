@@ -28339,7 +28339,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".main-visual-wrapper[data-v-4376e3e2] {\n  width: 100%;\n  height: var(--main-visual-height);\n  background-color: var(--yellow);\n  padding-bottom: var(--margin-xs);\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n}\n.main-visual-wrapper > .content[data-v-4376e3e2] {\n  width: var(--width-pc);\n}\n.main-visual-wrapper > .content > .heading[data-v-4376e3e2] {\n  font-size: 2.8rem;\n  color: var(--white);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".main-visual-wrapper[data-v-4376e3e2] {\n  width: 100%;\n  height: var(--main-visual-height);\n  background-color: var(--white);\n  padding-bottom: var(--margin-xs);\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n}\n.main-visual-wrapper > .content[data-v-4376e3e2] {\n  width: var(--width-pc);\n}\n.main-visual-wrapper > .content > .heading[data-v-4376e3e2] {\n  font-size: 2.8rem;\n  color: var(--dark-gray);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
