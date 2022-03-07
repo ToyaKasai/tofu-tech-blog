@@ -49,6 +49,7 @@ export default {
         background-color: var(--base-bg-color);
         width: 100%;
         height: 200px;
+        font-family : inherit;
         font-size: 1.6rem;
         font-weight: 500;
         color: var(--base-text-color);
@@ -56,9 +57,7 @@ export default {
         @include np-shadow;
 
         &:focus {
-            outline: none;
             @include np-inner-shadow;
-            cursor: pointer;
         }
     }
 }
