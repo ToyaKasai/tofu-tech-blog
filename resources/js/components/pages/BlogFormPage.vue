@@ -5,6 +5,7 @@
                 <!-- TODO: csrf入れる -->
                 <!-- TODO: language 選択できるようにしたい -->
                 <FormTitleInput @update:title="updateTitle" />
+                <FormTextarea @update:textarea="updateDescription" />
                 <FormImageUploader @update:image="updateImage" />
             </form>
         </div>
@@ -16,6 +17,7 @@ import { reactive, computed } from "vue";
 import HeadingLv1 from "../common/HeadingLv1.vue";
 import FormTitleInput from "../common/form/FormTitleInput.vue";
 import FormImageUploader from "../common/form/FormImageUploader.vue";
+import FormTextarea from "../common/form/FormTextarea.vue";
 
 /** 新規登録 */
 export default {
@@ -24,16 +26,21 @@ export default {
         HeadingLv1,
         FormTitleInput,
         FormImageUploader,
+        FormTextarea,
     },
-    props: {
-    },
+    props: {},
     setup() {
         const state = reactive({
             title: null,
+            description: null,
             image: null,
         });
         const updateTitle = (value) => {
             state.title = value;
+        };
+
+        const updateDescription = (value) => {
+            state.description = value;
         };
 
         const updateImage = (value) => {
@@ -43,6 +50,7 @@ export default {
         return {
             state,
             updateTitle,
+            updateDescription,
             updateImage,
         };
     },
