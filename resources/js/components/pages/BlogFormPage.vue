@@ -1,42 +1,46 @@
 <template>
     <div class="blog-form-page-wrapper">
-        <MainVisual :heading="heading" />
-        <form action="" method="" class="form">
-            <!-- TODO: csrf入れる -->
-            <!-- TODO: language 選択できるようにしたい -->
-            <FormTitleInput @update:title="updateTitle" />
-            <FormImageUploader @update:image="updateImage" />
-        </form>
+        <div class="contents">
+            <form action="" method="" class="form">
+                <!-- TODO: csrf入れる -->
+                <!-- TODO: language 選択できるようにしたい -->
+                <FormTitleInput @update:title="updateTitle" />
+                <FormTextarea @update:textarea="updateDescription" />
+                <FormImageUploader @update:image="updateImage" />
+            </form>
+        </div>
     </div>
 </template>
 
 <script>
 import { reactive, computed } from "vue";
-import MainVisual from "../common/MainVisual.vue";
+import HeadingLv1 from "../common/HeadingLv1.vue";
 import FormTitleInput from "../common/form/FormTitleInput.vue";
 import FormImageUploader from "../common/form/FormImageUploader.vue";
+import FormTextarea from "../common/form/FormTextarea.vue";
 
 /** 新規登録 */
 export default {
     name: "BlogFormPage",
     components: {
-        MainVisual,
+        HeadingLv1,
         FormTitleInput,
         FormImageUploader,
+        FormTextarea,
     },
-    props: {
-        heading: {
-            type: String,
-            default: "Add Article",
-        },
-    },
+    props: {},
     setup() {
         const state = reactive({
             title: null,
+            description: null,
             image: null,
         });
         const updateTitle = (value) => {
             state.title = value;
+        };
+
+        const updateDescription = (value) => {
+            state.description = value;
         };
 
         const updateImage = (value) => {
@@ -46,6 +50,7 @@ export default {
         return {
             state,
             updateTitle,
+            updateDescription,
             updateImage,
         };
     },
@@ -59,7 +64,12 @@ export default {
     flex-direction: column;
     align-items: center;
 
-    > .form {
+    > .contents {
+        width: var(--width-pc);
+        margin-top: var(--margin-xl);
+    }
+
+    > .contents > .form {
         width: var(--width-pc);
         padding: var(--margin-xl) 0;
         display: flex;

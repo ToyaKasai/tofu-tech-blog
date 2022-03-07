@@ -28,20 +28,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../sass/_mixins.scss";
+
 .common-button-wrapper {
     display: flex;
     align-items: center;
-    background-color: var(--dark-blue);
+    background-color: var(--base-bg-color);
     padding: var(--margin-xxs) var(--margin-xs);
     box-sizing: border-box;
-    font-weight: bold;
     font-size: 1.4rem;
+    font-weight: 500;
     line-height: 1;
-    color: var(--white);
+    color: var(--blue);
+    outline: 1px solid var(--base-border-color);
     border-radius: var(--border-radius-xxs);
-    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+
+    @include np-shadow(3px, 6px);
 
     &:hover {
+        outline: none;
+        @include np-inner-shadow;
         cursor: pointer;
     }
 }

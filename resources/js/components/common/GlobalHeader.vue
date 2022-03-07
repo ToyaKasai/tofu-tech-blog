@@ -6,10 +6,10 @@
                     {{ headerTitle }}
                 </a>
             </div>
-            <a :href="settingPath" class="setting">
+            <a :href="settingPath" class="icon">
                 <Icon name="setting" width="20px" />
             </a>
-            <a :href="searchPath" class="search">
+            <a :href="searchPath" class="icon">
                 <Icon name="search" />
             </a>
             <div class="register">
@@ -59,34 +59,46 @@ export default {
     justify-content: center;
 
     > .header {
-        position: fixed;
-        top: var(--margin-xs);
         display: grid;
         grid-template-columns: 1fr repeat(3, auto);
         column-gap: var(--margin-xxs);
         align-items: center;
-        background-color: var(--dark-gray);
         box-sizing: border-box;
-        padding: var(--margin-xxs) var(--margin-s);
         width: var(--width-pc);
         margin: auto;
-        box-shadow: 0 0 var(--margin-xs) rgba($color: #000000, $alpha: 0.3);
-        border-radius: var(--border-radius-xs);
-        z-index: var(--header-z-index);
+        margin-top: var(--margin-xs);
+        padding: var(--margin-xxs) var(--margin-s);
+        background-color: var(--base-bg-color);
+        border: 1px solid var(--base-border-color);
+        border-radius: var(--border-radius-s);
+
+        @include np-shadow;
     }
 
     > .header > .title > .link {
         font-size: 1.8rem;
-        color: var(--black);
-        font-weight: bold;
-        color: var(--white);
+        font-weight: 500;
+        color: var(--base-text-color);
     }
 
-    > .header > .setting,
-    > .header > .search {
+    > .header > .icon {
         display: flex;
         align-items: center;
-        color: var(--white);
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        color: var(--base-text-color);
+        background-color: var(--base-bg-color);
+        outline: 1px solid var(--base-border-color);
+        border-radius: var(--border-radius-xs);
+
+        @include np-shadow(3px, 6px);
+
+        &:hover {
+            outline: none;
+            @include np-inner-shadow;
+            cursor: pointer;
+        }
     }
 }
 </style>
