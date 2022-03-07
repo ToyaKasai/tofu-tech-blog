@@ -5,12 +5,13 @@
             type="text"
             :name="name"
             :placeholder="placeholder"
-            @input="handleInputTitle"
+            v-model="input"
         />
     </div>
 </template>
 
 <script>
+import { computed } from "vue";
 /** タイトルフォーム */
 export default {
     name: "FormTitleInput",
@@ -23,14 +24,21 @@ export default {
             type: String,
             default: "Title",
         },
+        value: {
+            type: String,
+            default: "",
+        },
     },
-    setup(_, { emit }) {
-        const handleInputTitle = (e) => {
-            emit("update:title", e.target.value);
-        };
+    setup(props, { emit }) {
+        const input = computed({
+            get: () => props.value,
+            set: (value) => {
+                emit("update:title", value);
+            },
+        });
 
         return {
-            handleInputTitle,
+            input,
         };
     },
 };

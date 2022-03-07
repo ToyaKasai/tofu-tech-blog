@@ -21,7 +21,7 @@
                     type="file"
                     :name="name"
                     :accept="FILE_ACCEPT_EXTENSIONS"
-                    @input="handleUploadImage"
+                    @change="handleUploadImage"
                 />
                 Upload Thumbnail
             </CommonButton>
@@ -109,7 +109,7 @@ export default {
         align-items: center;
         justify-content: space-between;
         gap: var(--margin-xxs);
-        color:var(--white);
+        color: var(--white);
         font-size: 1.2rem;
         font-weight: 600;
     }
