@@ -28,3 +28,10 @@ button {
         cursor: pointer;
     }
 }
+
+// テキストエリアのリサイズアイコン削除
+textarea {
+    &::-webkit-resizer {
+        display: none;
+    }
+}

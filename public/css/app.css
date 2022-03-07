@@ -28,6 +28,10 @@ button :hover {
   cursor: pointer;
 }
 
+textarea::-webkit-resizer {
+  display: none;
+}
+
 :root {
   /* font-family */
   --font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
