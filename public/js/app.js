@@ -22686,8 +22686,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Icon_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Icon.vue */ "./resources/js/components/Icon.vue");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "GlobalFooter"
+  components: {
+    Icon: _Icon_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  name: "GlobalFooter",
+  setup: function setup() {
+    var GITHUB_LINK = "https://github.com/ToyaKasai";
+    return {
+      GITHUB_LINK: GITHUB_LINK
+    };
+  }
 });
 
 /***/ }),
@@ -23097,16 +23108,30 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "global-footer-wrapper"
 };
+var _hoisted_2 = {
+  "class": "links"
+};
+var _hoisted_3 = ["href"];
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "copy"
-}, "© tofu", -1
+}, "©2022 tofu", -1
 /* HOISTED */
 );
 
-var _hoisted_3 = [_hoisted_2];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
+  var _component_Icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Icon");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "link",
+    href: $setup.GITHUB_LINK,
+    target: "_blank"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+    name: "github",
+    width: "42px"
+  })], 8
+  /* PROPS */
+  , _hoisted_3)]), _hoisted_4]);
 }
 
 /***/ }),
@@ -28676,7 +28701,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".global-footer-wrapper {\n  background-color: var(--dark-gray);\n  height: 240px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--white);\n  font-weight: 600;\n  font-size: 2rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".global-footer-wrapper {\n  background-color: var(--base-bg-color);\n  height: 240px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  row-gap: var(--margin-m);\n  color: var(--base-text-color);\n  font-weight: 500;\n  font-size: 1.8rem;\n  border-top: 1px solid var(--gray-500);\n}\n.global-footer-wrapper > .links > .link {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--base-text-color);\n  background-color: var(--base-bg-color);\n  outline: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-circle);\n  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;\n}\n.global-footer-wrapper > .links > .link:hover {\n  outline: none;\n  box-shadow: inset 2px 2px 4px #b8b9be, inset -2px -2px 4px #fff;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46322,6 +46347,21 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/svg/github.svg":
+/*!**********************************!*\
+  !*** ./resources/svg/github.svg ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 32 32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0 16C0 7.163 7.163 0 16 0s16 7.163 16 16-7.163 16-16 16S0 24.837 0 16Zm8 .168a7.977 7.977 0 0 1 7.976-7.976c4.403 0 7.975 3.572 8.024 7.976a7.984 7.984 0 0 1-5.431 7.584c-.392.049-.538-.196-.538-.392v-2.202c0-.734-.245-1.223-.539-1.468 1.762-.195 3.621-.831 3.621-3.914 0-.88-.342-1.615-.832-2.153l.016-.057a3.04 3.04 0 0 0-.114-2.047s-.684-.196-2.201.832a9.005 9.005 0 0 0-2.006-.245c-.686 0-1.37.05-2.007.245-1.516-1.028-2.201-.832-2.201-.832-.433 1.057-.158 1.879-.101 2.047l.003.008c-.538.587-.832 1.272-.832 2.153 0 3.083 1.86 3.768 3.62 3.963-.195.196-.44.539-.489 1.077-.44.196-1.565.538-2.3-.685 0 0-.44-.783-1.223-.832 0 0-.782 0-.048.49 0 0 .538.244.88 1.174 0 0 .49 1.566 2.691 1.076v1.37c0 .196-.146.44-.538.392C10.3 22.675 8 19.69 8 16.168Z\" fill=\"currentColor\"/></svg>");
+
+/***/ }),
+
 /***/ "./resources/svg/heart_outline.svg":
 /*!*****************************************!*\
   !*** ./resources/svg/heart_outline.svg ***!
@@ -48051,6 +48091,7 @@ function compileToFunction(template, options) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./github.svg": "./resources/svg/github.svg",
 	"./heart_outline.svg": "./resources/svg/heart_outline.svg",
 	"./image.svg": "./resources/svg/image.svg",
 	"./search.svg": "./resources/svg/search.svg",
