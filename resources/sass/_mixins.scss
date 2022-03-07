@@ -14,17 +14,17 @@ $breakpoints: (
 }
 
 // ニューモフィズムのbox-shadow
-@mixin nf-shadow($lighten: #fff, $darken: #b8b9be, $size: 4px, $blur: 8px) {
+@mixin np-shadow($size: 4px, $blur: 8px, $lighten: #fff, $darken: #b8b9be) {
     box-shadow: $size $size $blur $darken,
         calc($size * -1) calc($size * -1) $blur $lighten;
 }
 
 // ニューモフィズムのinner-shadow
-@mixin nf-inner-shadow(
+@mixin np-inner-shadow(
+    $size: 2px,
+    $blur: 4px,
     $lighten: #fff,
-    $darken: #b8b9be,
-    $size: 4px,
-    $blur: 8px
+    $darken: #b8b9be
 ) {
     box-shadow: inset $size $size $blur $darken,
         inset calc($size * -1) calc($size * -1) $blur $lighten;

@@ -23158,7 +23158,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: $props.settingPath,
-    "class": "setting"
+    "class": "icon"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "setting",
     width: "20px"
@@ -23166,7 +23166,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: $props.searchPath,
-    "class": "search"
+    "class": "icon"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "search"
   })], 8
@@ -28651,7 +28651,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".common-button-wrapper[data-v-b2d99f74] {\n  display: flex;\n  align-items: center;\n  background-color: var(--dark-blue);\n  padding: var(--margin-xxs) var(--margin-xs);\n  box-sizing: border-box;\n  font-weight: bold;\n  font-size: 1.4rem;\n  line-height: 1;\n  color: var(--white);\n  border-radius: var(--border-radius-xxs);\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.common-button-wrapper[data-v-b2d99f74]:hover {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".common-button-wrapper[data-v-b2d99f74] {\n  display: flex;\n  align-items: center;\n  background-color: var(--base-bg-color);\n  padding: var(--margin-xxs) var(--margin-xs);\n  box-sizing: border-box;\n  font-size: 1.4rem;\n  font-weight: 500;\n  line-height: 1;\n  color: var(--blue);\n  outline: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-xxs);\n  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;\n}\n.common-button-wrapper[data-v-b2d99f74]:hover {\n  outline: none;\n  box-shadow: inset 2px 2px 4px #b8b9be, inset -2px -2px 4px #fff;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28699,7 +28699,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".global-header-wrapper[data-v-6e61d9d9] {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n}\n.global-header-wrapper > .header[data-v-6e61d9d9] {\n  position: fixed;\n  top: var(--margin-xs);\n  display: grid;\n  grid-template-columns: 1fr repeat(3, auto);\n  -moz-column-gap: var(--margin-xxs);\n       column-gap: var(--margin-xxs);\n  align-items: center;\n  background-color: var(--dark-gray);\n  box-sizing: border-box;\n  padding: var(--margin-xxs) var(--margin-s);\n  width: var(--width-pc);\n  margin: auto;\n  box-shadow: 0 0 var(--margin-xs) rgba(0, 0, 0, 0.3);\n  border-radius: var(--border-radius-xs);\n  z-index: var(--header-z-index);\n}\n.global-header-wrapper > .header > .title > .link[data-v-6e61d9d9] {\n  font-size: 1.8rem;\n  color: var(--black);\n  font-weight: bold;\n  color: var(--white);\n}\n.global-header-wrapper > .header > .setting[data-v-6e61d9d9],\n.global-header-wrapper > .header > .search[data-v-6e61d9d9] {\n  display: flex;\n  align-items: center;\n  color: var(--white);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".global-header-wrapper[data-v-6e61d9d9] {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n}\n.global-header-wrapper > .header[data-v-6e61d9d9] {\n  display: grid;\n  grid-template-columns: 1fr repeat(3, auto);\n  -moz-column-gap: var(--margin-xxs);\n       column-gap: var(--margin-xxs);\n  align-items: center;\n  box-sizing: border-box;\n  width: var(--width-pc);\n  margin: auto;\n  margin-top: var(--margin-xs);\n  padding: var(--margin-xxs) var(--margin-s);\n  background-color: var(--base-bg-color);\n  border: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-s);\n  box-shadow: 4px 4px 8px #b8b9be, -4px -4px 8px #fff;\n}\n.global-header-wrapper > .header > .title > .link[data-v-6e61d9d9] {\n  font-size: 1.8rem;\n  font-weight: 500;\n  color: var(--base-text-color);\n}\n.global-header-wrapper > .header > .icon[data-v-6e61d9d9] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 38px;\n  height: 38px;\n  color: var(--base-text-color);\n  background-color: var(--base-bg-color);\n  outline: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-xs);\n  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;\n}\n.global-header-wrapper > .header > .icon[data-v-6e61d9d9]:hover {\n  outline: none;\n  box-shadow: inset 2px 2px 4px #b8b9be, inset -2px -2px 4px #fff;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28723,7 +28723,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".main-visual-wrapper[data-v-4376e3e2] {\n  width: 100%;\n  height: var(--main-visual-height);\n  background-color: var(--white);\n  padding-bottom: var(--margin-xs);\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n}\n.main-visual-wrapper > .content[data-v-4376e3e2] {\n  width: var(--width-pc);\n}\n.main-visual-wrapper > .content > .heading[data-v-4376e3e2] {\n  font-size: 2.8rem;\n  color: var(--dark-gray);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".main-visual-wrapper[data-v-4376e3e2] {\n  width: 100%;\n  height: var(--main-visual-height);\n  padding-bottom: var(--margin-xs);\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n}\n.main-visual-wrapper > .content[data-v-4376e3e2] {\n  width: var(--width-pc);\n}\n.main-visual-wrapper > .content > .heading[data-v-4376e3e2] {\n  font-size: 2.8rem;\n  color: var(--dark-gray);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
