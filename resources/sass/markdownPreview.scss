@@ -1,0 +1,50 @@
+// マークダウンのプレビュースタイル
+.markdown-preview {
+    font-size: 1.8rem;
+    line-height: 2;
+
+    ::v-deep {
+        h1 {
+            border-bottom: 1px solid var(--gray-500);
+        }
+
+        li > code,
+        p > code {
+            background-color: var(--gray-400);
+            padding: 0.1em 0.4em;
+            border-radius: var(--border-radius-xxs);
+        }
+
+        pre > code {
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+            border-radius: var(--border-radius-s);
+            font-size: 1.4rem;
+        }
+
+        blockquote {
+            margin: 0;
+            margin: var(--margin-xxs) 0;
+            padding: var(--margin-xxs) var(--margin-xs);
+            border-left: 3px solid var(--gray-600);
+        }
+
+        blockquote > p {
+            color: var(--gray-600);
+        }
+
+        a {
+            color: #0f83fd;
+        }
+
+        p mark {
+            background-color: #f1c40f;
+            padding: 0.1em 0.4em;
+            border-radius: var(--border-radius-xxs);
+        }
+
+        .footnotes {
+            color: var(--gray-600);
+            font-size: 1.4rem;
+        }
+    }
+}
