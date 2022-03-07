@@ -1,65 +1,67 @@
 <template>
     <div class="top-page-wrapper">
-        <MainVisual :heading="heading" />
-        <section class="articles">
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-            <ArticleCard
-                title="タイトル"
-                description="説明文"
-                date="2022.03.04"
-            />
-        </section>
+        <div class="contents">
+            <HeadingLv1 :heading="heading" />
+            <section class="articles">
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+                <ArticleCard
+                    title="タイトル"
+                    description="説明文"
+                    date="2022.03.04"
+                />
+            </section>
+        </div>
     </div>
 </template>
 
 <script>
 import ArticleCard from "../common/ArticleCard.vue";
-import MainVisual from "../common/MainVisual.vue";
+import HeadingLv1 from "../common/HeadingLv1.vue";
 
 /** トップページ */
 export default {
     name: "TopPage",
     components: {
-        MainVisual,
+        HeadingLv1,
         ArticleCard,
     },
     props: {
@@ -78,8 +80,12 @@ export default {
     flex-direction: column;
     align-items: center;
 
-    > .articles {
+    > .contents {
         width: var(--width-pc);
+        margin-top: var(--margin-xl);
+    }
+
+    > .contents > .articles {
         padding: var(--margin-xl) 0;
         display: grid;
         grid-template-columns: repeat(3, 1fr);

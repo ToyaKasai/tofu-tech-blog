@@ -1,6 +1,6 @@
 <template>
     <div class="blog-form-page-wrapper">
-        <MainVisual :heading="heading" />
+        <HeadingLv1 :heading="heading" />
         <form action="" method="" class="form">
             <!-- TODO: csrf入れる -->
             <!-- TODO: language 選択できるようにしたい -->
@@ -12,7 +12,7 @@
 
 <script>
 import { reactive, computed } from "vue";
-import MainVisual from "../common/MainVisual.vue";
+import HeadingLv1 from "../common/HeadingLv1.vue";
 import FormTitleInput from "../common/form/FormTitleInput.vue";
 import FormImageUploader from "../common/form/FormImageUploader.vue";
 
@@ -20,7 +20,7 @@ import FormImageUploader from "../common/form/FormImageUploader.vue";
 export default {
     name: "BlogFormPage",
     components: {
-        MainVisual,
+        HeadingLv1,
         FormTitleInput,
         FormImageUploader,
     },
