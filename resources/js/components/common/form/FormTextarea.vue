@@ -4,12 +4,13 @@
             class="input"
             :name="name"
             :placeholder="placeholder"
-            @input="handleInputTextarea"
+            v-model="input"
         ></textarea>
     </div>
 </template>
 
 <script>
+import { computed } from "vue";
 /** テキストエリアフォーム */
 export default {
     name: "FormTextarea",
@@ -22,14 +23,21 @@ export default {
             type: String,
             default: "description",
         },
+        value: {
+            type: String,
+            default: "",
+        },
     },
-    setup(_, { emit }) {
-        const handleInputTextarea = (e) => {
-            emit("update:textarea", e.target.value);
-        };
+    setup(props, { emit }) {
+        const input = computed({
+            get: () => props.value,
+            set: (value) => {
+                emit("update:textarea", value);
+            },
+        });
 
         return {
-            handleInputTextarea,
+            input,
         };
     },
 };
@@ -49,7 +57,7 @@ export default {
         background-color: var(--base-bg-color);
         width: 100%;
         height: 200px;
-        font-family : inherit;
+        font-family: inherit;
         font-size: 1.6rem;
         font-weight: 500;
         color: var(--base-text-color);

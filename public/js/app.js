@@ -22871,7 +22871,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 /** テキストエリアフォーム */
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FormTextarea",
   props: {
@@ -22882,17 +22885,24 @@ __webpack_require__.r(__webpack_exports__);
     placeholder: {
       type: String,
       "default": "description"
+    },
+    value: {
+      type: String,
+      "default": ""
     }
   },
-  setup: function setup(_, _ref) {
+  setup: function setup(props, _ref) {
     var emit = _ref.emit;
-
-    var handleInputTextarea = function handleInputTextarea(e) {
-      emit("update:textarea", e.target.value);
-    };
-
+    var input = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)({
+      get: function get() {
+        return props.value;
+      },
+      set: function set(value) {
+        emit("update:textarea", value);
+      }
+    });
     return {
-      handleInputTextarea: handleInputTextarea
+      input: input
     };
   }
 });
@@ -22910,7 +22920,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 /** タイトルフォーム */
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FormTitleInput",
   props: {
@@ -22921,17 +22934,24 @@ __webpack_require__.r(__webpack_exports__);
     placeholder: {
       type: String,
       "default": "Title"
+    },
+    value: {
+      type: String,
+      "default": ""
     }
   },
-  setup: function setup(_, _ref) {
+  setup: function setup(props, _ref) {
     var emit = _ref.emit;
-
-    var handleInputTitle = function handleInputTitle(e) {
-      emit("update:title", e.target.value);
-    };
-
+    var input = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)({
+      get: function get() {
+        return props.value;
+      },
+      set: function set(value) {
+        emit("update:title", value);
+      }
+    });
     return {
-      handleInputTitle: handleInputTitle
+      input: input
     };
   }
 });
@@ -23060,14 +23080,6 @@ __webpack_require__.r(__webpack_exports__);
       isPublish: false
     });
 
-    var updateTitle = function updateTitle(value) {
-      state.title = value;
-    };
-
-    var updateDescription = function updateDescription(value) {
-      state.description = value;
-    };
-
     var updateImage = function updateImage(value) {
       state.image = value;
     };
@@ -23078,8 +23090,6 @@ __webpack_require__.r(__webpack_exports__);
 
     return {
       state: state,
-      updateTitle: updateTitle,
-      updateDescription: updateDescription,
       updateImage: updateImage,
       toggleIsPublish: toggleIsPublish
     };
@@ -23519,7 +23529,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "file",
         name: $props.name,
         accept: $setup.FILE_ACCEPT_EXTENSIONS,
-        onInput: _cache[0] || (_cache[0] = function () {
+        onChange: _cache[0] || (_cache[0] = function () {
           return $setup.handleUploadImage && $setup.handleUploadImage.apply($setup, arguments);
         })
       }, null, 40
@@ -23557,16 +23567,16 @@ var _hoisted_1 = {
 };
 var _hoisted_2 = ["name", "placeholder"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "class": "input",
     name: $props.name,
     placeholder: $props.placeholder,
-    onInput: _cache[0] || (_cache[0] = function () {
-      return $setup.handleInputTextarea && $setup.handleInputTextarea.apply($setup, arguments);
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.input = $event;
     })
-  }, null, 40
-  /* PROPS, HYDRATE_EVENTS */
-  , _hoisted_2)]);
+  }, null, 8
+  /* PROPS */
+  , _hoisted_2), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.input]])]);
 }
 
 /***/ }),
@@ -23594,17 +23604,17 @@ var _hoisted_1 = {
 };
 var _hoisted_2 = ["name", "placeholder"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "input",
     type: "text",
     name: $props.name,
     placeholder: $props.placeholder,
-    onInput: _cache[0] || (_cache[0] = function () {
-      return $setup.handleInputTitle && $setup.handleInputTitle.apply($setup, arguments);
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.input = $event;
     })
-  }, null, 40
-  /* PROPS, HYDRATE_EVENTS */
-  , _hoisted_2)]);
+  }, null, 8
+  /* PROPS */
+  , _hoisted_2), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.input]])]);
 }
 
 /***/ }),
@@ -23757,15 +23767,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: csrf入れる "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: language 選択できるようにしたい "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTitleInput, {
     name: "title",
-    "onUpdate:title": $setup.updateTitle
+    value: $setup.state.title,
+    "onUpdate:title": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.state.title = $event;
+    })
   }, null, 8
   /* PROPS */
-  , ["onUpdate:title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTextarea, {
+  , ["value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTextarea, {
     name: "description",
-    "onUpdate:textarea": $setup.updateDescription
+    value: $setup.state.description,
+    "onUpdate:textarea": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.state.description = $event;
+    })
   }, null, 8
   /* PROPS */
-  , ["onUpdate:textarea"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormImageUploader, {
+  , ["value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormImageUploader, {
     name: "thumbnail",
     "onUpdate:image": $setup.updateImage
   }, null, 8
@@ -23773,7 +23789,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["onUpdate:image"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MarkdownEditor, {
     name: "source",
     value: $setup.state.source,
-    "onUpdate:source": _cache[0] || (_cache[0] = function ($event) {
+    "onUpdate:source": _cache[2] || (_cache[2] = function ($event) {
       return $setup.state.source = $event;
     })
   }, null, 8

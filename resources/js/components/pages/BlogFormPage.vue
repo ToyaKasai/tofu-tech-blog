@@ -4,10 +4,15 @@
             <form action="" method="" class="form">
                 <!-- TODO: csrf入れる -->
                 <!-- TODO: language 選択できるようにしたい -->
-                <FormTitleInput name="title" @update:title="updateTitle" />
+                <FormTitleInput
+                    name="title"
+                    :value="state.title"
+                    @update:title="state.title = $event"
+                />
                 <FormTextarea
                     name="description"
-                    @update:textarea="updateDescription"
+                    :value="state.description"
+                    @update:textarea="state.description = $event"
                 />
                 <FormImageUploader
                     name="thumbnail"
@@ -61,13 +66,6 @@ export default {
             source: "",
             isPublish: false,
         });
-        const updateTitle = (value) => {
-            state.title = value;
-        };
-
-        const updateDescription = (value) => {
-            state.description = value;
-        };
 
         const updateImage = (value) => {
             state.image = value;
@@ -79,8 +77,6 @@ export default {
 
         return {
             state,
-            updateTitle,
-            updateDescription,
             updateImage,
             toggleIsPublish,
         };
