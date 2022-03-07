@@ -1,12 +1,13 @@
 <template>
     <div class="blog-form-page-wrapper">
-        <HeadingLv1 :heading="heading" />
-        <form action="" method="" class="form">
-            <!-- TODO: csrf入れる -->
-            <!-- TODO: language 選択できるようにしたい -->
-            <FormTitleInput @update:title="updateTitle" />
-            <FormImageUploader @update:image="updateImage" />
-        </form>
+        <div class="contents">
+            <form action="" method="" class="form">
+                <!-- TODO: csrf入れる -->
+                <!-- TODO: language 選択できるようにしたい -->
+                <FormTitleInput @update:title="updateTitle" />
+                <FormImageUploader @update:image="updateImage" />
+            </form>
+        </div>
     </div>
 </template>
 
@@ -25,10 +26,6 @@ export default {
         FormImageUploader,
     },
     props: {
-        heading: {
-            type: String,
-            default: "Add Article",
-        },
     },
     setup() {
         const state = reactive({
@@ -59,7 +56,12 @@ export default {
     flex-direction: column;
     align-items: center;
 
-    > .form {
+    > .contents {
+        width: var(--width-pc);
+        margin-top: var(--margin-xl);
+    }
+
+    > .contents > .form {
         width: var(--width-pc);
         padding: var(--margin-xl) 0;
         display: flex;

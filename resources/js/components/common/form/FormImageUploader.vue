@@ -3,9 +3,17 @@
         <div class="uploader">
             <div class="content">
                 <div class="icon">
-                    <Icon name="image" width="64px" />
+                    <Icon name="thumbnail" width="64px" />
                 </div>
-                <p class="text">{{ uploaderText }}</p>
+                <template v-if="file">
+                    <div class="image">
+                        <Icon name="image" />
+                        {{ file.name }}
+                    </div>
+                </template>
+                <template v-else>
+                    <p class="text">{{ DEFAULT_UPLOADER_TEXT }}</p>
+                </template>
             </div>
             <CommonButton class="button">
                 <input
@@ -22,7 +30,7 @@
 </template>
 
 <script>
-import { computed, ref } from "@vue/runtime-core";
+import { ref } from "vue";
 import Icon from "../../Icon.vue";
 import CommonButton from "../CommonButton.vue";
 
@@ -41,12 +49,9 @@ export default {
     },
     setup(_, { emit }) {
         const FILE_ACCEPT_EXTENSIONS = [".jpeg", ".jpg", ".png"];
+        const DEFAULT_UPLOADER_TEXT = "Please Upload Thumbnail File!";
 
         const file = ref(null);
-
-        const uploaderText = computed(() =>
-            file.value ? file.value.name : "Please Upload Thumbnail File!"
-        );
 
         const handleUploadImage = (e) => {
             file.value = e.target.files[0];
@@ -55,7 +60,8 @@ export default {
 
         return {
             FILE_ACCEPT_EXTENSIONS,
-            uploaderText,
+            DEFAULT_UPLOADER_TEXT,
+            file,
             handleUploadImage,
         };
     },
@@ -63,13 +69,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../sass/_mixins.scss";
+
 .form-image-uploader-wrapper {
     display: flex;
     justify-content: center;
-    background-color: var(--white);
+    background-color: var(--base-bg-color);
     padding: var(--margin-m);
-    border-radius: var(--border-radius-xs);
-    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+    border: 1px solid var(--base-border-color);
+    border-radius: var(--border-radius-s);
+
+    @include np-shadow;
 
     > .uploader {
         display: flex;
@@ -77,8 +87,8 @@ export default {
         flex-direction: column;
         width: 100%;
         height: 100%;
-        border: 2px dotted var(--dark-gray);
-        border-radius: var(--border-radius-xs);
+        border: 2px dotted var(--gray-500);
+        border-radius: var(--border-radius-s);
         padding: var(--margin-s);
     }
 
@@ -88,7 +98,20 @@ export default {
         row-gap: var(--margin-xs);
         padding: var(--margin-m);
         text-align: center;
-        color: var(--dark-gray);
+        color: var(--base-text-color);
+    }
+
+    > .uploader > .content > .image {
+        padding: 8px var(--margin-s);
+        border-radius: 25px;
+        background-color: var(--gray-600);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--margin-xxs);
+        color:var(--white);
+        font-size: 1.2rem;
+        font-weight: 600;
     }
 
     > .uploader > .content > .text {

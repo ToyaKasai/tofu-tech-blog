@@ -46,6 +46,7 @@ export default {
         background-color: rgba($color: #000000, $alpha: 0);
         font-weight: bold;
         font-size: 2.8rem;
+        color: var(--base-text-color);
     }
 }
 </style>

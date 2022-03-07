@@ -22780,10 +22780,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
-/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
-/* harmony import */ var _Icon_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Icon.vue */ "./resources/js/components/Icon.vue");
-/* harmony import */ var _CommonButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CommonButton.vue */ "./resources/js/components/common/CommonButton.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Icon_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Icon.vue */ "./resources/js/components/Icon.vue");
+/* harmony import */ var _CommonButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CommonButton.vue */ "./resources/js/components/common/CommonButton.vue");
 
 
 
@@ -22791,8 +22790,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    CommonButton: _CommonButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Icon: _Icon_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    CommonButton: _CommonButton_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Icon: _Icon_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   name: "FormImageUploader",
   props: {
@@ -22804,10 +22803,8 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(_, _ref) {
     var emit = _ref.emit;
     var FILE_ACCEPT_EXTENSIONS = [".jpeg", ".jpg", ".png"];
-    var file = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.ref)(null);
-    var uploaderText = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
-      return file.value ? file.value.name : "Please Upload Thumbnail File!";
-    });
+    var DEFAULT_UPLOADER_TEXT = "Please Upload Thumbnail File!";
+    var file = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
 
     var handleUploadImage = function handleUploadImage(e) {
       file.value = e.target.files[0];
@@ -22816,7 +22813,8 @@ __webpack_require__.r(__webpack_exports__);
 
     return {
       FILE_ACCEPT_EXTENSIONS: FILE_ACCEPT_EXTENSIONS,
-      uploaderText: uploaderText,
+      DEFAULT_UPLOADER_TEXT: DEFAULT_UPLOADER_TEXT,
+      file: file,
       handleUploadImage: handleUploadImage
     };
   }
@@ -22891,12 +22889,7 @@ __webpack_require__.r(__webpack_exports__);
     FormTitleInput: _common_form_FormTitleInput_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     FormImageUploader: _common_form_FormImageUploader_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  props: {
-    heading: {
-      type: String,
-      "default": "Add Article"
-    }
-  },
+  props: {},
   setup: function setup() {
     var state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       title: null,
@@ -23276,11 +23269,16 @@ var _hoisted_4 = {
   "class": "icon"
 };
 var _hoisted_5 = {
+  key: 0,
+  "class": "image"
+};
+var _hoisted_6 = {
+  key: 1,
   "class": "text"
 };
-var _hoisted_6 = ["name", "accept"];
+var _hoisted_7 = ["name", "accept"];
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Upload Thumbnail ");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Upload Thumbnail ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Icon");
@@ -23288,11 +23286,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_CommonButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CommonButton");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
-    name: "image",
+    name: "thumbnail",
     width: "64px"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.uploaderText), 1
+  })]), $setup.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+    name: "image"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.file.name), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CommonButton, {
+  )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.DEFAULT_UPLOADER_TEXT), 1
+  /* TEXT */
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CommonButton, {
     "class": "button"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -23306,7 +23308,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 40
       /* PROPS, HYDRATE_EVENTS */
-      , _hoisted_6), _hoisted_7];
+      , _hoisted_7), _hoisted_8];
     }),
     _: 1
     /* STABLE */
@@ -23376,22 +23378,19 @@ var _hoisted_1 = {
   "class": "blog-form-page-wrapper"
 };
 var _hoisted_2 = {
+  "class": "contents"
+};
+var _hoisted_3 = {
   action: "",
   method: "",
   "class": "form"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_HeadingLv1 = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("HeadingLv1");
-
   var _component_FormTitleInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormTitleInput");
 
   var _component_FormImageUploader = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormImageUploader");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HeadingLv1, {
-    heading: $props.heading
-  }, null, 8
-  /* PROPS */
-  , ["heading"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: csrf入れる "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: language 選択できるようにしたい "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTitleInput, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: csrf入れる "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: language 選択できるようにしたい "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTitleInput, {
     "onUpdate:title": $setup.updateTitle
   }, null, 8
   /* PROPS */
@@ -23399,7 +23398,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:image": $setup.updateImage
   }, null, 8
   /* PROPS */
-  , ["onUpdate:image"])])]);
+  , ["onUpdate:image"])])])]);
 }
 
 /***/ }),
@@ -28773,7 +28772,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".form-image-uploader-wrapper[data-v-0c47857a] {\n  display: flex;\n  justify-content: center;\n  background-color: var(--white);\n  padding: var(--margin-m);\n  border-radius: var(--border-radius-xs);\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n}\n.form-image-uploader-wrapper > .uploader[data-v-0c47857a] {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n  border: 2px dotted var(--dark-gray);\n  border-radius: var(--border-radius-xs);\n  padding: var(--margin-s);\n}\n.form-image-uploader-wrapper > .uploader > .content[data-v-0c47857a] {\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-xs);\n  padding: var(--margin-m);\n  text-align: center;\n  color: var(--dark-gray);\n}\n.form-image-uploader-wrapper > .uploader > .content > .text[data-v-0c47857a] {\n  font-size: 1.4rem;\n  font-weight: bold;\n}\n.form-image-uploader-wrapper > .uploader > .button[data-v-0c47857a] {\n  position: relative;\n}\n.form-image-uploader-wrapper > .uploader > .button > .input[data-v-0c47857a] {\n  opacity: 0;\n  display: block;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n}\n.form-image-uploader-wrapper > .uploader > .button > .input[data-v-0c47857a]::-webkit-file-upload-button {\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".form-image-uploader-wrapper[data-v-0c47857a] {\n  display: flex;\n  justify-content: center;\n  background-color: var(--base-bg-color);\n  padding: var(--margin-m);\n  border: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-s);\n  box-shadow: 4px 4px 8px #b8b9be, -4px -4px 8px #fff;\n}\n.form-image-uploader-wrapper > .uploader[data-v-0c47857a] {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n  border: 2px dotted var(--gray-500);\n  border-radius: var(--border-radius-s);\n  padding: var(--margin-s);\n}\n.form-image-uploader-wrapper > .uploader > .content[data-v-0c47857a] {\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-xs);\n  padding: var(--margin-m);\n  text-align: center;\n  color: var(--base-text-color);\n}\n.form-image-uploader-wrapper > .uploader > .content > .image[data-v-0c47857a] {\n  padding: 8px var(--margin-s);\n  border-radius: 25px;\n  background-color: var(--gray-600);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: var(--margin-xxs);\n  color: var(--white);\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.form-image-uploader-wrapper > .uploader > .content > .text[data-v-0c47857a] {\n  font-size: 1.4rem;\n  font-weight: bold;\n}\n.form-image-uploader-wrapper > .uploader > .button[data-v-0c47857a] {\n  position: relative;\n}\n.form-image-uploader-wrapper > .uploader > .button > .input[data-v-0c47857a] {\n  opacity: 0;\n  display: block;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n}\n.form-image-uploader-wrapper > .uploader > .button > .input[data-v-0c47857a]::-webkit-file-upload-button {\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28797,7 +28796,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".form-text-input-wrapper > .input[data-v-b718b230] {\n  display: block;\n  width: 100%;\n  border: none;\n  outline: none;\n  background-color: rgba(0, 0, 0, 0);\n  font-weight: bold;\n  font-size: 2.8rem;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".form-text-input-wrapper > .input[data-v-b718b230] {\n  display: block;\n  width: 100%;\n  border: none;\n  outline: none;\n  background-color: rgba(0, 0, 0, 0);\n  font-weight: bold;\n  font-size: 2.8rem;\n  color: var(--base-text-color);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28821,7 +28820,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".blog-form-page-wrapper[data-v-340f654b] {\n  background-color: var(--yellow);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.blog-form-page-wrapper > .form[data-v-340f654b] {\n  width: var(--width-pc);\n  padding: var(--margin-xl) 0;\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-s);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".blog-form-page-wrapper[data-v-340f654b] {\n  background-color: var(--yellow);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.blog-form-page-wrapper > .contents[data-v-340f654b] {\n  width: var(--width-pc);\n  margin-top: var(--margin-xl);\n}\n.blog-form-page-wrapper > .contents > .form[data-v-340f654b] {\n  width: var(--width-pc);\n  padding: var(--margin-xl) 0;\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-s);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46388,7 +46387,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2Zm-10.6-3.47 1.63 2.18 2.58-3.22a.5.5 0 0 1 .78 0l2.96 3.7c.26.33.03.81-.39.81H9a.5.5 0 0 1-.4-.8l2-2.67c.2-.26.6-.26.8 0ZM2 7v13c0 1.1.9 2 2 2h13c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1-.45-1-1V7c0-.55-.45-1-1-1s-1 .45-1 1Z\" fill=\"currentColor\"/></svg>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2ZM8.9 13.98l2.1 2.53 3.1-3.99c.2-.26.6-.26.8.01l3.51 4.68a.5.5 0 0 1-.4.8H6.02c-.42 0-.65-.48-.39-.81L8.12 14c.19-.26.57-.27.78-.02Z\" fill=\"currentColor\"/></svg>");
 
 /***/ }),
 
@@ -46419,6 +46418,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5Z\" fill=\"currentColor\"/></svg>");
+
+/***/ }),
+
+/***/ "./resources/svg/thumbnail.svg":
+/*!*************************************!*\
+  !*** ./resources/svg/thumbnail.svg ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2Zm-10.6-3.47 1.63 2.18 2.58-3.22a.5.5 0 0 1 .78 0l2.96 3.7c.26.33.03.81-.39.81H9a.5.5 0 0 1-.4-.8l2-2.67c.2-.26.6-.26.8 0ZM2 7v13c0 1.1.9 2 2 2h13c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1-.45-1-1V7c0-.55-.45-1-1-1s-1 .45-1 1Z\" fill=\"currentColor\"/></svg>");
 
 /***/ }),
 
@@ -48095,7 +48109,8 @@ var map = {
 	"./heart_outline.svg": "./resources/svg/heart_outline.svg",
 	"./image.svg": "./resources/svg/image.svg",
 	"./search.svg": "./resources/svg/search.svg",
-	"./setting.svg": "./resources/svg/setting.svg"
+	"./setting.svg": "./resources/svg/setting.svg",
+	"./thumbnail.svg": "./resources/svg/thumbnail.svg"
 };
 
 
