@@ -4,9 +4,20 @@
             <form action="" method="" class="form">
                 <!-- TODO: csrf入れる -->
                 <!-- TODO: language 選択できるようにしたい -->
-                <FormTitleInput @update:title="updateTitle" />
-                <FormTextarea @update:textarea="updateDescription" />
-                <FormImageUploader @update:image="updateImage" />
+                <FormTitleInput name="title" @update:title="updateTitle" />
+                <FormTextarea
+                    name="description"
+                    @update:textarea="updateDescription"
+                />
+                <FormImageUploader
+                    name="thumbnail"
+                    @update:image="updateImage"
+                />
+                <MarkdownEditor
+                    name="source"
+                    :value="state.source"
+                    @update:source="state.source = $event"
+                />
             </form>
         </div>
     </div>
@@ -18,6 +29,7 @@ import HeadingLv1 from "../common/HeadingLv1.vue";
 import FormTitleInput from "../common/form/FormTitleInput.vue";
 import FormImageUploader from "../common/form/FormImageUploader.vue";
 import FormTextarea from "../common/form/FormTextarea.vue";
+import MarkdownEditor from "../common/form/MarkdownEditor.vue";
 
 /** 新規登録 */
 export default {
@@ -27,13 +39,14 @@ export default {
         FormTitleInput,
         FormImageUploader,
         FormTextarea,
+        MarkdownEditor,
     },
-    props: {},
     setup() {
         const state = reactive({
             title: null,
             description: null,
             image: null,
+            source: "",
         });
         const updateTitle = (value) => {
             state.title = value;
