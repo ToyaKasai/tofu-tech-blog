@@ -12,7 +12,7 @@
             <p class="date">{{ date }}</p>
             <div class="save">
                 <button class="save-button">
-                    <Icon name="heart_outline" />
+                    <Icon name="heart_outline" width="20px" />
                 </button>
             </div>
         </div>
@@ -42,13 +42,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../sass/_mixins.scss";
 // TODO: レスポンシブ対応
 // TODO: img反映
 .article-card-wrapper {
-    background-color: var(--white);
+    background-color: var(--base-bg-color);
+    border: 1px solid var(--base-border-color);
     border-radius: var(--border-radius-s);
-    box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.4);
     overflow: hidden;
+
+    @include np-shadow;
 
     &:hover > .thumbnail > .inside {
         transform: scale(1.2);
@@ -58,7 +61,7 @@ export default {
         position: relative;
         height: 160px;
         border-radius: var(--border-radius-s) var(--border-radius-s) 0 0;
-        background-color: var(--dark-gray);
+        background-color: var(--gray-500);
         overflow: hidden; // scale用
     }
 
@@ -93,17 +96,17 @@ export default {
         display: flex;
         align-items: center;
         font-size: 1.6rem;
-        font-weight: 600;
-        color: var(--black);
+        font-weight: 500;
+        color: var(--base-text-color);
     }
 
     > .content > .date {
         grid-area: date;
         font-size: 1.6rem;
-        font-weight: 600;
+        font-weight: 500;
         display: flex;
         align-items: flex-end;
-        color: var(--dark-gray);
+        color: var(--gray-600);
     }
 
     > .content > .save {
@@ -118,5 +121,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--base-text-color);
+    background-color: var(--base-bg-color);
+    outline: 1px solid var(--base-border-color);
+    border-radius: var(--border-radius-circle);
+
+    @include np-shadow(3px, 6px);
 }
 </style>
