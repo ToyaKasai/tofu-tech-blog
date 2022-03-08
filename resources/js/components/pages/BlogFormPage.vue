@@ -1,7 +1,7 @@
 <template>
     <div class="blog-form-page-wrapper">
         <div class="contents">
-            <form action="" method="" class="form">
+            <form :action="storePath" method="POST" class="form">
                 <CsrfToken :csrf="csrf" />
                 <!-- TODO: language 選択できるようにしたい -->
                 <FormTitleInput
@@ -15,7 +15,7 @@
                     @update:textarea="state.description = $event"
                 />
                 <FormImageUploader
-                    name="thumbnail"
+                    name="thumbnail_path"
                     @update:image="updateImage"
                 />
                 <MarkdownEditor
@@ -25,6 +25,7 @@
                 />
                 <div class="form-footer">
                     <SwitchToggleButton
+                        name="is_publish"
                         :value="state.isPublish"
                         label="公開する"
                         @toggle="toggleIsPublish"
@@ -45,7 +46,7 @@ import FormTextarea from "../common/form/FormTextarea.vue";
 import MarkdownEditor from "../common/form/MarkdownEditor.vue";
 import CommonButton from "../common/CommonButton.vue";
 import SwitchToggleButton from "../common/SwitchToggleButton.vue";
-import CsrfToken from '../common/form/CsrfToken.vue';
+import CsrfToken from "../common/form/CsrfToken.vue";
 
 /** 新規登録 */
 export default {
@@ -62,6 +63,10 @@ export default {
     },
     props: {
         csrf: {
+            type: String,
+            required: true,
+        },
+        storePath: {
             type: String,
             required: true,
         },
