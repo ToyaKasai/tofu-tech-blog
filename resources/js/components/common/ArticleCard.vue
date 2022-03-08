@@ -11,7 +11,12 @@
             <p class="date">{{ parsedDate }}</p>
             <div class="save">
                 <div class="save-button">
-                    <Icon name="heart_outline" width="20px" />
+                    <template v-if="isSave">
+                        <Icon class="heart" name="heart" />
+                    </template>
+                    <template v-else>
+                        <Icon name="heart_outline" />
+                    </template>
                 </div>
             </div>
         </div>
@@ -34,6 +39,10 @@ export default {
     props: {
         id: {
             type: Number,
+            required: true,
+        },
+        isSave: {
+            type: Boolean,
             required: true,
         },
         thumbnailPath: {
@@ -178,5 +187,9 @@ export default {
     border-radius: var(--border-radius-circle);
 
     @include np-shadow(3px, 6px);
+
+    > .heart {
+        color: var(--red);
+    }
 }
 </style>
