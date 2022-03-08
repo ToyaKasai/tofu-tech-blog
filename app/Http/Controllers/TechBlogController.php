@@ -43,4 +43,11 @@ class TechBlogController extends Controller
 
         return redirect('/');
     }
+
+    public function view(int $id)
+    {
+        $article = Article::find($id);
+
+        return view('blog.view', ['article' => $article]);
+    }
 }
