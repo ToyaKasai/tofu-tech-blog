@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "date-fns": "^2.28.0",
         "laravel-mix-svg-vue": "^0.4.1",
         "vue3-markdown-it": "^1.0.10"
     }
