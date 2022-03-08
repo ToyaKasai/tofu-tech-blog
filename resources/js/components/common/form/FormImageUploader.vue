@@ -5,10 +5,10 @@
                 <div class="icon">
                     <Icon name="thumbnail" width="64px" />
                 </div>
-                <template v-if="file">
+                <template v-if="value">
                     <div class="image">
                         <Icon name="image" />
-                        {{ file.name }}
+                        {{ value }}
                     </div>
                 </template>
                 <template v-else>
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import { ref } from "vue";
 import Icon from "../../Icon.vue";
 import CommonButton from "../CommonButton.vue";
 
@@ -44,24 +43,24 @@ export default {
     props: {
         name: {
             type: String,
-            default: "thumbnail",
+            required: true,
+        },
+        value: {
+            type: String,
+            required: true,
         },
     },
     setup(_, { emit }) {
         const FILE_ACCEPT_EXTENSIONS = [".jpeg", ".jpg", ".png"];
         const DEFAULT_UPLOADER_TEXT = "Please Upload Thumbnail File!";
 
-        const file = ref(null);
-
         const handleUploadImage = (e) => {
-            file.value = e.target.files[0];
-            emit("update:image", e.target.files[0]);
+            emit("update:image", e.target.files[0].name);
         };
 
         return {
             FILE_ACCEPT_EXTENSIONS,
             DEFAULT_UPLOADER_TEXT,
-            file,
             handleUploadImage,
         };
     },

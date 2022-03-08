@@ -12,13 +12,14 @@
 
 <script>
 import { computed } from "vue";
+
 /** タイトルフォーム */
 export default {
     name: "FormTitleInput",
     props: {
         name: {
             type: String,
-            default: "title",
+            required: true,
         },
         placeholder: {
             type: String,
