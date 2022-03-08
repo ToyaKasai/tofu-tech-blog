@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\TechBlogController@index')->name('blog.top');
 Route::get('/create', 'App\Http\Controllers\TechBlogController@create')->name('blog.create');
 Route::post('/store', 'App\Http\Controllers\TechBlogController@store')->name('blog.store');
+Route::post('/view{id}', 'App\Http\Controllers\TechBlogController@view')->name('blog.view');
