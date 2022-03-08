@@ -1,7 +1,7 @@
 <template>
     <div class="blog-form-page-wrapper">
         <div class="contents">
-            <form :action="storePath" method="POST" class="form">
+            <form :action="storePath" method="POST" enctype="multipart/form-data" class="form">
                 <CsrfToken :csrf="csrf" />
                 <!-- TODO: language 選択できるようにしたい -->
                 <FormTitleInput

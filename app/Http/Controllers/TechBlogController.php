@@ -21,13 +21,16 @@ class TechBlogController extends Controller
     {
         $article = new Article();
 
-        // booleanをtinyInt型にする
+        /** booleanをtinyInt型にする */
         $is_publish = $request->input('is_publish') === 'true' ? 1 : 0;
         $is_save = $request->input('is_save') === 'true' ? 1 : 0;
 
+        $thumbnail = $request->file('thumbnail_path')->store('public/image'); // storage内に保存
+        $thumbnail_path = str_replace('public/image/', '', $thumbnail); // public/image/を除外
+
         $article->title = $request->input('title');
         $article->description = $request->input('description');
-        $article->thumbnail_path = $request->input('thumbnail_path');
+        $article->thumbnail_path = $thumbnail_path;
         $article->source = $request->input('source');
         $article->is_publish = $is_publish;
         $article->is_save = $is_save;
