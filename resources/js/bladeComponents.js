@@ -8,6 +8,7 @@ import GlobalFooter from "./components/common/GlobalFooter.vue"; // フッター
 
 /** pages */
 import TopPage from "./components/pages/TopPage.vue"; // トップページ
+import ViewPage from "./components/pages/ViewPage.vue"; // 閲覧ページ
 import BlogFormPage from "./components/pages/BlogFormPage.vue"; // 新規登録ページ
 
 const bladeComponents = {
@@ -15,6 +16,7 @@ const bladeComponents = {
     GlobalFooter,
     TopPage,
     BlogFormPage,
+    ViewPage,
 };
 
 export default bladeComponents;
