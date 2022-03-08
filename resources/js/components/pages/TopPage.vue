@@ -7,6 +7,7 @@
                     <!-- TODO: 公開記事のみ表示するようにする -->
                     <ArticleCard
                         :id="article.id"
+                        :isSave="article.is_save"
                         :thumbnailPath="article.thumbnail_path"
                         :title="article.title"
                         :description="article.description"

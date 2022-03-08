@@ -29,8 +29,8 @@ class TechBlogController extends Controller
         $is_publish = $request->input('is_publish') === 'true' ? 1 : 0;
         $is_save = $request->input('is_save') === 'true' ? 1 : 0;
 
-        $thumbnail = $request->file('thumbnail_path')->store('public/image'); // storage内に保存
-        $thumbnail_path = str_replace('public/image/', '', $thumbnail); // public/image/を除外
+        $thumbnail = $request->file('thumbnail_path')?->store('public/image'); // storage内に保存
+        $thumbnail_path = $thumbnail ?  str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
 
         $article->title = $request->input('title');
         $article->description = $request->input('description');
@@ -42,5 +42,12 @@ class TechBlogController extends Controller
         $article->save();
 
         return redirect('/');
+    }
+
+    public function view(int $id)
+    {
+        $article = Article::find($id);
+
+        return view('blog.view', ['article' => $article]);
     }
 }
