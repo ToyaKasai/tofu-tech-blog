@@ -2,53 +2,17 @@
     <div class="top-page-wrapper">
         <div class="contents">
             <HeadingLv1 :heading="heading" />
-            {{articles}}
             <section class="articles">
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
-                <ArticleCard
-                    title="タイトル"
-                    description="説明文"
-                    date="2022.03.04"
-                />
+                <template v-for="article in articles" :key="article.id">
+                    <!-- TODO: 公開記事のみ表示するようにする -->
+                    <ArticleCard
+                        :id="article.id"
+                        :thumbnailPath="article.thumbnail_path"
+                        :title="article.title"
+                        :description="article.description"
+                        :date="article.updated_at"
+                    />
+                </template>
             </section>
         </div>
     </div>
