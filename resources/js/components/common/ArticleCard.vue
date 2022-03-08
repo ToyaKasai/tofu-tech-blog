@@ -3,7 +3,7 @@
     <a href="#" class="article-card-wrapper">
         <div class="thumbnail">
             <div class="inside">
-                <img :src="thumbnailSrc" class="img" />
+                <img :src="thumbnailSrc" class="image" />
                 <p class="title">{{ title }}</p>
             </div>
         </div>
@@ -22,7 +22,7 @@
 <script>
 import Icon from "../Icon.vue";
 import {
-    DEFAULT_ARTICLE_IMAGE_PATH,
+    DEFAULT_THUMBNAIL_PATH,
     STORAGE_IMAGE_PATH,
 } from "../../lib/storageImage.js";
 import { computed } from "vue";
@@ -52,7 +52,7 @@ export default {
         const thumbnailSrc = computed(() =>
             props.thumbnailPath
                 ? `${STORAGE_IMAGE_PATH}${props.thumbnailPath}`
-                : DEFAULT_ARTICLE_IMAGE_PATH
+                : DEFAULT_THUMBNAIL_PATH
         );
         return {
             thumbnailSrc,
@@ -81,14 +81,32 @@ export default {
         position: relative;
         height: 160px;
         border-radius: var(--border-radius-s) var(--border-radius-s) 0 0;
-        background-color: var(--gray-500);
+        background-color: var(--gray-100);
         overflow: hidden; // scale用
     }
 
     > .thumbnail > .inside {
+        position: relative;
         width: 100%;
         height: 100%;
         transition: transform 0.2s;
+
+        // overlay
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+        }
+    }
+
+    > .thumbnail > .inside > .image {
+        display: block;
+        margin: auto;
+        max-height: 100%;
     }
 
     > .thumbnail > .inside > .title {
