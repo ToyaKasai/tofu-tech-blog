@@ -22911,41 +22911,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Icon_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Icon.vue */ "./resources/js/components/Icon.vue");
-/* harmony import */ var _CommonButton_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CommonButton.vue */ "./resources/js/components/common/CommonButton.vue");
-
+/* harmony import */ var _Icon_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Icon.vue */ "./resources/js/components/Icon.vue");
+/* harmony import */ var _CommonButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CommonButton.vue */ "./resources/js/components/common/CommonButton.vue");
 
 
 /** 画像アップローダー */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    CommonButton: _CommonButton_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Icon: _Icon_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    CommonButton: _CommonButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Icon: _Icon_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   name: "FormImageUploader",
   props: {
     name: {
       type: String,
-      "default": "thumbnail"
+      required: true
+    },
+    value: {
+      type: String,
+      required: true
     }
   },
   setup: function setup(_, _ref) {
     var emit = _ref.emit;
     var FILE_ACCEPT_EXTENSIONS = [".jpeg", ".jpg", ".png"];
     var DEFAULT_UPLOADER_TEXT = "Please Upload Thumbnail File!";
-    var file = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(null);
 
     var handleUploadImage = function handleUploadImage(e) {
-      file.value = e.target.files[0];
-      emit("update:image", e.target.files[0]);
+      emit("update:image", e.target.files[0].name);
     };
 
     return {
       FILE_ACCEPT_EXTENSIONS: FILE_ACCEPT_EXTENSIONS,
       DEFAULT_UPLOADER_TEXT: DEFAULT_UPLOADER_TEXT,
-      file: file,
       handleUploadImage: handleUploadImage
     };
   }
@@ -22973,7 +22972,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     name: {
       type: String,
-      "default": "description"
+      required: true
     },
     placeholder: {
       type: String,
@@ -23022,7 +23021,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     name: {
       type: String,
-      "default": "title"
+      required: true
     },
     placeholder: {
       type: String,
@@ -23172,18 +23171,42 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
-    storePath: {
+    actionPath: {
       type: String,
       required: true
+    },
+    defaultValues: {
+      type: Object,
+      "default": function _default() {
+        return {};
+      }
+    },
+    mode: {
+      type: String,
+      "default": "register"
     }
   },
-  setup: function setup() {
+  setup: function setup(props) {
     var state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       title: null,
       description: null,
       image: null,
       source: "",
       isPublish: false
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount)(function () {
+      var _props$defaultValues, _props$defaultValues2, _props$defaultValues3, _props$defaultValues4, _props$defaultValues5;
+
+      if (props.mode !== "edit") {
+        return;
+      } // insert default value
+
+
+      state.title = (_props$defaultValues = props.defaultValues) === null || _props$defaultValues === void 0 ? void 0 : _props$defaultValues.title;
+      state.description = (_props$defaultValues2 = props.defaultValues) === null || _props$defaultValues2 === void 0 ? void 0 : _props$defaultValues2.description;
+      state.image = (_props$defaultValues3 = props.defaultValues) === null || _props$defaultValues3 === void 0 ? void 0 : _props$defaultValues3.thumbnail_path;
+      state.source = (_props$defaultValues4 = props.defaultValues) === null || _props$defaultValues4 === void 0 ? void 0 : _props$defaultValues4.source;
+      state.isPublish = (_props$defaultValues5 = props.defaultValues) === null || _props$defaultValues5 === void 0 ? void 0 : _props$defaultValues5.is_publish;
     });
 
     var updateImage = function updateImage(value) {
@@ -23194,10 +23217,14 @@ __webpack_require__.r(__webpack_exports__);
       state.isPublish = value;
     };
 
+    var buttonText = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.mode === "register" ? "保存する" : "更新する";
+    });
     return {
       state: state,
       updateImage: updateImage,
-      toggleIsPublish: toggleIsPublish
+      toggleIsPublish: toggleIsPublish,
+      buttonText: buttonText
     };
   }
 });
@@ -23760,9 +23787,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "thumbnail",
     width: "64px"
-  })]), $setup.file ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+  })]), $props.value ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "image"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.file.name), 1
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.value), 1
   /* TEXT */
   )])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.DEFAULT_UPLOADER_TEXT), 1
   /* TEXT */
@@ -23991,9 +24018,6 @@ var _hoisted_3 = ["action"];
 var _hoisted_4 = {
   "class": "form-footer"
 };
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("保存する");
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_CsrfToken = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CsrfToken");
 
@@ -24010,7 +24034,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_CommonButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CommonButton");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    action: $props.storePath,
+    action: $props.actionPath,
     method: "POST",
     enctype: "multipart/form-data",
     "class": "form"
@@ -24036,10 +24060,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormImageUploader, {
     name: "thumbnail_path",
+    value: $setup.state.image,
     "onUpdate:image": $setup.updateImage
   }, null, 8
   /* PROPS */
-  , ["onUpdate:image"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MarkdownEditor, {
+  , ["value", "onUpdate:image"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MarkdownEditor, {
     name: "source",
     value: $setup.state.source,
     "onUpdate:source": _cache[2] || (_cache[2] = function ($event) {
@@ -24058,7 +24083,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "submit"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_5];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.buttonText), 1
+      /* TEXT */
+      )];
     }),
     _: 1
     /* STABLE */

@@ -1,9 +1,15 @@
 <template>
     <div class="blog-form-page-wrapper">
         <div class="contents">
-            <form :action="storePath" method="POST" enctype="multipart/form-data" class="form">
+            <form
+                :action="actionPath"
+                method="POST"
+                enctype="multipart/form-data"
+                class="form"
+            >
                 <CsrfToken :csrf="csrf" />
                 <!-- TODO: language 選択できるようにしたい -->
+
                 <FormTitleInput
                     name="title"
                     :value="state.title"
@@ -16,6 +22,7 @@
                 />
                 <FormImageUploader
                     name="thumbnail_path"
+                    :value="state.image"
                     @update:image="updateImage"
                 />
                 <MarkdownEditor
@@ -30,7 +37,7 @@
                         label="公開する"
                         @toggle="toggleIsPublish"
                     />
-                    <CommonButton type="submit">保存する</CommonButton>
+                    <CommonButton type="submit">{{ buttonText }}</CommonButton>
                 </div>
             </form>
         </div>
@@ -38,7 +45,7 @@
 </template>
 
 <script>
-import { reactive } from "vue";
+import { computed, onBeforeMount, reactive } from "vue";
 import HeadingLv1 from "../common/HeadingLv1.vue";
 import FormTitleInput from "../common/form/FormTitleInput.vue";
 import FormImageUploader from "../common/form/FormImageUploader.vue";
@@ -66,18 +73,39 @@ export default {
             type: String,
             required: true,
         },
-        storePath: {
+        actionPath: {
             type: String,
             required: true,
         },
+        defaultValues: {
+            type: Object,
+            default: () => ({}),
+        },
+        mode: {
+            type: String,
+            default: "register",
+        },
     },
-    setup() {
+    setup(props) {
         const state = reactive({
             title: null,
             description: null,
             image: null,
             source: "",
             isPublish: false,
+        });
+
+        onBeforeMount(() => {
+            if (props.mode !== "edit") {
+                return;
+            }
+
+            // insert default value
+            state.title = props.defaultValues?.title;
+            state.description = props.defaultValues?.description;
+            state.image = props.defaultValues?.thumbnail_path;
+            state.source = props.defaultValues?.source;
+            state.isPublish = props.defaultValues?.is_publish;
         });
 
         const updateImage = (value) => {
@@ -88,10 +116,15 @@ export default {
             state.isPublish = value;
         };
 
+        const buttonText = computed(() =>
+            props.mode === "register" ? "保存する" : "更新する"
+        );
+
         return {
             state,
             updateImage,
             toggleIsPublish,
+            buttonText,
         };
     },
 };
