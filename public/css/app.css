@@ -52,6 +52,8 @@ textarea::-webkit-resizer {
   --base-border-color: #d1d9e6;
   --blue: #0056b3;
   --red: #e74c3c;
+  --alert: #c0392b;
+
   /* margin variable */
   --margin-xxs: 12px;
   --margin-xs: 20px;

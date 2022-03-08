@@ -77,4 +77,12 @@ class TechBlogController extends Controller
 
         return redirect('view/' . $id);
     }
+
+    public function delete($id)
+    {
+        $article = Article::find($id);
+        $article->delete();
+
+        return redirect('/');
+    }
 }
