@@ -3,7 +3,7 @@
     <a href="#" class="article-card-wrapper">
         <div class="thumbnail">
             <div class="inside">
-                <div class="img"></div>
+                <img :src="thumbnailSrc" class="img" />
                 <p class="title">{{ title }}</p>
             </div>
         </div>
@@ -21,10 +21,20 @@
 
 <script>
 import Icon from "../Icon.vue";
+import {
+    DEFAULT_ARTICLE_IMAGE_PATH,
+    STORAGE_IMAGE_PATH,
+} from "../../lib/storageImage.js";
+import { computed } from "vue";
+
 export default {
     components: { Icon },
     name: "ArticleCard",
     props: {
+        thumbnailPath: {
+            type: String | null,
+            default: null,
+        },
         title: {
             type: String,
             required: true,
@@ -37,6 +47,16 @@ export default {
             type: String,
             required: true,
         },
+    },
+    setup(props) {
+        const thumbnailSrc = computed(() =>
+            props.thumbnailPath
+                ? `${STORAGE_IMAGE_PATH}${props.thumbnailPath}`
+                : DEFAULT_ARTICLE_IMAGE_PATH
+        );
+        return {
+            thumbnailSrc,
+        };
     },
 };
 </script>
