@@ -10,7 +10,7 @@
 
     <!-- Head Section -->
     @section('head')
-    <title>{{config('app.name')}}</title>
+        <title>{{ config('app.name') }}</title>
     @show
 
     <!-- Scripts -->
@@ -31,7 +31,7 @@
     <div id="app">
         {{-- ヘッダー --}}
         @section('header')
-        <global-header create-path="{{route('blog.create')}}"></global-header>
+            <global-header create-path="{{ route('blog.create') }}"></global-header>
         @show
 
         {{-- コンテンツ --}}
@@ -39,7 +39,7 @@
 
         {{-- フッター --}}
         @section('footer')
-        <global-footer></global-footer>
+            <global-footer></global-footer>
         @show
     </div>
 </body>

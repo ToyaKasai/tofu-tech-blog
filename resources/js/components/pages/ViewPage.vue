@@ -22,7 +22,7 @@
             <div class="article-content">
                 <div class="side">
                     <div class="content">
-                        <button class="save-button">
+                        <button class="action-button">
                             <template v-if="article.is_save">
                                 <Icon class="heart" name="heart" />
                             </template>
@@ -30,9 +30,19 @@
                                 <Icon name="heart_outline" />
                             </template>
                         </button>
-                        <a :href="editPath" class="save-button">
+                        <a :href="editPath" class="action-button">
                             <Icon name="write" />
                         </a>
+                        <form
+                            :action="deletePath"
+                            method="POST"
+                            @submit="handleSubmit"
+                        >
+                            <CsrfToken :csrf="csrf" />
+                            <button type="submit" class="action-button">
+                                <Icon class="delete" name="trash" />
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <MarkdownPreview :value="article.source" />
@@ -51,6 +61,7 @@ import Icon from "../Icon.vue";
 import MarkdownPreview from "../common/MarkdownPreview.vue";
 import parseArticlePath from "../../lib/parseArticlePath";
 import parseDate from "../../lib/parseDate";
+import CsrfToken from "../common/form/CsrfToken.vue";
 
 /** 記事閲覧ページ */
 export default {
@@ -58,11 +69,20 @@ export default {
     components: {
         Icon,
         MarkdownPreview,
+        CsrfToken,
     },
     props: {
         article: {
             type: Object,
             default: () => ({}),
+        },
+        csrf: {
+            type: String,
+            required: true,
+        },
+        deletePath: {
+            type: String,
+            required: true,
         },
     },
     setup(props) {
@@ -84,11 +104,18 @@ export default {
             () => parseArticlePath(props.article.id).edit
         );
 
+        const handleSubmit = (e) => {
+            if (!window.confirm("本当に削除しますか？")) {
+                e.preventDefault();
+            }
+        };
+
         return {
             thumbnailSrc,
             createDate,
             updateDate,
             editPath,
+            handleSubmit,
         };
     },
 };
@@ -169,7 +196,7 @@ export default {
     }
 }
 
-.save-button {
+.action-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,6 +215,10 @@ export default {
 
     > .heart {
         color: var(--red);
+    }
+
+    > .delete {
+        color: var(--alert);
     }
 }
 </style>

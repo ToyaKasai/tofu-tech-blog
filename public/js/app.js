@@ -23287,6 +23287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_MarkdownPreview_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/MarkdownPreview.vue */ "./resources/js/components/common/MarkdownPreview.vue");
 /* harmony import */ var _lib_parseArticlePath__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/parseArticlePath */ "./resources/js/lib/parseArticlePath.js");
 /* harmony import */ var _lib_parseDate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib/parseDate */ "./resources/js/lib/parseDate.js");
+/* harmony import */ var _common_form_CsrfToken_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/form/CsrfToken.vue */ "./resources/js/components/common/form/CsrfToken.vue");
+
 
 
 
@@ -23299,7 +23301,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "ViewPage",
   components: {
     Icon: _Icon_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    MarkdownPreview: _common_MarkdownPreview_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    MarkdownPreview: _common_MarkdownPreview_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    CsrfToken: _common_form_CsrfToken_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
     article: {
@@ -23307,6 +23310,14 @@ __webpack_require__.r(__webpack_exports__);
       "default": function _default() {
         return {};
       }
+    },
+    csrf: {
+      type: String,
+      required: true
+    },
+    deletePath: {
+      type: String,
+      required: true
     }
   },
   setup: function setup(props) {
@@ -23322,11 +23333,19 @@ __webpack_require__.r(__webpack_exports__);
     var editPath = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       return (0,_lib_parseArticlePath__WEBPACK_IMPORTED_MODULE_4__["default"])(props.article.id).edit;
     });
+
+    var handleSubmit = function handleSubmit(e) {
+      if (!window.confirm("本当に削除しますか？")) {
+        e.preventDefault();
+      }
+    };
+
     return {
       thumbnailSrc: thumbnailSrc,
       createDate: createDate,
       updateDate: updateDate,
-      editPath: editPath
+      editPath: editPath,
+      handleSubmit: handleSubmit
     };
   }
 });
@@ -24212,11 +24231,18 @@ var _hoisted_13 = {
   "class": "content"
 };
 var _hoisted_14 = {
-  "class": "save-button"
+  "class": "action-button"
 };
 var _hoisted_15 = ["href"];
+var _hoisted_16 = ["action"];
+var _hoisted_17 = {
+  type: "submit",
+  "class": "action-button"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Icon");
+
+  var _component_CsrfToken = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CsrfToken");
 
   var _component_MarkdownPreview = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("MarkdownPreview");
 
@@ -24247,12 +24273,27 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "heart_outline"
   }))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: $setup.editPath,
-    "class": "save-button"
+    "class": "action-button"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
     name: "write"
   })], 8
   /* PROPS */
-  , _hoisted_15)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MarkdownPreview, {
+  , _hoisted_15), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    action: $props.deletePath,
+    method: "POST",
+    onSubmit: _cache[0] || (_cache[0] = function () {
+      return $setup.handleSubmit && $setup.handleSubmit.apply($setup, arguments);
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_CsrfToken, {
+    csrf: $props.csrf
+  }, null, 8
+  /* PROPS */
+  , ["csrf"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+    "class": "delete",
+    name: "trash"
+  })])], 40
+  /* PROPS, HYDRATE_EVENTS */
+  , _hoisted_16)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MarkdownPreview, {
     value: $props.article.source
   }, null, 8
   /* PROPS */
@@ -29826,7 +29867,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".view-page-wrapper[data-v-2b529f2c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.view-page-wrapper > .link[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  -moz-column-gap: 8px;\n       column-gap: 8px;\n  width: var(--width-pc);\n  margin-top: var(--margin-m);\n  font-size: 1.4rem;\n  color: var(--base-text-color);\n}\n.view-page-wrapper > .thumbnail[data-v-2b529f2c] {\n  width: 100%;\n  height: 180px;\n  padding: var(--margin-m);\n  text-align: center;\n}\n.view-page-wrapper > .thumbnail > .image[data-v-2b529f2c] {\n  height: 100%;\n}\n.view-page-wrapper > .content[data-v-2b529f2c] {\n  width: var(--width-pc);\n}\n.view-page-wrapper > .content > .date[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  -moz-column-gap: var(--margin-xs);\n       column-gap: var(--margin-xs);\n}\n.view-page-wrapper > .content > .date > .create[data-v-2b529f2c],\n.view-page-wrapper > .content > .date > .update[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  -moz-column-gap: 8px;\n       column-gap: 8px;\n  font-size: 1.4rem;\n  color: var(--gray-600);\n  margin-top: var(--margin-xxs);\n}\n.view-page-wrapper > .content > .title[data-v-2b529f2c] {\n  font-size: 2.8rem;\n  font-weight: bold;\n  text-align: center;\n}\n.article-content[data-v-2b529f2c] {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  -moz-column-gap: var(--margin-m);\n       column-gap: var(--margin-m);\n  padding: var(--margin-xl) 0;\n}\n.article-content > .side > .content[data-v-2b529f2c] {\n  position: -webkit-sticky;\n  position: sticky;\n  top: var(--margin-l);\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-xs);\n}\n.save-button[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  color: var(--base-text-color);\n  background-color: var(--base-bg-color);\n  outline: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-circle);\n  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;\n}\n.save-button[data-v-2b529f2c]:hover {\n  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff;\n}\n.save-button > .heart[data-v-2b529f2c] {\n  color: var(--red);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".view-page-wrapper[data-v-2b529f2c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.view-page-wrapper > .link[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  -moz-column-gap: 8px;\n       column-gap: 8px;\n  width: var(--width-pc);\n  margin-top: var(--margin-m);\n  font-size: 1.4rem;\n  color: var(--base-text-color);\n}\n.view-page-wrapper > .thumbnail[data-v-2b529f2c] {\n  width: 100%;\n  height: 180px;\n  padding: var(--margin-m);\n  text-align: center;\n}\n.view-page-wrapper > .thumbnail > .image[data-v-2b529f2c] {\n  height: 100%;\n}\n.view-page-wrapper > .content[data-v-2b529f2c] {\n  width: var(--width-pc);\n}\n.view-page-wrapper > .content > .date[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  -moz-column-gap: var(--margin-xs);\n       column-gap: var(--margin-xs);\n}\n.view-page-wrapper > .content > .date > .create[data-v-2b529f2c],\n.view-page-wrapper > .content > .date > .update[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  -moz-column-gap: 8px;\n       column-gap: 8px;\n  font-size: 1.4rem;\n  color: var(--gray-600);\n  margin-top: var(--margin-xxs);\n}\n.view-page-wrapper > .content > .title[data-v-2b529f2c] {\n  font-size: 2.8rem;\n  font-weight: bold;\n  text-align: center;\n}\n.article-content[data-v-2b529f2c] {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  -moz-column-gap: var(--margin-m);\n       column-gap: var(--margin-m);\n  padding: var(--margin-xl) 0;\n}\n.article-content > .side > .content[data-v-2b529f2c] {\n  position: -webkit-sticky;\n  position: sticky;\n  top: var(--margin-l);\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-xs);\n}\n.action-button[data-v-2b529f2c] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  color: var(--base-text-color);\n  background-color: var(--base-bg-color);\n  outline: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-circle);\n  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;\n}\n.action-button[data-v-2b529f2c]:hover {\n  box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #fff;\n}\n.action-button > .heart[data-v-2b529f2c] {\n  color: var(--red);\n}\n.action-button > .delete[data-v-2b529f2c] {\n  color: var(--alert);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51459,6 +51500,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/svg/trash.svg":
+/*!*********************************!*\
+  !*** ./resources/svg/trash.svg ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M16 16h2c.55 0 1 .45 1 1s-.45 1-1 1h-2c-.55 0-1-.45-1-1s.45-1 1-1Zm0-8h5c.55 0 1 .45 1 1s-.45 1-1 1h-5c-.55 0-1-.45-1-1s.45-1 1-1Zm0 4h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1s.45-1 1-1ZM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10ZM13 5h-2l-.71-.71c-.18-.18-.44-.29-.7-.29H6.41c-.26 0-.52.11-.7.29L5 5H3c-.55 0-1 .45-1 1s.45 1 1 1h10c.55 0 1-.45 1-1s-.45-1-1-1Z\" fill=\"currentColor\"/></svg>");
+
+/***/ }),
+
 /***/ "./resources/svg/update.svg":
 /*!**********************************!*\
   !*** ./resources/svg/update.svg ***!
@@ -53799,6 +53855,7 @@ var map = {
 	"./search.svg": "./resources/svg/search.svg",
 	"./setting.svg": "./resources/svg/setting.svg",
 	"./thumbnail.svg": "./resources/svg/thumbnail.svg",
+	"./trash.svg": "./resources/svg/trash.svg",
 	"./update.svg": "./resources/svg/update.svg",
 	"./write.svg": "./resources/svg/write.svg"
 };

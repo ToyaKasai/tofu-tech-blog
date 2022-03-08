@@ -20,3 +20,4 @@ Route::post('/store', 'App\Http\Controllers\TechBlogController@store')->name('bl
 Route::get('/view/{id}', 'App\Http\Controllers\TechBlogController@view')->name('blog.view');
 Route::get('/edit/{id}', 'App\Http\Controllers\TechBlogController@edit')->name('blog.edit');
 Route::post('/update/{id}', 'App\Http\Controllers\TechBlogController@update')->name('blog.update');
+Route::post('/delete/{id}', 'App\Http\Controllers\TechBlogController@delete')->name('blog.delete');
