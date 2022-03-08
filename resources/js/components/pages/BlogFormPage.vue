@@ -2,7 +2,7 @@
     <div class="blog-form-page-wrapper">
         <div class="contents">
             <form action="" method="" class="form">
-                <!-- TODO: csrf入れる -->
+                <CsrfToken :csrf="csrf" />
                 <!-- TODO: language 選択できるようにしたい -->
                 <FormTitleInput
                     name="title"
@@ -45,6 +45,7 @@ import FormTextarea from "../common/form/FormTextarea.vue";
 import MarkdownEditor from "../common/form/MarkdownEditor.vue";
 import CommonButton from "../common/CommonButton.vue";
 import SwitchToggleButton from "../common/SwitchToggleButton.vue";
+import CsrfToken from '../common/form/CsrfToken.vue';
 
 /** 新規登録 */
 export default {
@@ -57,6 +58,13 @@ export default {
         MarkdownEditor,
         CommonButton,
         SwitchToggleButton,
+        CsrfToken,
+    },
+    props: {
+        csrf: {
+            type: String,
+            required: true,
+        },
     },
     setup() {
         const state = reactive({
