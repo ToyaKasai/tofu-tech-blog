@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<top-page></top-page>
+<top-page :articles='@json($articles)'></top-page>
 @endsection

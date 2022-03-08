@@ -2,6 +2,7 @@
     <div class="top-page-wrapper">
         <div class="contents">
             <HeadingLv1 :heading="heading" />
+            {{articles}}
             <section class="articles">
                 <ArticleCard
                     title="タイトル"
@@ -68,6 +69,10 @@ export default {
         heading: {
             type: String,
             default: "Tech Articles",
+        },
+        articles: {
+            type: Array,
+            default: () => [],
         },
     },
 };

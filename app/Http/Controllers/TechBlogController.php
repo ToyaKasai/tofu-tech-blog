@@ -9,7 +9,11 @@ class TechBlogController extends Controller
 {
     public function index()
     {
-        return view('blog.index', []);
+        $articles = Article::all();
+
+        return view('blog.index', [
+            'articles' => $articles
+        ]);
     }
 
     public function create()
