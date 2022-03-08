@@ -1,5 +1,6 @@
 <template>
     <div class="switch-toggle-button-wrapper">
+        <input type="hidden" :name="name" :value="value" />
         <div
             class="switch"
             :class="{ '-active': value }"
@@ -13,9 +14,13 @@
 export default {
     name: "SwitchToggleButton",
     props: {
+        name: {
+            type: String,
+            default: false,
+        },
         value: {
             type: Boolean,
-            default: "false",
+            default: false,
         },
         label: {
             type: String,
