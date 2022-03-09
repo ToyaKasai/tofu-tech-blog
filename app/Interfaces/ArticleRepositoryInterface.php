@@ -4,7 +4,6 @@ namespace App\Interfaces;
 
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Collection;
-
 interface ArticleRepositoryInterface
 {
     public function getAllArticles(): Collection;
