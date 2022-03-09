@@ -23143,6 +23143,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_CommonButton_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/CommonButton.vue */ "./resources/js/components/common/CommonButton.vue");
 /* harmony import */ var _common_SwitchToggleButton_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/SwitchToggleButton.vue */ "./resources/js/components/common/SwitchToggleButton.vue");
 /* harmony import */ var _common_form_CsrfToken_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/form/CsrfToken.vue */ "./resources/js/components/common/form/CsrfToken.vue");
+/* harmony import */ var _Icon_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Icon.vue */ "./resources/js/components/Icon.vue");
+
 
 
 
@@ -23164,7 +23166,8 @@ __webpack_require__.r(__webpack_exports__);
     MarkdownEditor: _common_form_MarkdownEditor_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     CommonButton: _common_CommonButton_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
     SwitchToggleButton: _common_SwitchToggleButton_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    CsrfToken: _common_form_CsrfToken_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+    CsrfToken: _common_form_CsrfToken_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Icon: _Icon_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   props: {
     csrf: {
@@ -23220,11 +23223,22 @@ __webpack_require__.r(__webpack_exports__);
     var buttonText = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       return props.mode === "register" ? "保存する" : "更新する";
     });
+    /** ページバックのハンドリング */
+
+    var handleClickLink = function handleClickLink() {
+      if (!window.confirm("保存せずに終了しますか？")) {
+        return;
+      }
+
+      history.back();
+    };
+
     return {
       state: state,
       updateImage: updateImage,
       toggleIsPublish: toggleIsPublish,
-      buttonText: buttonText
+      buttonText: buttonText,
+      handleClickLink: handleClickLink
     };
   }
 });
@@ -24033,14 +24047,19 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "blog-form-page-wrapper"
 };
-var _hoisted_2 = {
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 戻る ");
+
+var _hoisted_3 = {
   "class": "contents"
 };
-var _hoisted_3 = ["action"];
-var _hoisted_4 = {
+var _hoisted_4 = ["action"];
+var _hoisted_5 = {
   "class": "form-footer"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Icon");
+
   var _component_CsrfToken = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CsrfToken");
 
   var _component_FormTitleInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FormTitleInput");
@@ -24055,7 +24074,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_CommonButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("CommonButton");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "link",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $setup.handleClickLink && $setup.handleClickLink.apply($setup, arguments);
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Icon, {
+    name: "left_allow",
+    width: "32px"
+  }), _hoisted_2]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     action: $props.actionPath,
     method: "POST",
     enctype: "multipart/form-data",
@@ -24067,7 +24094,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["csrf"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" TODO: language 選択できるようにしたい "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTitleInput, {
     name: "title",
     value: $setup.state.title,
-    "onUpdate:title": _cache[0] || (_cache[0] = function ($event) {
+    "onUpdate:title": _cache[1] || (_cache[1] = function ($event) {
       return $setup.state.title = $event;
     })
   }, null, 8
@@ -24075,7 +24102,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormTextarea, {
     name: "description",
     value: $setup.state.description,
-    "onUpdate:textarea": _cache[1] || (_cache[1] = function ($event) {
+    "onUpdate:textarea": _cache[2] || (_cache[2] = function ($event) {
       return $setup.state.description = $event;
     })
   }, null, 8
@@ -24089,12 +24116,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["value", "onUpdate:image"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MarkdownEditor, {
     name: "source",
     value: $setup.state.source,
-    "onUpdate:source": _cache[2] || (_cache[2] = function ($event) {
+    "onUpdate:source": _cache[3] || (_cache[3] = function ($event) {
       return $setup.state.source = $event;
     })
   }, null, 8
   /* PROPS */
-  , ["value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SwitchToggleButton, {
+  , ["value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SwitchToggleButton, {
     name: "is_publish",
     value: $setup.state.isPublish,
     label: "公開する",
@@ -24114,7 +24141,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   })])], 8
   /* PROPS */
-  , _hoisted_3)])]);
+  , _hoisted_4)])]);
 }
 
 /***/ }),
@@ -29822,7 +29849,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".blog-form-page-wrapper[data-v-340f654b] {\n  background-color: var(--yellow);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.blog-form-page-wrapper > .contents[data-v-340f654b] {\n  width: var(--width-pc);\n  margin-top: var(--margin-xl);\n}\n.blog-form-page-wrapper > .contents > .form[data-v-340f654b] {\n  width: var(--width-pc);\n  padding-top: var(--margin-xl);\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-s);\n}\n.form-footer[data-v-340f654b] {\n  position: -webkit-sticky;\n  position: sticky;\n  bottom: var(--margin-xs);\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  -moz-column-gap: var(--margin-s);\n       column-gap: var(--margin-s);\n  padding: var(--margin-xs);\n  margin-bottom: var(--margin-xs);\n  box-sizing: border-box;\n  background-color: var(--base-bg-color);\n  border-radius: var(--border-radius-s);\n  box-shadow: 4px 4px 8px #b8b9be, -4px -4px 8px #fff;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".blog-form-page-wrapper[data-v-340f654b] {\n  background-color: var(--yellow);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.blog-form-page-wrapper > .link[data-v-340f654b] {\n  display: flex;\n  align-items: center;\n  -moz-column-gap: 8px;\n       column-gap: 8px;\n  width: var(--width-pc);\n  margin-top: var(--margin-m);\n  font-size: 1.4rem;\n  color: var(--base-text-color);\n}\n.blog-form-page-wrapper > .link[data-v-340f654b]:hover {\n  cursor: pointer;\n}\n.blog-form-page-wrapper > .contents[data-v-340f654b] {\n  width: var(--width-pc);\n  margin-top: var(--margin-xl);\n}\n.blog-form-page-wrapper > .contents > .form[data-v-340f654b] {\n  width: var(--width-pc);\n  padding-top: var(--margin-xl);\n  display: flex;\n  flex-direction: column;\n  row-gap: var(--margin-s);\n}\n.form-footer[data-v-340f654b] {\n  position: -webkit-sticky;\n  position: sticky;\n  bottom: var(--margin-xs);\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  -moz-column-gap: var(--margin-s);\n       column-gap: var(--margin-s);\n  padding: var(--margin-xs);\n  margin-bottom: var(--margin-xs);\n  box-sizing: border-box;\n  background-color: var(--base-bg-color);\n  border-radius: var(--border-radius-s);\n  box-shadow: 4px 4px 8px #b8b9be, -4px -4px 8px #fff;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

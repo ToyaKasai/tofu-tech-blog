@@ -1,5 +1,9 @@
 <template>
     <div class="blog-form-page-wrapper">
+        <button class="link" @click="handleClickLink">
+            <Icon name="left_allow" width="32px" />
+            戻る
+        </button>
         <div class="contents">
             <form
                 :action="actionPath"
@@ -9,7 +13,6 @@
             >
                 <CsrfToken :csrf="csrf" />
                 <!-- TODO: language 選択できるようにしたい -->
-
                 <FormTitleInput
                     name="title"
                     :value="state.title"
@@ -45,7 +48,7 @@
 </template>
 
 <script>
-import { computed, onBeforeMount, reactive } from "vue";
+import { computed, onBeforeMount, onMounted, onUnmounted, reactive } from "vue";
 import HeadingLv1 from "../common/HeadingLv1.vue";
 import FormTitleInput from "../common/form/FormTitleInput.vue";
 import FormImageUploader from "../common/form/FormImageUploader.vue";
@@ -54,6 +57,7 @@ import MarkdownEditor from "../common/form/MarkdownEditor.vue";
 import CommonButton from "../common/CommonButton.vue";
 import SwitchToggleButton from "../common/SwitchToggleButton.vue";
 import CsrfToken from "../common/form/CsrfToken.vue";
+import Icon from "../Icon.vue";
 
 /** 新規登録 */
 export default {
@@ -67,6 +71,7 @@ export default {
         CommonButton,
         SwitchToggleButton,
         CsrfToken,
+        Icon,
     },
     props: {
         csrf: {
@@ -120,11 +125,20 @@ export default {
             props.mode === "register" ? "保存する" : "更新する"
         );
 
+        /** ページバックのハンドリング */
+        const handleClickLink = () => {
+            if (!window.confirm("保存せずに終了しますか？")) {
+                return;
+            }
+            history.back();
+        };
+
         return {
             state,
             updateImage,
             toggleIsPublish,
             buttonText,
+            handleClickLink,
         };
     },
 };
@@ -139,6 +153,20 @@ export default {
     flex-direction: column;
     align-items: center;
 
+    > .link {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+        width: var(--width-pc);
+        margin-top: var(--margin-m);
+        font-size: 1.4rem;
+        color: var(--base-text-color);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     > .contents {
         width: var(--width-pc);
         margin-top: var(--margin-xl);
@@ -152,6 +180,7 @@ export default {
         row-gap: var(--margin-s);
     }
 }
+
 .form-footer {
     position: sticky;
     bottom: var(--margin-xs);
