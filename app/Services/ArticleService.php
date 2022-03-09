@@ -37,6 +37,15 @@ final class ArticleService
 
     /**
      *
+     * @return Collection
+     */
+    public function getArticlesByIsPublish(Collection $articles): Collection
+    {
+        return $this->repository->getArticlesByIsPublish($articles);
+    }
+
+    /**
+     *
      * @param integer $articleId
      * @return Article
      */

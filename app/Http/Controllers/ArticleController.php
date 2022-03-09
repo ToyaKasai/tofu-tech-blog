@@ -22,8 +22,11 @@ class ArticleController extends Controller
     {
         $articles = $this->service->getArticlesByUpdatedAt('desc');
 
+        /** 公開中の記事のみ表示 */
+        $publishArticles = $this->service->getArticlesByIsPublish($articles);
+
         return view('blog.index', [
-            'articles' => $articles,
+            'articles' => $publishArticles,
         ]);
     }
 
