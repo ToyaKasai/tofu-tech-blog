@@ -23414,12 +23414,15 @@ var _hoisted_7 = {
   "class": "description"
 };
 var _hoisted_8 = {
-  "class": "date"
+  "class": "text"
 };
 var _hoisted_9 = {
-  "class": "save"
+  "class": "date"
 };
 var _hoisted_10 = {
+  "class": "save"
+};
+var _hoisted_11 = {
   "class": "save-button"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -23435,11 +23438,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.description), 1
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.description), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.parsedDate), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.parsedDate), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [$props.isSave ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Icon, {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [$props.isSave ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Icon, {
     key: 0,
     "class": "heart",
     name: "heart"
@@ -29555,7 +29558,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".article-card-wrapper[data-v-21d5f36d] {\n  background-color: var(--base-bg-color);\n  border: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-s);\n  overflow: hidden;\n  box-shadow: 4px 4px 8px #b8b9be, -4px -4px 8px #fff;\n}\n.article-card-wrapper:hover > .thumbnail > .inside[data-v-21d5f36d] {\n  transform: scale(1.2);\n}\n.article-card-wrapper > .thumbnail[data-v-21d5f36d] {\n  position: relative;\n  height: 160px;\n  border-radius: var(--border-radius-s) var(--border-radius-s) 0 0;\n  background-color: var(--gray-100);\n  overflow: hidden;\n}\n.article-card-wrapper > .thumbnail > .inside[data-v-21d5f36d] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  transition: transform 0.2s;\n}\n.article-card-wrapper > .thumbnail > .inside[data-v-21d5f36d]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n}\n.article-card-wrapper > .thumbnail > .inside > .image[data-v-21d5f36d] {\n  display: block;\n  margin: auto;\n  max-height: 100%;\n}\n.article-card-wrapper > .thumbnail > .inside > .title[data-v-21d5f36d] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 1.4rem;\n  color: var(--white);\n}\n.article-card-wrapper > .content[data-v-21d5f36d] {\n  height: 200px;\n  box-sizing: border-box;\n  padding: var(--margin-s);\n  display: grid;\n  grid-template: 1fr 48px/1fr 1fr;\n  grid-template-areas: \"description description\" \"date save\";\n}\n.article-card-wrapper > .content > .description[data-v-21d5f36d] {\n  grid-area: description;\n  display: flex;\n  align-items: center;\n  font-size: 1.6rem;\n  font-weight: 500;\n  color: var(--base-text-color);\n}\n.article-card-wrapper > .content > .date[data-v-21d5f36d] {\n  grid-area: date;\n  font-size: 1.6rem;\n  font-weight: 500;\n  display: flex;\n  align-items: flex-end;\n  color: var(--gray-600);\n}\n.article-card-wrapper > .content > .save[data-v-21d5f36d] {\n  grid-area: save;\n  display: flex;\n  align-items: flex-end;\n  justify-content: flex-end;\n}\n.save-button[data-v-21d5f36d] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n  color: var(--base-text-color);\n  background-color: var(--base-bg-color);\n  outline: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-circle);\n  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;\n}\n.save-button > .heart[data-v-21d5f36d] {\n  color: var(--red);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.article-card-wrapper[data-v-21d5f36d] {\n  background-color: var(--base-bg-color);\n  border: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-s);\n  overflow: hidden;\n  box-shadow: 4px 4px 8px #b8b9be, -4px -4px 8px #fff;\n}\n.article-card-wrapper:hover > .thumbnail > .inside[data-v-21d5f36d] {\n  transform: scale(1.2);\n}\n.article-card-wrapper > .thumbnail[data-v-21d5f36d] {\n  position: relative;\n  height: 160px;\n  border-radius: var(--border-radius-s) var(--border-radius-s) 0 0;\n  background-color: var(--gray-100);\n  overflow: hidden;\n}\n.article-card-wrapper > .thumbnail > .inside[data-v-21d5f36d] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  transition: transform 0.2s;\n}\n.article-card-wrapper > .thumbnail > .inside[data-v-21d5f36d]::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n}\n.article-card-wrapper > .thumbnail > .inside > .image[data-v-21d5f36d] {\n  display: block;\n  margin: auto;\n  max-height: 100%;\n}\n.article-card-wrapper > .thumbnail > .inside > .title[data-v-21d5f36d] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 1.4rem;\n  color: var(--white);\n}\n.article-card-wrapper > .content[data-v-21d5f36d] {\n  height: 200px;\n  box-sizing: border-box;\n  padding: var(--margin-s);\n  display: grid;\n  grid-template: 1fr 48px/1fr 1fr;\n  grid-template-areas: \"description description\" \"date save\";\n}\n.article-card-wrapper > .content > .description[data-v-21d5f36d] {\n  grid-area: description;\n  display: flex;\n  align-items: center;\n}\n.article-card-wrapper > .content > .description > .text[data-v-21d5f36d] {\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  font-size: 1.6rem;\n  font-weight: 500;\n  color: var(--base-text-color);\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n  /* 制限したい行数が3の場合 */\n  overflow: hidden;\n}\n.article-card-wrapper > .content > .date[data-v-21d5f36d] {\n  grid-area: date;\n  font-size: 1.6rem;\n  font-weight: 500;\n  display: flex;\n  align-items: flex-end;\n  color: var(--gray-600);\n}\n.article-card-wrapper > .content > .save[data-v-21d5f36d] {\n  grid-area: save;\n  display: flex;\n  align-items: flex-end;\n  justify-content: flex-end;\n}\n.save-button[data-v-21d5f36d] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n  color: var(--base-text-color);\n  background-color: var(--base-bg-color);\n  outline: 1px solid var(--base-border-color);\n  border-radius: var(--border-radius-circle);\n  box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;\n}\n.save-button > .heart[data-v-21d5f36d] {\n  color: var(--red);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
