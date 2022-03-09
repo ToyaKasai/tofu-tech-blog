@@ -166,9 +166,8 @@ export default {
     > .content > .editor {
         width: 100%;
         height: 100%;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-family: inherit;
-        font-weight: 500;
         line-height: 1.4;
         color: var(--base-text-color);
         background-color: var(--base-bg-color);

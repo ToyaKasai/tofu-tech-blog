@@ -29,3 +29,11 @@ $breakpoints: (
     box-shadow: inset $size $size $blur $darken,
         inset calc($size * -1) calc($size * -1) $blur $lighten;
 }
+
+// 3点リーダー
+@mixin line-limit($limit: 3) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $limit; /* 制限したい行数が3の場合 */
+    overflow: hidden;
+}

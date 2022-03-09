@@ -7,7 +7,11 @@
             </div>
         </div>
         <div class="content">
-            <p class="description">{{ description }}</p>
+            <div class="description">
+                <p class="text">
+                    {{ description }}
+                </p>
+            </div>
             <p class="date">{{ parsedDate }}</p>
             <div class="save">
                 <div class="save-button">
@@ -153,9 +157,15 @@ export default {
         grid-area: description;
         display: flex;
         align-items: center;
+    }
+
+    > .content > .description > .text {
+        height: fit-content;
         font-size: 1.6rem;
         font-weight: 500;
         color: var(--base-text-color);
+
+        @include line-limit;
     }
 
     > .content > .date {

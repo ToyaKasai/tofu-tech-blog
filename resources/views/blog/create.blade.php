@@ -1,3 +1,6 @@
+@section('header')
+@endsection
+
 @extends('layouts.app')
 
 @section('content')
