@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = $this->service->getAllArticles();
+        $articles = $this->service->getArticlesByUpdatedAt('desc');
 
         return view('blog.index', [
             'articles' => $articles,

@@ -28,6 +28,15 @@ final class ArticleService
 
     /**
      *
+     * @return Collection
+     */
+    public function getArticlesByUpdatedAt(string $sort): Collection
+    {
+        return $this->repository->getArticlesByUpdatedAt($sort);
+    }
+
+    /**
+     *
      * @param integer $articleId
      * @return Article
      */

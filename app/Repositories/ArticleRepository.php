@@ -19,6 +19,15 @@ final class ArticleRepository implements ArticleRepositoryInterface
 
     /**
      *
+     * @return Collection
+     */
+    public function getArticlesByUpdatedAt(string $sort): Collection
+    {
+        return Article::orderBy('updated_at', $sort)->get();
+    }
+
+    /**
+     *
      * @param integer $articleId
      * @return Article
      */
