@@ -22,8 +22,12 @@
             <div class="article-content">
                 <div class="side">
                     <div class="content">
-                        <button class="action-button">
-                            <template v-if="article.is_save">
+                        <button
+                            class="action-button"
+                            @click="updateFavorite"
+                            :disabled="isSaving"
+                        >
+                            <template v-if="isSave">
                                 <Icon class="heart" name="heart" />
                             </template>
                             <template v-else>
@@ -52,7 +56,7 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import {
     STORAGE_IMAGE_PATH,
     DEFAULT_THUMBNAIL_PATH,
@@ -62,6 +66,7 @@ import MarkdownPreview from "../common/MarkdownPreview.vue";
 import parseArticlePath from "../../lib/parseArticlePath";
 import parseDate from "../../lib/parseDate";
 import CsrfToken from "../common/form/CsrfToken.vue";
+import axios from "axios";
 
 /** 記事閲覧ページ */
 export default {
@@ -84,8 +89,15 @@ export default {
             type: String,
             required: true,
         },
+        updateFavoriteUrl: {
+            type: String,
+            required: true,
+        },
     },
     setup(props) {
+        const isSave = ref(props.article.is_save);
+        const isSaving = ref(false);
+
         const thumbnailSrc = computed(() =>
             props.article.thumbnail_path
                 ? `${STORAGE_IMAGE_PATH}${props.article.thumbnail_path}`
@@ -110,12 +122,30 @@ export default {
             }
         };
 
+        /** お気に入り更新 */
+        const updateFavorite = async () => {
+            isSaving.value = true;
+            try {
+                const result = await axios.post(props.updateFavoriteUrl);
+                if (result.data === 1) {
+                    isSave.value = !isSave.value;
+                }
+            } catch (e) {
+                console.error(
+                    `お気に入り更新処理に失敗しました。エラーメッセージ：${e}`
+                );
+            }
+            isSaving.value = false;
+        };
+
         return {
+            isSave,
             thumbnailSrc,
             createDate,
             updateDate,
             editPath,
             handleSubmit,
+            updateFavorite,
         };
     },
 };

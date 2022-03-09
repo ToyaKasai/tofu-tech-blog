@@ -96,4 +96,20 @@ final class ArticleService
     {
         $this->repository->deleteArticle($articleId);
     }
+
+    /**
+     *
+     * @param integer $articleId
+     * @return boolean
+     */
+    public function updateIsSave(int $articleId):bool
+    {
+        $article = $this->getArticleById($articleId);
+
+        $newValue = !$article->is_save ? 1 : 0;
+
+        $article->is_save = $newValue;
+
+        return $this->repository->saveArticle($article);
+    }
 }
