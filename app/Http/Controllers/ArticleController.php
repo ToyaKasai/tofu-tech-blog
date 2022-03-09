@@ -2,86 +2,97 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Services\ArticleService;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    /**
+     * @param ArticleService $service
+     */
+    public function __construct(private ArticleService $service)
+    {
+    }
+
+    /**
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
-        $articles = Article::all();
+        $articles = $this->service->getAllArticles();
 
         return view('blog.index', [
-            'articles' => $articles
+            'articles' => $articles,
         ]);
     }
 
+    /**
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create()
     {
         return view('blog.create');
     }
 
-    public function store(Request $request)
+    /**
+     *
+     * @param Request $param
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $param)
     {
-        $article = new Article();
+        $success = $this->service->saveArticle($param);
 
-        /** TODO: Service化する */
-        /** booleanをtinyInt型にする */
-        $is_publish = $request->input('is_publish') === 'true' ? 1 : 0;
-
-        $thumbnail = $request->file('thumbnail_path')?->store('public/image'); // storage内に保存
-        $thumbnail_path = $thumbnail ?  str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
-
-        $article->title = $request->input('title');
-        $article->description = $request->input('description');
-        $article->thumbnail_path = $thumbnail_path;
-        $article->source = $request->input('source');
-        $article->is_publish = $is_publish;
-
-        $article->save();
-
-        return redirect('/');
+        return $success ? redirect('/') : redirect('/404');
     }
 
+    /**
+     *
+     * @param integer $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function view(int $id)
     {
-        $article = Article::find($id);
+        $article = $this->service->getArticleById($id);
 
         return view('blog.view', ['article' => $article]);
     }
 
-    public function edit($id)
+    /**
+     *
+     * @param integer $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function edit(int $id)
     {
-        $article = Article::find($id);
+        $article = $this->service->getArticleById($id);
 
         return view('blog.edit', ['article' => $article]);
     }
 
-    public function update(Request $request, $id)
+    /**
+     *
+     * @param integer $id
+     * @param Request $param
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function update(int $id, Request $param)
     {
-        $article = Article::find($id);
+        $success = $this->service->updateArticle($id, $param);
 
-        /** TODO: Service化する */
-        $is_publish = $request->input('is_publish') === 'true' ? 1 : 0;
-
-        $thumbnail = $request->file('thumbnail_path')?->store('public/image');
-        $thumbnail_path = $thumbnail ?  str_replace('public/image/', '', $thumbnail) : null;
-
-        $article->title = $request->input('title');
-        $article->description = $request->input('description');
-        $thumbnail_path ? $article->thumbnail_path = $thumbnail_path : '';
-        $article->source = $request->input('source');
-        $article->is_publish = $is_publish;
-
-        $article->save();
-
-        return redirect('view/' . $id);
+        return $success ? redirect('view/' . $id) : redirect('/404');
     }
 
-    public function delete($id)
+    /**
+     *
+     * @param integer $id
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function delete(int $id)
     {
-        $article = Article::find($id);
-        $article->delete();
+        $this->service->deleteArticle($id);
 
         return redirect('/');
     }
