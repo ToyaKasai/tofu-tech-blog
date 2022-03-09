@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +21,6 @@ Route::get('/view/{id}', 'App\Http\Controllers\ArticleController@view')->name('b
 Route::get('/edit/{id}', 'App\Http\Controllers\ArticleController@edit')->name('blog.edit');
 Route::post('/update/{id}', 'App\Http\Controllers\ArticleController@update')->name('blog.update');
 Route::post('/delete/{id}', 'App\Http\Controllers\ArticleController@delete')->name('blog.delete');
+
+/** お気に入り */
+Route::post('/favorite/{id}', 'App\Http\Controllers\FavoriteController@updateFavorite')->name('favorite.update');
