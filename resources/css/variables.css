@@ -1,45 +1,45 @@
 :root {
-    /* font-family */
-    --font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
-        "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  /* font-family */
+  --font-family: 'Helvetica Neue', 'Helvetica', 'Hiragino Sans',
+    'Hiragino Kaku Gothic ProN', 'Arial', 'Yu Gothic', 'Meiryo', sans-serif;
 
-    /* color variable */
-    --white: #fff;
-    --black: #000;
-    --gray-100: #f3f7fa;
-    --gray-200: #fafbfe;
-    --gray-300: #e6e7ee;
-    --gray-400: #d1d9e6;
-    --gray-500: #b1bcce;
-    --gray-600: #93a5be;
-    --gray-700: #66799e;
-    --gray-800: #525480;
-    --base-bg-color: #e6e7ee;
-    --base-text-color: #44476a;
-    --base-border-color: #d1d9e6;
-    --blue: #0056b3;
-    --red: #e74c3c;
-    --alert: #c0392b;
+  /* color variable */
+  --white: #fff;
+  --black: #000;
+  --gray-100: #f3f7fa;
+  --gray-200: #fafbfe;
+  --gray-300: #e6e7ee;
+  --gray-400: #d1d9e6;
+  --gray-500: #b1bcce;
+  --gray-600: #93a5be;
+  --gray-700: #66799e;
+  --gray-800: #525480;
+  --base-bg-color: #e6e7ee;
+  --base-text-color: #44476a;
+  --base-border-color: #d1d9e6;
+  --blue: #0056b3;
+  --red: #e74c3c;
+  --alert: #c0392b;
 
-    /* margin variable */
-    --margin-xxs: 12px;
-    --margin-xs: 20px;
-    --margin-s: 32px;
-    --margin-m: 48px;
-    --margin-l: 60px;
-    --margin-xl: 80px;
+  /* margin variable */
+  --margin-xxs: 12px;
+  --margin-xs: 20px;
+  --margin-s: 32px;
+  --margin-m: 48px;
+  --margin-l: 60px;
+  --margin-xl: 80px;
 
-    /* border radius variable */
-    --border-radius-xxs: 4px;
-    --border-radius-xs: 8px;
-    --border-radius-s: 12px;
-    --border-radius-m: 20px;
-    --border-radius-circle: 50%;
+  /* border radius variable */
+  --border-radius-xxs: 4px;
+  --border-radius-xs: 8px;
+  --border-radius-s: 12px;
+  --border-radius-m: 20px;
+  --border-radius-circle: 50%;
 
-    /* size */
-    --width-pc: 990px;
-    --main-visual-height: 180px;
+  /* size */
+  --width-pc: 990px;
+  --main-visual-height: 180px;
 
-    /* z-index */
-    --header-z-index: 1000;
+  /* z-index */
+  --header-z-index: 1000;
 }

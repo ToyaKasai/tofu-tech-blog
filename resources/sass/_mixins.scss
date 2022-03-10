@@ -1,39 +1,39 @@
 // ブレイクポイント
 // 参考：https://crestadesign.org/responsive/
 $breakpoints: (
-    "sp": "screen and (max-width: 599px)",
-    "tablet": "screen and (max-width: 1024px)",
-    "pc": "screen and (min-width: 1025px)",
+  'sp': 'screen and (max-width: 599px)',
+  'tablet': 'screen and (max-width: 1024px)',
+  'pc': 'screen and (min-width: 1025px)',
 ) !default;
 
 // メディアクエリ
 @mixin mq($breakpoint) {
-    @media #{map-get($breakpoints, $breakpoint)} {
-        @content;
-    }
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
 }
 
 // ニューモフィズムのbox-shadow
 @mixin np-shadow($size: 4px, $blur: 8px, $lighten: #fff, $darken: #b8b9be) {
-    box-shadow: $size $size $blur $darken,
-        calc($size * -1) calc($size * -1) $blur $lighten;
+  box-shadow: $size $size $blur $darken,
+    calc(#{$size} * -1) calc(#{$size} * -1) $blur $lighten;
 }
 
 // ニューモフィズムのinner-shadow
 @mixin np-inner-shadow(
-    $size: 2px,
-    $blur: 4px,
-    $lighten: #fff,
-    $darken: #b8b9be
+  $size: 2px,
+  $blur: 4px,
+  $lighten: #fff,
+  $darken: #b8b9be
 ) {
-    box-shadow: inset $size $size $blur $darken,
-        inset calc($size * -1) calc($size * -1) $blur $lighten;
+  box-shadow: inset $size $size $blur $darken,
+    inset calc(#{$size} * -1) calc(#{$size} * -1) $blur $lighten;
 }
 
 // 3点リーダー
 @mixin line-limit($limit: 3) {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: $limit; /* 制限したい行数が3の場合 */
-    overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $limit; /* 制限したい行数が3の場合 */
+  overflow: hidden;
 }
