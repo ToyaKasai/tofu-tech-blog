@@ -3,7 +3,6 @@
     "singleQuote": true,
     "trailingComma": "all",
     "semi": true,
-    "parser": "typescript",
     "bracketSpacing": true,
     "arrowParens": "always",
     "vueIndentScriptAndStyle": true

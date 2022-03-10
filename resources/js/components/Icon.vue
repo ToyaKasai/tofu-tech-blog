@@ -1,33 +1,33 @@
 <template>
-    <svg-vue class="icon-wrapper" :icon="name" />
+  <svg-vue class="icon-wrapper" :icon="name" />
 </template>
 
 <script>
-/**
- * svgアイコンのVueコンポーネント
- */
-export default {
-    name: "Icon",
+  /**
+   * svgアイコンのVueコンポーネント
+   */
+  export default {
+    name: 'Icon',
     props: {
-        name: {
-            type: String,
-            required: true,
-        },
-        width: {
-            type: String,
-            default: "24px",
-        },
-        height: {
-            type: String,
-            default: "",
-        },
+      name: {
+        type: String,
+        required: true,
+      },
+      width: {
+        type: String,
+        default: '24px',
+      },
+      height: {
+        type: String,
+        default: '',
+      },
     },
-};
+  };
 </script>
 
 <style lang="scss" scoped>
-.icon-wrapper {
+  .icon-wrapper {
     width: v-bind(width);
     height: v-bind(height);
-}
+  }
 </style>

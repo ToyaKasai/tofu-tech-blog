@@ -1,38 +1,38 @@
 <template>
-    <div class="markdown-preview-wrapper">
-        <VueMarkdown
-            :breaks="true"
-            :html="true"
-            :linkify="true"
-            class="markdown-preview"
-            :source="value"
-        />
-    </div>
+  <div class="markdown-preview-wrapper">
+    <VueMarkdown
+      :breaks="true"
+      :html="true"
+      :linkify="true"
+      class="markdown-preview"
+      :source="value"
+    />
+  </div>
 </template>
 
 <script>
-import VueMarkdown from "vue3-markdown-it";
+  import VueMarkdown from 'vue3-markdown-it';
 
-/** マークダウンプレビュー */
-export default {
-    name: "MarkdownPreview",
+  /** マークダウンプレビュー */
+  export default {
+    name: 'MarkdownPreview',
     components: {
-        VueMarkdown,
+      VueMarkdown,
     },
     props: {
-        value: {
-            type: String,
-            default: "",
-        },
+      value: {
+        type: String,
+        default: '',
+      },
     },
-};
+  };
 </script>
 
 <style lang="scss" scoped>
-@import "../../../sass/_mixins.scss";
-@import "../../../sass/markdownPreview.scss";
+  @import '../../../sass/_mixins.scss';
+  @import '../../../sass/markdownPreview.scss';
 
-.markdown-preview-wrapper {
+  .markdown-preview-wrapper {
     width: 100%;
     background-color: var(--base-bg-color);
     border: 1px solid var(--base-border-color);
@@ -41,5 +41,5 @@ export default {
     box-sizing: border-box;
 
     @include np-shadow;
-}
+  }
 </style>

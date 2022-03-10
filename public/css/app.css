@@ -35,7 +35,7 @@ textarea::-webkit-resizer {
 :root {
   /* font-family */
   --font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans",
-      "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
   /* color variable */
   --white: #fff;
   --black: #000;
