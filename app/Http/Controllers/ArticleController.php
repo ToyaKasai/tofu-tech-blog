@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    const NUMBER_OF_ARTICLES = 9;
+
     /**
      * @param ArticleService $service
      */
@@ -23,7 +25,7 @@ class ArticleController extends Controller
         $articles = $this->service->getArticlesByUpdatedAt('desc');
 
         /** 公開中の記事のみ表示 */
-        $publishArticles = $this->service->getArticlesByIsPublish($articles);
+        $publishArticles = $this->service->getArticlesByIsPublish($articles)->take(self::NUMBER_OF_ARTICLES);
 
         return view('blog.index', [
             'articles' => $publishArticles,

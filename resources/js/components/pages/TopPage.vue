@@ -15,13 +15,17 @@
                     />
                 </template>
             </section>
+            <div class="button">
+                <CommonButton href="/list" :is-full="true" :text-gray="true">もっと見る</CommonButton>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import ArticleCard from "../common/ArticleCard.vue";
 import HeadingLv1 from "../common/HeadingLv1.vue";
+import ArticleCard from "../common/ArticleCard.vue";
+import CommonButton from "../common/CommonButton.vue";
 
 /** トップページ */
 export default {
@@ -29,6 +33,7 @@ export default {
     components: {
         HeadingLv1,
         ArticleCard,
+        CommonButton,
     },
     props: {
         heading: {
@@ -56,10 +61,15 @@ export default {
     }
 
     > .contents > .articles {
-        padding: var(--margin-xl) 0;
+        padding-top: var(--margin-xl);
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--margin-s);
+    }
+
+    > .contents > .button {
+        margin: var(--margin-m) 0 var(--margin-xl) 0;
+        width: 100%;
     }
 }
 </style>
