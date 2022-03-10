@@ -5,5 +5,5 @@
     "semi": true,
     "bracketSpacing": true,
     "arrowParens": "always",
-    "vueIndentScriptAndStyle": true
+    "vueIndentScriptAndStyle": false
 }

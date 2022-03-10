@@ -20,85 +20,86 @@
 </template>
 
 <script>
-  import Icon from '../Icon.vue';
-  import CommonButton from './CommonButton.vue';
-  export default {
-    name: 'GlobalHeader',
-    components: {
-      Icon,
-      CommonButton,
+import Icon from '../Icon.vue';
+import CommonButton from './CommonButton.vue';
+
+export default {
+  name: 'GlobalHeader',
+  components: {
+    Icon,
+    CommonButton,
+  },
+  props: {
+    headerTitle: {
+      type: String,
+      default: 'TOFU TECH BLOG',
     },
-    props: {
-      headerTitle: {
-        type: String,
-        default: 'TOFU TECH BLOG',
-      },
-      createPath: {
-        type: String,
-        default: '',
-      },
-      settingPath: {
-        type: String,
-        default: '/setting',
-      },
-      searchPath: {
-        type: String,
-        default: '/search',
-      },
+    createPath: {
+      type: String,
+      default: '',
     },
-  };
+    settingPath: {
+      type: String,
+      default: '/setting',
+    },
+    searchPath: {
+      type: String,
+      default: '/search',
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../sass/_mixins.scss';
+@import '../../../sass/_mixins.scss';
 
-  // TODO: レスポンシブ対応
-  .global-header-wrapper {
-    width: 100%;
+// TODO: レスポンシブ対応
+.global-header-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  > .header {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, auto);
+    column-gap: var(--margin-xxs);
+    align-items: center;
+    box-sizing: border-box;
+    width: var(--width-pc);
+    margin: auto;
+    margin-top: var(--margin-xs);
+    padding: var(--margin-xxs) var(--margin-s);
+    background-color: var(--base-bg-color);
+    border: 1px solid var(--base-border-color);
+    border-radius: var(--border-radius-s);
+
+    @include np-shadow;
+  }
+
+  > .header > .title > .link {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--base-text-color);
+  }
+
+  > .header > .icon {
     display: flex;
+    align-items: center;
     justify-content: center;
+    width: 38px;
+    height: 38px;
+    color: var(--base-text-color);
+    background-color: var(--base-bg-color);
+    outline: 1px solid var(--base-border-color);
+    border-radius: var(--border-radius-xs);
 
-    > .header {
-      display: grid;
-      grid-template-columns: 1fr repeat(3, auto);
-      column-gap: var(--margin-xxs);
-      align-items: center;
-      box-sizing: border-box;
-      width: var(--width-pc);
-      margin: auto;
-      margin-top: var(--margin-xs);
-      padding: var(--margin-xxs) var(--margin-s);
-      background-color: var(--base-bg-color);
-      border: 1px solid var(--base-border-color);
-      border-radius: var(--border-radius-s);
+    @include np-shadow(3px, 6px);
 
-      @include np-shadow;
-    }
-
-    > .header > .title > .link {
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: var(--base-text-color);
-    }
-
-    > .header > .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      color: var(--base-text-color);
-      background-color: var(--base-bg-color);
-      outline: 1px solid var(--base-border-color);
-      border-radius: var(--border-radius-xs);
-
-      @include np-shadow(3px, 6px);
-
-      &:hover {
-        outline: none;
-        @include np-inner-shadow;
-        cursor: pointer;
-      }
+    &:hover {
+      outline: none;
+      @include np-inner-shadow;
+      cursor: pointer;
     }
   }
+}
 </style>

@@ -17,61 +17,61 @@
       </section>
       <div class="button">
         <CommonButton href="/list" :is-full="true" :text-gray="true"
-          >もっと見る</CommonButton
-        >
+          >もっと見る
+        </CommonButton>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import HeadingLv1 from '../common/HeadingLv1.vue';
-  import ArticleCard from '../common/ArticleCard.vue';
-  import CommonButton from '../common/CommonButton.vue';
+import HeadingLv1 from '../common/HeadingLv1.vue';
+import ArticleCard from '../common/ArticleCard.vue';
+import CommonButton from '../common/CommonButton.vue';
 
-  /** トップページ */
-  export default {
-    name: 'TopPage',
-    components: {
-      HeadingLv1,
-      ArticleCard,
-      CommonButton,
+/** トップページ */
+export default {
+  name: 'TopPage',
+  components: {
+    HeadingLv1,
+    ArticleCard,
+    CommonButton,
+  },
+  props: {
+    heading: {
+      type: String,
+      default: 'Tech Articles',
     },
-    props: {
-      heading: {
-        type: String,
-        default: 'Tech Articles',
-      },
-      articles: {
-        type: Array,
-        default: () => [],
-      },
+    articles: {
+      type: Array,
+      default: () => [],
     },
-  };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  .top-page-wrapper {
-    background-color: var(--yellow);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.top-page-wrapper {
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    > .contents {
-      width: var(--width-pc);
-      margin-top: var(--margin-xl);
-    }
-
-    > .contents > .articles {
-      padding-top: var(--margin-xl);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--margin-s);
-    }
-
-    > .contents > .button {
-      margin: var(--margin-m) 0 var(--margin-xl) 0;
-      width: 100%;
-    }
+  > .contents {
+    width: var(--width-pc);
+    margin-top: var(--margin-xl);
   }
+
+  > .contents > .articles {
+    padding-top: var(--margin-xl);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--margin-s);
+  }
+
+  > .contents > .button {
+    margin: var(--margin-m) 0 var(--margin-xl) 0;
+    width: 100%;
+  }
+}
 </style>

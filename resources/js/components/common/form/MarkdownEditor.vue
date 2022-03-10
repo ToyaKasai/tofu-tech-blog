@@ -52,133 +52,133 @@
 </template>
 
 <script>
-  import { computed, ref } from 'vue';
-  import VueMarkdown from 'vue3-markdown-it';
-  import Icon from '../../Icon.vue';
+import { computed, ref } from 'vue';
+import VueMarkdown from 'vue3-markdown-it';
+import Icon from '../../Icon.vue';
 
-  /** マークダウンエディタ */
-  export default {
-    name: 'MarkdownEditor',
-    components: {
-      VueMarkdown,
-      Icon,
+/** マークダウンエディタ */
+export default {
+  name: 'MarkdownEditor',
+  components: {
+    VueMarkdown,
+    Icon,
+  },
+  props: {
+    name: {
+      type: String,
+      required: true,
     },
-    props: {
-      name: {
-        type: String,
-        required: true,
-      },
-      placeholder: {
-        type: String,
-        default: 'Enter in Markdown',
-      },
-      value: {
-        type: String,
-        default: '',
-      },
+    placeholder: {
+      type: String,
+      default: 'Enter in Markdown',
     },
-    setup(props, { emit }) {
-      const mode = ref('edit');
-
-      const NOT_SOURCE_TEXT = 'Not Contents';
-
-      const setEditMode = () => {
-        mode.value = 'edit';
-      };
-
-      const setPreviewMode = () => {
-        mode.value = 'preview';
-      };
-
-      const input = computed({
-        get: () => props.value,
-        set: (value) => {
-          emit('update:source', value);
-        },
-      });
-
-      return {
-        mode,
-        NOT_SOURCE_TEXT,
-        setEditMode,
-        setPreviewMode,
-        input,
-      };
+    value: {
+      type: String,
+      default: '',
     },
-  };
+  },
+  setup(props, { emit }) {
+    const mode = ref('edit');
+
+    const NOT_SOURCE_TEXT = 'Not Contents';
+
+    const setEditMode = () => {
+      mode.value = 'edit';
+    };
+
+    const setPreviewMode = () => {
+      mode.value = 'preview';
+    };
+
+    const input = computed({
+      get: () => props.value,
+      set: (value) => {
+        emit('update:source', value);
+      },
+    });
+
+    return {
+      mode,
+      NOT_SOURCE_TEXT,
+      setEditMode,
+      setPreviewMode,
+      input,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../../sass/_mixins.scss';
-  @import '../../../../sass/markdownPreview.scss';
+@import '../../../../sass/_mixins.scss';
+@import '../../../../sass/markdownPreview.scss';
 
-  .markdown-editor-wrapper {
-    width: 100%;
+.markdown-editor-wrapper {
+  width: 100%;
+  background-color: var(--base-bg-color);
+  border: 1px solid var(--base-border-color);
+  border-radius: var(--border-radius-s);
+  padding: var(--margin-s);
+  box-sizing: border-box;
+  height: 780px;
+
+  @include np-shadow;
+
+  &:focus-within {
+    @include np-inner-shadow;
+  }
+
+  > .tabs {
+    display: flex;
+    column-gap: var(--margin-xxs);
+    margin-bottom: var(--margin-s);
+  }
+
+  > .tabs > .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: var(--margin-xxs);
+    width: 140px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--base-text-color);
     background-color: var(--base-bg-color);
-    border: 1px solid var(--base-border-color);
-    border-radius: var(--border-radius-s);
-    padding: var(--margin-s);
-    box-sizing: border-box;
-    height: 780px;
+    outline: 1px solid var(--base-border-color);
+    border-radius: var(--border-radius-xs);
+    padding: 8px 0;
 
     @include np-shadow;
 
-    &:focus-within {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.-active {
       @include np-inner-shadow;
     }
-
-    > .tabs {
-      display: flex;
-      column-gap: var(--margin-xxs);
-      margin-bottom: var(--margin-s);
-    }
-
-    > .tabs > .tab {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      column-gap: var(--margin-xxs);
-      width: 140px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--base-text-color);
-      background-color: var(--base-bg-color);
-      outline: 1px solid var(--base-border-color);
-      border-radius: var(--border-radius-xs);
-      padding: 8px 0;
-
-      @include np-shadow;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      &.-active {
-        @include np-inner-shadow;
-      }
-    }
-
-    > .content {
-      height: 620px;
-      overflow-y: auto;
-    }
-
-    > .content > .editor {
-      width: 100%;
-      height: 100%;
-      font-size: 1.6rem;
-      font-family: inherit;
-      line-height: 1.4;
-      color: var(--base-text-color);
-      background-color: var(--base-bg-color);
-      outline: none;
-      border: none;
-    }
-
-    > .content > .default {
-      text-align: center;
-      font-size: 2rem;
-      color: var(--gray-600);
-    }
   }
+
+  > .content {
+    height: 620px;
+    overflow-y: auto;
+  }
+
+  > .content > .editor {
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    font-family: inherit;
+    line-height: 1.4;
+    color: var(--base-text-color);
+    background-color: var(--base-bg-color);
+    outline: none;
+    border: none;
+  }
+
+  > .content > .default {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--gray-600);
+  }
+}
 </style>
