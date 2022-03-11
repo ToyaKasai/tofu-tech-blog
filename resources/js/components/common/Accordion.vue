@@ -76,9 +76,10 @@ export default {
 @import '../../../sass/_mixins.scss';
 
 .accordion-wrapper {
-  padding: var(--margin-xxs) var(--margin-xs);
+  padding: var(--margin-xxs) var(--margin-s);
   box-sizing: border-box;
   border-radius: var(--border-radius-xs);
+
   @include np-shadow;
 
   > .header {
@@ -92,8 +93,8 @@ export default {
   }
 
   > .header > .title {
-    font-size: 1.6rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-weight: bold;
   }
 
   > .header > .icon {
@@ -102,6 +103,8 @@ export default {
     justify-content: center;
     border-radius: var(--border-radius-circle);
     padding: 8px;
+    color: var(--gray-600);
+
     @include np-shadow;
   }
 
