@@ -1,10 +1,10 @@
 <template>
   <div class="pickup-section-wrapper">
     <Accordion
-      :default-value="mode === 'setting'"
+      :default-value="mode === PAGE_SECTION_MODE"
       title="ピックアップ記事を設定する"
     >
-      <form class="pickup-form" :action="updatePickupPath">
+      <form class="pickup-form" method="POST" :action="updatePickupPath">
         <CsrfToken :csrf="csrf" />
         <!-- TODO: value形式確認 -->
         <div class="article-info">
@@ -13,6 +13,7 @@
               v-for="(status, index) in changedStatuses"
               :key="status.id"
             >
+              <!-- form value -->
               <input
                 type="hidden"
                 :name="`changed_statuses[${index}][id]`"
@@ -25,6 +26,7 @@
               />
             </template>
           </template>
+          <!-- articles -->
           <template v-for="(article, index) in articles" :key="article.id">
             <div class="article">
               <!-- TODO: チェックボックスコンポーネント化-->
@@ -41,7 +43,9 @@
           </template>
         </div>
         <div class="submit">
-          <CommonButton type="submit">保存する</CommonButton>
+          <CommonButton :disabled="changedStatuses.length === 0" type="submit"
+            >保存する
+          </CommonButton>
         </div>
       </form>
     </Accordion>
@@ -79,10 +83,11 @@ export default {
     },
     mode: {
       type: String,
-      default: 'setting',
+      default: '',
     },
   },
   setup() {
+    const PAGE_SECTION_MODE = 'pickup';
     const changedStatuses = ref([]);
 
     const changeStatus = (id, status) => {
@@ -124,6 +129,7 @@ export default {
     };
 
     return {
+      PAGE_SECTION_MODE,
       changedStatuses,
       changeStatus,
       handleClickLink,
