@@ -55,7 +55,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'setting',
+      default: '',
     },
   },
   setup() {
@@ -94,6 +94,7 @@ export default {
 
   > .content {
     width: var(--width-pc);
+    margin-bottom: var(--margin-xl);
   }
 
   > .link {
