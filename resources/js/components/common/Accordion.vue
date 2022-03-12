@@ -113,6 +113,7 @@ export default {
     box-sizing: border-box;
     overflow: hidden;
     transition: height 0.08s ease-in-out;
+    user-select: none;
   }
 }
 
