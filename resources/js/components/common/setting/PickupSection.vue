@@ -7,9 +7,25 @@
       <form class="pickup-form" :action="updatePickupPath">
         <CsrfToken :csrf="csrf" />
         <!-- TODO: value形式確認 -->
-        <input type="hidden" name="changed_statuses" :value="changedStatuses" />
         <div class="article-info">
-          <template v-for="article in articles" :key="article.id">
+          <template v-if="changedStatuses.length !== 0">
+            <template
+              v-for="(status, index) in changedStatuses"
+              :key="status.id"
+            >
+              <input
+                type="hidden"
+                :name="`changed_statuses[${index}][id]`"
+                :value="status.id"
+              />
+              <input
+                type="hidden"
+                :name="`changed_statuses[${index}][status]`"
+                :value="status.status"
+              />
+            </template>
+          </template>
+          <template v-for="(article, index) in articles" :key="article.id">
             <div class="article">
               <!-- TODO: チェックボックスコンポーネント化-->
               <input
