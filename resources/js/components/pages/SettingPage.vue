@@ -26,6 +26,7 @@
             <div class="article-info">
               <template v-for="article in articles" :key="article.id">
                 <div class="article">
+                  <!-- TODO: チェックボックスコンポーネント化-->
                   <input type="checkbox" class="checkbox" />
                   <p class="title">{{ article.title }}</p>
                   <p class="date">
