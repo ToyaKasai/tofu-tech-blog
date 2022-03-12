@@ -27,12 +27,13 @@
             </template>
           </template>
           <!-- articles -->
-          <template v-for="(article, index) in articles" :key="article.id">
+          <template v-for="article in articles" :key="article.id">
             <div class="article">
               <!-- TODO: チェックボックスコンポーネント化-->
               <input
                 type="checkbox"
                 class="checkbox"
+                :checked="article.is_pickup === true"
                 @change="changeStatus(article.id, $event.target.checked)"
               />
               <p class="title">{{ article.title }}</p>

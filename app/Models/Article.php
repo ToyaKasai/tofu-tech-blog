@@ -15,6 +15,7 @@ final class Article extends Model
     protected $casts = [
         'is_publish' => 'boolean',
         'is_save' => 'boolean',
+        'is_pickup' => 'boolean',
     ];
 
     public static function make(string $title, string $description, string|null $thumbnailPath, string $source, int $isPublish, int $isPickup, int $isSave): self

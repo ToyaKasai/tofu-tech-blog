@@ -132,4 +132,13 @@ final class ArticleService
 
         return $this->repository->saveArticle($article);
     }
+
+    public function updateIsPickup(array $changedStatuses): void
+    {
+        foreach ($changedStatuses as $value) {
+            $article = $this->getArticleById((int)$value['id']);
+            $article->is_pickup = $value['status'] === 'true' ? 1 : 0;
+            $this->repository->saveArticle($article);
+        }
+    }
 }
