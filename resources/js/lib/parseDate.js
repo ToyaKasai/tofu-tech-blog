@@ -1,5 +1,5 @@
-import {format, parseISO} from 'date-fns';
-import {ja} from 'date-fns/locale';
+import { format, parseISO } from 'date-fns';
+import { ja } from 'date-fns/locale';
 
 const parseDate = (date, formatPattern) => {
   try {
@@ -9,7 +9,7 @@ const parseDate = (date, formatPattern) => {
     return format(
       new Date(utcDate),
       formatPattern ? formatPattern : 'yyyy年M月d日',
-      {locale: ja},
+      { locale: ja },
     );
   } catch {
     return date;
