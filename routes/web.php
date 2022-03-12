@@ -27,3 +27,4 @@ Route::post('/favorite/{id}', 'App\Http\Controllers\FavoriteController@updateFav
 
 /** 設定画面 */
 Route::get('/setting', 'App\Http\Controllers\SettingController@index')->name('setting.index');
+Route::post('/setting/pickup', 'App\Http\Controllers\SettingController@updatePickupArticle')->name('setting.updatePickup');
