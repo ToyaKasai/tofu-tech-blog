@@ -8,21 +8,32 @@
       <div class="heading">
         <HeadingLv1 heading="Setting" />
       </div>
-      <div class="accordion">
+
+      <!-- ピックアップ記事設定 -->
+      <div class="pickup">
         <Accordion
           :default-value="mode === 'setting'"
           title="ピックアップ記事を設定する"
         >
           <form :action="updatePickupPath">
             <CsrfToken :csrf="csrf" />
-            <template v-for="article in articles" :key="article.id">
-              <input
-                type="hidden"
-                name="changed_statuses"
-                :value="changedStatusArticles"
-              />
-              <div class="article-info">form</div>
-            </template>
+            <!-- TODO: value形式確認 -->
+            <input
+              type="hidden"
+              name="changed_statuses"
+              :value="changedStatusArticles"
+            />
+            <div class="article-info">
+              <template v-for="article in articles" :key="article.id">
+                <div class="article">
+                  <input type="checkbox" class="checkbox" />
+                  <p class="title">{{ article.title }}</p>
+                  <p class="date">
+                    {{ parseDate(article.updated_at, 'yyyy年M月d日 mm:dd') }}
+                  </p>
+                </div>
+              </template>
+            </div>
           </form>
         </Accordion>
       </div>
@@ -31,11 +42,12 @@
 </template>
 
 <script>
-import HeadingLv1 from '../common/HeadingLv1';
+import HeadingLv1 from '../common/HeadingLv1.vue';
 import Icon from '../Icon.vue';
-import Accordion from '../common/Accordion';
-import CsrfToken from '../common/form/CsrfToken';
+import Accordion from '../common/Accordion.vue';
+import CsrfToken from '../common/form/CsrfToken.vue';
 import { ref } from 'vue';
+import parseDate from '../../lib/parseDate.js';
 
 export default {
   name: 'SettingPage',
@@ -84,6 +96,7 @@ export default {
       changedStatusArticles,
       changeStatus,
       handleClickLink,
+      parseDate,
     };
   },
 };
@@ -116,6 +129,35 @@ export default {
 
   > .content > .heading {
     margin-top: var(--margin-xl);
+  }
+
+  > .content > .pickup {
+    margin-top: var(--margin-l);
+  }
+}
+
+.article-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: var(--margin-xs);
+
+  > .article {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    font-size: 1.6rem;
+    column-gap: var(--margin-xs);
+    padding: var(--margin-xxs);
+    border-bottom: 1px solid var(--gray-600);
+  }
+
+  > .article > .title {
+    font-weight: 600;
+  }
+
+  > .article > .date {
+    font-weight: 500;
+    color: var(--gray-600);
   }
 }
 </style>
