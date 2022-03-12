@@ -64,9 +64,10 @@ final class ArticleService
         $isPublish = $param->post('is_publish') === 'true' ? 1 : 0;
 
         $thumbnail = $param->file('thumbnail_path')?->store('public/image'); // storage内に保存
-        $thumbnailPath = $thumbnail ?  str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
+        $thumbnailPath = $thumbnail ? str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
 
         $isSave = 0; // お気に入りは別でロジック切り出すので無条件でfalseにする
+        $isPickup = 0; // TODO: 保存時どうしようね
 
         $article = Article::make(
             $param->post('title'),
@@ -74,6 +75,7 @@ final class ArticleService
             $thumbnailPath,
             $param->post('source'),
             $isPublish,
+            $isPickup,
             $isSave,
         );
 
@@ -93,7 +95,7 @@ final class ArticleService
         $isPublish = $param->post('is_publish') === 'true' ? 1 : 0;
 
         $thumbnail = $param->file('thumbnail_path')?->store('public/image'); // storage内に保存
-        $thumbnailPath = $thumbnail ?  str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
+        $thumbnailPath = $thumbnail ? str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
 
         $article->title = $param->post('title');
         $article->description = $param->post('description');
@@ -120,7 +122,7 @@ final class ArticleService
      * @param integer $articleId
      * @return boolean
      */
-    public function updateIsSave(int $articleId):bool
+    public function updateIsSave(int $articleId): bool
     {
         $article = $this->getArticleById($articleId);
 
@@ -129,5 +131,14 @@ final class ArticleService
         $article->is_save = $newValue;
 
         return $this->repository->saveArticle($article);
+    }
+
+    public function updateIsPickup(array $changedStatuses): void
+    {
+        foreach ($changedStatuses as $value) {
+            $article = $this->getArticleById((int)$value['id']);
+            $article->is_pickup = $value['status'] === 'true' ? 1 : 0;
+            $this->repository->saveArticle($article);
+        }
     }
 }

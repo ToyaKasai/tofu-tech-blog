@@ -5,6 +5,7 @@
     </a>
   </template>
   <template v-else>
+    <!-- TODO: disabledのデザイン追加-->
     <button class="common-button-wrapper" :class="buttonClasses" :type="type">
       <slot />
     </button>

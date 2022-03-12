@@ -24,3 +24,7 @@ Route::post('/delete/{id}', 'App\Http\Controllers\ArticleController@delete')->na
 
 /** お気に入り */
 Route::post('/favorite/{id}', 'App\Http\Controllers\FavoriteController@updateFavorite')->name('favorite.update');
+
+/** 設定画面 */
+Route::get('/setting', 'App\Http\Controllers\SettingController@index')->name('setting.index');
+Route::post('/setting/pickup', 'App\Http\Controllers\SettingController@updatePickupArticle')->name('setting.updatePickup');

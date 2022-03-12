@@ -21,6 +21,7 @@ final class ArticleFactory extends Factory
             'description' => $this->faker->paragraph(),
             'source' => $this->faker->paragraph(),
             'is_publish' => $this->faker->boolean(),
+            'is_pickup' => 0,
             'is_save' => $this->faker->boolean(),
         ];
     }
