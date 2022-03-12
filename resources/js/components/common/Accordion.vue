@@ -109,7 +109,8 @@ export default {
   }
 
   > .content {
-    padding: var(--margin-s) var(--margin-xxs) 0;
+    padding: var(--margin-s) var(--margin-xxs);
+    box-sizing: border-box;
     overflow: hidden;
     transition: height 0.08s ease-in-out;
   }
