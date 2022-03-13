@@ -1,12 +1,17 @@
 <template>
   <div class="pickup-section-wrapper">
-    <Accordion
-      :default-value="mode === PAGE_SECTION_MODE"
-      title="ピックアップ記事を設定する"
-    >
+    <Accordion :default-value="true" title="ピックアップ記事を設定する">
       <form class="pickup-form" method="POST" :action="updatePickupPath">
         <CsrfToken :csrf="csrf" />
         <!-- TODO: value形式確認 -->
+        <div class="search">
+          <input
+            class="input"
+            type="text"
+            v-model="filterText"
+            placeholder="タイトルで絞り込む"
+          />
+        </div>
         <div class="article-info">
           <template v-if="changedStatuses.length !== 0">
             <template
@@ -27,7 +32,7 @@
             </template>
           </template>
           <!-- articles -->
-          <template v-for="article in articles" :key="article.id">
+          <template v-for="article in filteredArticles" :key="article.id">
             <div class="article">
               <!-- TODO: チェックボックスコンポーネント化-->
               <input
@@ -54,7 +59,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import parseDate from '../../../lib/parseDate.js';
 import HeadingLv1 from '../../common/HeadingLv1.vue';
 import Accordion from '../../common/Accordion.vue';
@@ -88,9 +93,20 @@ export default {
       default: '',
     },
   },
-  setup() {
+  setup(props) {
     const PAGE_SECTION_MODE = 'pickup';
+
+    const filterText = ref('');
     const changedStatuses = ref([]);
+
+    /** 絞り込まれた後の記事 */
+    const filteredArticles = computed(() =>
+      filterText.value
+        ? props.articles.filter(
+            ({ title }) => title.indexOf(filterText.value) === 0,
+          )
+        : props.articles,
+    );
 
     const changeStatus = (id, status) => {
       if (changedStatuses.value.length !== 0) {
@@ -132,7 +148,9 @@ export default {
 
     return {
       PAGE_SECTION_MODE,
+      filterText,
       changedStatuses,
+      filteredArticles,
       changeStatus,
       handleClickLink,
       parseDate,
@@ -150,9 +168,22 @@ export default {
     display: flex;
     justify-content: flex-end;
   }
+
+  > .search > .input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--margin-xxs);
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius-xxs);
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
 }
 
 .article-info {
+  margin-top: var(--margin-xs);
   display: grid;
   grid-template-columns: 1fr;
   row-gap: var(--margin-xs);
