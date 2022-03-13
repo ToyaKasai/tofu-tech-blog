@@ -1,9 +1,9 @@
 <template>
   <div class="setting-page-wrapper">
-    <button class="link" @click="handleClickLink">
+    <a class="link" href="/">
       <Icon name="left_allow" width="32px" />
       戻る
-    </button>
+    </a>
     <div class="content">
       <div class="heading">
         <HeadingLv1 heading="Setting" />
@@ -72,14 +72,9 @@ export default {
       ];
     };
 
-    const handleClickLink = () => {
-      history.back();
-    };
-
     return {
       changedStatusArticles,
       changeStatus,
-      handleClickLink,
       parseDate,
     };
   },
