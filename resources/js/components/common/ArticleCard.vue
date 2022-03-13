@@ -14,14 +14,12 @@
       </div>
       <p class="date">{{ parsedDate }}</p>
       <div class="save">
-        <div class="save-button">
-          <template v-if="isSave">
-            <Icon class="heart" name="heart" />
-          </template>
-          <template v-else>
-            <Icon name="heart_outline" />
-          </template>
-        </div>
+        <template v-if="isSave">
+          <Icon class="heart" name="heart" />
+        </template>
+        <template v-else>
+          <Icon name="heart_outline" />
+        </template>
       </div>
     </div>
   </a>
@@ -37,6 +35,7 @@ import {
 import parseArticlePath from '../../lib/parseArticlePath.js';
 import parseDate from '../../lib/parseDate.js';
 
+/** 記事カード */
 export default {
   components: { Icon },
   name: 'ArticleCard',
@@ -88,7 +87,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../sass/_mixins.scss';
-// TODO: レスポンシブ対応
+
 .article-card-wrapper {
   background-color: var(--base-bg-color);
   border: 1px solid var(--base-border-color);
@@ -182,24 +181,7 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-  }
-}
-
-.save-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: var(--base-text-color);
-  background-color: var(--base-bg-color);
-  outline: 1px solid var(--base-border-color);
-  border-radius: var(--border-radius-circle);
-
-  @include np-shadow(3px, 6px);
-
-  > .heart {
-    color: var(--red);
+    color: var(--base-text-color);
   }
 }
 </style>
