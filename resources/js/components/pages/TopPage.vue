@@ -71,11 +71,11 @@ export default {
     width: var(--width-pc);
     margin-top: var(--margin-xl);
 
-    @include mq('sp') {
+    @include mq('tablet') {
       width: 100%;
     }
 
-    @include mq('tablet') {
+    @include mq('sp') {
       width: 100%;
     }
   }
@@ -86,12 +86,12 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--margin-s);
 
-    @include mq('sp') {
-      grid-template-columns: 1fr;
-    }
-
     @include mq('tablet') {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq('sp') {
+      grid-template-columns: 1fr;
     }
   }
 
