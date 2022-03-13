@@ -51,15 +51,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../sass/_mixins.scss';
+
 .top-page-wrapper {
   background-color: var(--yellow);
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  @include mq('sp') {
+    padding: 0 var(--margin-xs);
+  }
+
+  @include mq('tablet') {
+    padding: 0 var(--margin-s);
+  }
+
   > .contents {
     width: var(--width-pc);
     margin-top: var(--margin-xl);
+
+    @include mq('sp') {
+      width: 100%;
+    }
+
+    @include mq('tablet') {
+      width: 100%;
+    }
   }
 
   > .contents > .articles {
@@ -67,10 +85,18 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--margin-s);
+
+    @include mq('sp') {
+      grid-template-columns: 1fr;
+    }
+
+    @include mq('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   > .contents > .button {
-    margin: var(--margin-m) 0 var(--margin-xl) 0;
+    margin: var(--margin-s) 0 var(--margin-xl) 0;
     width: 100%;
   }
 }
