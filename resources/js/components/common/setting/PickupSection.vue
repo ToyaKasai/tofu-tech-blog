@@ -61,6 +61,7 @@ import Accordion from '../../common/Accordion.vue';
 import CsrfToken from '../../common/form/CsrfToken.vue';
 import CommonButton from '../CommonButton';
 
+/** ピックアップ記事設定セクション */
 export default {
   name: 'PickupSection',
   components: {
@@ -141,6 +142,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../../sass/_mixins.scss';
+
 .pickup-form {
   > .submit {
     margin-top: var(--margin-m);
@@ -156,21 +159,43 @@ export default {
 
   > .article {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     font-size: 1.6rem;
     column-gap: var(--margin-xs);
     padding: var(--margin-xxs);
     border-bottom: 1px solid var(--gray-600);
+
+    @include mq('sp') {
+      grid-template-areas:
+        'check title'
+        'date date';
+      grid-template-rows: auto 1fr;
+      row-gap: 8px;
+    }
+  }
+
+  > .article > .checkbox {
+    @include mq('sp') {
+      grid-area: check;
+    }
   }
 
   > .article > .title {
     font-weight: 600;
+
+    @include mq('sp') {
+      grid-area: title;
+    }
   }
 
   > .article > .date {
     font-weight: 500;
     color: var(--gray-600);
+
+    @include mq('sp') {
+      grid-area: date;
+    }
   }
 }
 </style>

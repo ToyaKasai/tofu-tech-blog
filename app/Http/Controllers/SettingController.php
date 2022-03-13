@@ -17,7 +17,7 @@ class SettingController extends Controller
     public function index()
     {
         return view('setting.index', [
-            'articles' => $this->articleService->getArticlesByUpdatedAt('desc'),
+            'articles' => $this->articleService->getAllArticles(),
         ]);
     }
 
@@ -30,7 +30,7 @@ class SettingController extends Controller
         $this->articleService->updateIsPickup($param->post('changed_statuses'));
 
         return redirect()->route('setting.index')->with([
-            'articles' => $this->articleService->getArticlesByUpdatedAt('desc'),
+            'articles' => $this->articleService->getAllArticles(),
             'mode' => 'pickup',
         ]);
     }

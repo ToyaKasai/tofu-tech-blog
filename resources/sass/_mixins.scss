@@ -16,7 +16,7 @@ $breakpoints: (
 // ニューモフィズムのbox-shadow
 @mixin np-shadow($size: 4px, $blur: 8px, $lighten: #fff, $darken: #b8b9be) {
   box-shadow: $size $size $blur $darken,
-    calc(#{$size} * -1) calc(#{$size} * -1) $blur $lighten;
+  calc(#{$size} * -1) calc(#{$size} * -1) $blur $lighten;
 }
 
 // ニューモフィズムのinner-shadow
@@ -27,7 +27,7 @@ $breakpoints: (
   $darken: #b8b9be
 ) {
   box-shadow: inset $size $size $blur $darken,
-    inset calc(#{$size} * -1) calc(#{$size} * -1) $blur $lighten;
+  inset calc(#{$size} * -1) calc(#{$size} * -1) $blur $lighten;
 }
 
 // 3点リーダー

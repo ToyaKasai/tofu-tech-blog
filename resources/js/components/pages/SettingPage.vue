@@ -1,9 +1,9 @@
 <template>
   <div class="setting-page-wrapper">
-    <button class="link" @click="handleClickLink">
+    <a class="link" href="/">
       <Icon name="left_allow" width="32px" />
       戻る
-    </button>
+    </a>
     <div class="content">
       <div class="heading">
         <HeadingLv1 heading="Setting" />
@@ -31,6 +31,7 @@ import PickupSection from '../common/setting/PickupSection.vue';
 import { ref } from 'vue';
 import parseDate from '../../lib/parseDate.js';
 
+/** 設定ページ */
 export default {
   name: 'SettingPage',
   components: {
@@ -71,14 +72,9 @@ export default {
       ];
     };
 
-    const handleClickLink = () => {
-      history.back();
-    };
-
     return {
       changedStatusArticles,
       changeStatus,
-      handleClickLink,
       parseDate,
     };
   },
@@ -86,15 +82,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../../sass/_mixins.scss';
+
 .setting-page-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  @include mq('tablet') {
+    padding: var(--margin-s);
+  }
+
+  @include mq('sp') {
+    padding: var(--margin-xs);
+  }
+
   > .content {
     width: var(--width-pc);
     margin-bottom: var(--margin-xl);
+
+    @include mq('tablet') {
+      width: 100%;
+    }
   }
 
   > .link {
@@ -105,6 +115,10 @@ export default {
     margin-top: var(--margin-m);
     font-size: 1.4rem;
     color: var(--base-text-color);
+
+    @include mq('tablet') {
+      width: 100%;
+    }
 
     &:hover {
       cursor: pointer;

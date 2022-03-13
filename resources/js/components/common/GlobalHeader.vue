@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: レスポンシブ対応 -->
   <div class="global-header-wrapper">
     <header class="header">
       <div class="title">
@@ -22,6 +23,7 @@
 <script>
 import Icon from '../Icon.vue';
 import CommonButton from './CommonButton.vue';
+import useMq from '../../uses/useMq.js';
 
 export default {
   name: 'GlobalHeader',
@@ -47,17 +49,32 @@ export default {
       default: '/search',
     },
   },
+  setup() {
+    const { mq } = useMq();
+
+    return {
+      mq,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import '../../../sass/_mixins.scss';
 
-// TODO: レスポンシブ対応
 .global-header-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
+
+  @include mq('tablet') {
+    padding: 0 var(--margin-s);
+  }
+
+  @include mq('sp') {
+    padding: 0 var(--margin-xs);
+  }
 
   > .header {
     display: grid;
@@ -74,6 +91,14 @@ export default {
     border-radius: var(--border-radius-s);
 
     @include np-shadow;
+
+    @include mq('tablet') {
+      width: 100%;
+    }
+
+    @include mq('sp') {
+      width: 100%;
+    }
   }
 
   > .header > .title > .link {

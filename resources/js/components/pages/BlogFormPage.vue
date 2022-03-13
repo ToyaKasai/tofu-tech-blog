@@ -130,6 +130,7 @@ export default {
       if (!window.confirm('保存せずに終了しますか？')) {
         return;
       }
+
       history.back();
     };
 
@@ -153,6 +154,14 @@ export default {
   flex-direction: column;
   align-items: center;
 
+  @include mq('tablet') {
+    padding: var(--margin-s);
+  }
+
+  @include mq('sp') {
+    padding: var(--margin-xs);
+  }
+
   > .link {
     display: flex;
     align-items: center;
@@ -165,15 +174,23 @@ export default {
     &:hover {
       cursor: pointer;
     }
+
+    @include mq('tablet') {
+      width: 100%;
+    }
   }
 
   > .contents {
     width: var(--width-pc);
     margin-top: var(--margin-xl);
+
+    @include mq('tablet') {
+      width: 100%;
+    }
   }
 
   > .contents > .form {
-    width: var(--width-pc);
+    width: 100%;
     padding-top: var(--margin-xl);
     display: flex;
     flex-direction: column;
