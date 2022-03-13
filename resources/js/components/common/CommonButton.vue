@@ -6,7 +6,12 @@
   </template>
   <template v-else>
     <!-- TODO: disabledのデザイン追加-->
-    <button class="common-button-wrapper" :class="buttonClasses" :type="type">
+    <button
+      class="common-button-wrapper"
+      :class="buttonClasses"
+      :type="type"
+      @click="handleClick"
+    >
       <slot />
     </button>
   </template>
@@ -35,13 +40,19 @@ export default {
       default: false,
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const buttonClasses = computed(() => ({
       '-full': props.isFull,
       '-gray': props.textGray,
     }));
+
+    const handleClick = () => {
+      emit('click');
+    };
+
     return {
       buttonClasses,
+      handleClick,
     };
   },
 };

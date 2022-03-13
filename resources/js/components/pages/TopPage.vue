@@ -3,7 +3,7 @@
     <div class="contents">
       <HeadingLv1 :heading="heading" />
       <section class="articles">
-        <template v-for="article in articles" :key="article.id">
+        <template v-for="article in displayArticles" :key="article.id">
           <!-- TODO: 公開記事のみ表示するようにする -->
           <ArticleCard
             :id="article.id"
@@ -16,9 +16,14 @@
         </template>
       </section>
       <div class="button">
-        <CommonButton href="/list" :is-full="true" :text-gray="true"
-          >もっと見る
-        </CommonButton>
+        <template v-if="ArticlesToArray.length !== displayArticles.length">
+          <CommonButton
+            :is-full="true"
+            :text-gray="true"
+            @click="incrementArticles"
+            >もっと見る
+          </CommonButton>
+        </template>
       </div>
     </div>
   </div>
@@ -28,6 +33,7 @@
 import HeadingLv1 from '../common/HeadingLv1.vue';
 import ArticleCard from '../common/ArticleCard.vue';
 import CommonButton from '../common/CommonButton.vue';
+import { computed, ref } from 'vue';
 
 /** トップページ */
 export default {
@@ -43,9 +49,35 @@ export default {
       default: 'Tech Articles',
     },
     articles: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => ({}),
     },
+  },
+  setup(props) {
+    const NUMBER_OF_ARTICLES = 9;
+
+    const currentNumOfArticles = ref(NUMBER_OF_ARTICLES);
+
+    /** bladeからオブジェクトで来るので配列化 */
+    const ArticlesToArray = computed(() =>
+      Object.keys({ ...props.articles }).map((key) => ({
+        ...props.articles[key],
+      })),
+    );
+
+    const displayArticles = computed(() =>
+      [...ArticlesToArray.value].splice(0, currentNumOfArticles.value),
+    );
+
+    const incrementArticles = () => {
+      currentNumOfArticles.value += NUMBER_OF_ARTICLES;
+    };
+
+    return {
+      ArticlesToArray,
+      displayArticles,
+      incrementArticles,
+    };
   },
 };
 </script>
