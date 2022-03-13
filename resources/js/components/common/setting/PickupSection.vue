@@ -3,7 +3,6 @@
     <Accordion :default-value="true" title="ピックアップ記事を設定する">
       <form class="pickup-form" method="POST" :action="updatePickupPath">
         <CsrfToken :csrf="csrf" />
-        <!-- TODO: value形式確認 -->
         <div class="search">
           <input
             class="input"
