@@ -98,6 +98,10 @@ export default {
     padding: var(--margin-m);
     text-align: center;
     color: var(--base-text-color);
+
+    @include mq('sp') {
+      padding: var(--margin-xs) 0;
+    }
   }
 
   > .uploader > .content > .image {
