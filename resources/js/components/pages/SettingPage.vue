@@ -2,21 +2,21 @@
   <div class="setting-page-wrapper">
     <a class="link" href="/">
       <Icon name="left_allow" width="32px" />
-      戻る
+      TOPへ戻る
     </a>
     <div class="content">
       <div class="heading">
         <HeadingLv1 heading="Setting" />
       </div>
 
-      <!-- ピックアップ記事設定 -->
-      <div class="pickup">
+      <div class="sections">
         <PickupSection
           :csrf="csrf"
           :articles="articles"
           :update-pickup-path="updatePickupPath"
           :mode="mode"
         />
+        <LanguageCategorySection :csrf="csrf" :mode="mode" />
       </div>
     </div>
   </div>
@@ -28,6 +28,7 @@ import Icon from '../Icon.vue';
 import Accordion from '../common/Accordion.vue';
 import CsrfToken from '../common/form/CsrfToken.vue';
 import PickupSection from '../common/setting/PickupSection.vue';
+import LanguageCategorySection from '../common/setting/LanguageCategorySection';
 import { ref } from 'vue';
 import parseDate from '../../lib/parseDate.js';
 
@@ -35,11 +36,12 @@ import parseDate from '../../lib/parseDate.js';
 export default {
   name: 'SettingPage',
   components: {
-    CsrfToken,
-    Accordion,
     HeadingLv1,
-    PickupSection,
     Icon,
+    Accordion,
+    CsrfToken,
+    PickupSection,
+    LanguageCategorySection,
   },
   props: {
     csrf: {
@@ -129,8 +131,11 @@ export default {
     margin-top: var(--margin-xl);
   }
 
-  > .content > .pickup {
+  > .content > .sections {
     margin-top: var(--margin-l);
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--margin-xs);
   }
 }
 </style>

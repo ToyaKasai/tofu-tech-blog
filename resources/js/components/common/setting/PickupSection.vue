@@ -1,6 +1,9 @@
 <template>
   <div class="pickup-section-wrapper">
-    <Accordion :default-value="true" title="ピックアップ記事を設定する">
+    <Accordion
+      :default-value="mode === PAGE_SECTION_MODE"
+      title="ピックアップ記事を設定する"
+    >
       <form class="pickup-form" method="POST" :action="updatePickupPath">
         <CsrfToken :csrf="csrf" />
         <div class="search">
@@ -141,17 +144,12 @@ export default {
       ];
     };
 
-    const handleClickLink = () => {
-      history.back();
-    };
-
     return {
       PAGE_SECTION_MODE,
       filterText,
       changedStatuses,
       filteredArticles,
       changeStatus,
-      handleClickLink,
       parseDate,
     };
   },
