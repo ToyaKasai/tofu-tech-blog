@@ -13,7 +13,13 @@
       @before-leave="beforeLeave"
       @leave="leave"
     >
-      <div v-show="isOpen" class="content">
+      <div
+        v-show="isOpen"
+        class="content"
+        :style="{
+          height: `${contentHeight + PADDING_SIZE}px`,
+        }"
+      >
         <slot></slot>
       </div>
     </transition>
@@ -21,7 +27,6 @@
 </template>
 
 <script>
-import { ref } from 'vue';
 import Icon from '../Icon';
 
 /** アコーディオンラッパー */
@@ -34,16 +39,19 @@ export default {
       type: String,
       required: true,
     },
-    defaultValue: {
+    isOpen: {
       type: Boolean,
       default: false,
     },
+    contentHeight: {
+      type: Number,
+      default: 0,
+    },
   },
-  setup(props) {
-    const isOpen = ref(props.defaultValue);
-
+  setup(props, { emit }) {
+    const PADDING_SIZE = 64;
     const toggleIsOpen = () => {
-      isOpen.value = !isOpen.value;
+      emit('toggle', !props.isOpen);
     };
 
     /** スライドアニメーション用 */
@@ -61,7 +69,7 @@ export default {
     };
 
     return {
-      isOpen,
+      PADDING_SIZE,
       toggleIsOpen,
       beforeEnter,
       enter,

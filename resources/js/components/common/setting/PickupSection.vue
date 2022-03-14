@@ -1,10 +1,17 @@
 <template>
   <div class="pickup-section-wrapper">
     <Accordion
-      :default-value="mode === PAGE_SECTION_MODE"
+      :is-open="isOpen"
       title="ピックアップ記事を設定する"
+      :content-height="contentHeight"
+      @toggle="toggleIsOpen"
     >
-      <form class="pickup-form" method="POST" :action="updatePickupPath">
+      <form
+        class="pickup-form"
+        method="POST"
+        :action="updatePickupPath"
+        ref="contentRef"
+      >
         <CsrfToken :csrf="csrf" />
         <div class="search">
           <input
@@ -61,7 +68,7 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 import parseDate from '../../../lib/parseDate.js';
 import HeadingLv1 from '../../common/HeadingLv1.vue';
 import Accordion from '../../common/Accordion.vue';
@@ -98,8 +105,23 @@ export default {
   setup(props) {
     const PAGE_SECTION_MODE = 'pickup';
 
+    const isOpen = ref(props.mode === PAGE_SECTION_MODE);
+
+    /** アコーディオン内コンテンツのDOM */
+    const contentRef = ref(null);
+    /** アコーディオン内コンテンツのDOMのclientHeight */
+    const contentHeight = ref(null);
+
     const filterText = ref('');
     const changedStatuses = ref([]);
+
+    /** filterTextが入力されるたびにコンテンツの高さを可変にする */
+    watch(
+      () => filterText.value,
+      () => {
+        nextTick(() => (contentHeight.value = contentRef.value?.clientHeight));
+      },
+    );
 
     /** 絞り込まれた後の記事 */
     const filteredArticles = computed(() =>
@@ -109,6 +131,7 @@ export default {
           )
         : props.articles,
     );
+    const toggleIsOpen = (value) => (isOpen.value = value);
 
     const changeStatus = (id, status) => {
       if (changedStatuses.value.length !== 0) {
@@ -145,10 +168,13 @@ export default {
     };
 
     return {
-      PAGE_SECTION_MODE,
+      isOpen,
+      contentRef,
+      contentHeight,
       filterText,
       changedStatuses,
       filteredArticles,
+      toggleIsOpen,
       changeStatus,
       parseDate,
     };
@@ -166,16 +192,21 @@ export default {
     justify-content: flex-end;
   }
 
+  > .search {
+  }
+
   > .search > .input {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    padding: var(--margin-xxs);
+    padding: var(--margin-xxs) var(--margin-xs);
     outline: none;
     border: none;
     border-radius: var(--border-radius-xxs);
     font-weight: 500;
     font-size: 1.4rem;
+    background-color: var(--base-bg-color);
+    @include np-inner-shadow;
   }
 }
 
