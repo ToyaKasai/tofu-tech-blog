@@ -1,16 +1,17 @@
 <template>
   <div class="pickup-section-wrapper">
     <Accordion
-      :default-value="mode === PAGE_SECTION_MODE"
+      :is-open="isOpen"
       title="カテゴリを設定する"
-    >
-    </Accordion>
+      @toggle="toggleIsOpen"
+    ></Accordion>
   </div>
 </template>
 
 <script>
 import Accordion from '../../common/Accordion.vue';
 import CsrfToken from '../../common/form/CsrfToken.vue';
+import { ref } from 'vue';
 
 /** カテゴリ設定セクション */
 export default {
@@ -33,11 +34,17 @@ export default {
       default: '',
     },
   },
-  setup() {
+  setup(props) {
     const PAGE_SECTION_MODE = 'category';
+
+    const isOpen = ref(props.mode === PAGE_SECTION_MODE);
+
+    const toggleIsOpen = (value) => (isOpen.value = value);
 
     return {
       PAGE_SECTION_MODE,
+      isOpen,
+      toggleIsOpen,
     };
   },
 };
