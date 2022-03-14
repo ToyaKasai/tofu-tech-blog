@@ -186,6 +186,8 @@ export default {
 @import '../../../../sass/_mixins.scss';
 
 .pickup-form {
+  padding: var(--margin-s) var(--margin-xxs);
+
   > .submit {
     margin-top: var(--margin-m);
     display: flex;

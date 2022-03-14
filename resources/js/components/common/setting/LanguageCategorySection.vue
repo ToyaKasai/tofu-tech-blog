@@ -4,7 +4,9 @@
       :is-open="isOpen"
       title="カテゴリを設定する"
       @toggle="toggleIsOpen"
-    ></Accordion>
+    >
+      <div class="category-content"></div>
+    </Accordion>
   </div>
 </template>
 
@@ -52,4 +54,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../../sass/_mixins.scss';
+
+.category-content {
+  padding: var(--margin-s) var(--margin-xxs);
+}
 </style>

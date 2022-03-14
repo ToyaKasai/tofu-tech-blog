@@ -17,7 +17,7 @@
         v-show="isOpen"
         class="content"
         :style="{
-          height: `${contentHeight + PADDING_SIZE}px`,
+          height: `${contentHeight}px`,
         }"
       >
         <slot></slot>
@@ -49,7 +49,6 @@ export default {
     },
   },
   setup(props, { emit }) {
-    const PADDING_SIZE = 64;
     const toggleIsOpen = () => {
       emit('toggle', !props.isOpen);
     };
@@ -69,7 +68,6 @@ export default {
     };
 
     return {
-      PADDING_SIZE,
       toggleIsOpen,
       beforeEnter,
       enter,
@@ -117,17 +115,16 @@ export default {
   }
 
   > .content {
-    padding: var(--margin-s) var(--margin-xxs);
     box-sizing: border-box;
     overflow: hidden;
-    transition: height 0.08s ease-in-out;
+    transition: height 250ms ease-in-out;
     user-select: none;
   }
 }
 
 .slide-enter-active,
 .slide-leave-active {
-  animation-duration: 0.08s;
+  animation-duration: 250ms;
   animation-fill-mode: both;
 }
 </style>
