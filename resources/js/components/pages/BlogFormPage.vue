@@ -23,11 +23,6 @@
           :value="state.description"
           @update:textarea="state.description = $event"
         />
-        <FormImageUploader
-          name="thumbnail_path"
-          :value="state.image"
-          @update:image="updateImage"
-        />
         <MarkdownEditor
           name="source"
           :value="state.source"
@@ -51,7 +46,6 @@
 import { computed, onBeforeMount, reactive } from 'vue';
 import HeadingLv1 from '../common/HeadingLv1.vue';
 import FormTitleInput from '../common/form/FormTitleInput.vue';
-import FormImageUploader from '../common/form/FormImageUploader.vue';
 import FormTextarea from '../common/form/FormTextarea.vue';
 import MarkdownEditor from '../common/form/MarkdownEditor.vue';
 import CommonButton from '../common/CommonButton.vue';
@@ -65,7 +59,6 @@ export default {
   components: {
     HeadingLv1,
     FormTitleInput,
-    FormImageUploader,
     FormTextarea,
     MarkdownEditor,
     CommonButton,
@@ -95,7 +88,6 @@ export default {
     const state = reactive({
       title: null,
       description: null,
-      image: null,
       source: '',
       isPublish: false,
     });
@@ -108,14 +100,9 @@ export default {
       // insert default value
       state.title = props.defaultValues?.title;
       state.description = props.defaultValues?.description;
-      state.image = props.defaultValues?.thumbnail_path;
       state.source = props.defaultValues?.source;
       state.isPublish = props.defaultValues?.is_publish;
     });
-
-    const updateImage = (value) => {
-      state.image = value;
-    };
 
     const toggleIsPublish = (value) => {
       state.isPublish = value;
@@ -136,7 +123,6 @@ export default {
 
     return {
       state,
-      updateImage,
       toggleIsPublish,
       buttonText,
       handleClickLink,

@@ -8,7 +8,6 @@
           <ArticleCard
             :id="article.id"
             :isSave="article.is_save"
-            :thumbnailPath="article.thumbnail_path"
             :title="article.title"
             :description="article.description"
             :date="article.updated_at"

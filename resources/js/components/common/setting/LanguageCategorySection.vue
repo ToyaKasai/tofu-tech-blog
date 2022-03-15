@@ -5,7 +5,12 @@
       title="カテゴリを設定する"
       @toggle="toggleIsOpen"
     >
-      <div class="category-content"></div>
+      <div class="category-content">
+        <div class="categories">
+          <img href="" alt="" class="icon" />
+          <p class="title"></p>
+        </div>
+      </div>
     </Accordion>
   </div>
 </template>
@@ -57,5 +62,12 @@ export default {
 
 .category-content {
   padding: var(--margin-s) var(--margin-xxs);
+
+  > .categories {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--margin-xs);
+    row-gap: var(--margin-s);
+  }
 }
 </style>

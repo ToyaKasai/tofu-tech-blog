@@ -94,6 +94,7 @@ export default {
     const isSave = ref(props.article.is_save);
     const isSaving = ref(false);
 
+    // TODO: カテゴリのサムネ使う
     const thumbnailSrc = computed(() =>
       props.article.thumbnail_path
         ? `${STORAGE_IMAGE_PATH}${props.article.thumbnail_path}`

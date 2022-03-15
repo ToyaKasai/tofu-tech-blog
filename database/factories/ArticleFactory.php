@@ -18,7 +18,7 @@ final class ArticleFactory extends Factory
     {
         return [
             'title' => $this->faker->title(),
-            'description' => $this->faker->paragraph(),
+            'description' => $this->faker->name(),
             'source' => $this->faker->paragraph(),
             'is_publish' => $this->faker->boolean(),
             'is_pickup' => 0,

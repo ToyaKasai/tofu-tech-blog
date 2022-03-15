@@ -63,16 +63,12 @@ final class ArticleService
     {
         $isPublish = $param->post('is_publish') === 'true' ? 1 : 0;
 
-        $thumbnail = $param->file('thumbnail_path')?->store('public/image'); // storage内に保存
-        $thumbnailPath = $thumbnail ? str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
-
         $isSave = 0; // お気に入りは別でロジック切り出すので無条件でfalseにする
         $isPickup = 0; // TODO: 保存時どうしようね
 
         $article = Article::make(
             $param->post('title'),
             $param->post('description'),
-            $thumbnailPath,
             $param->post('source'),
             $isPublish,
             $isPickup,
@@ -94,12 +90,8 @@ final class ArticleService
 
         $isPublish = $param->post('is_publish') === 'true' ? 1 : 0;
 
-        $thumbnail = $param->file('thumbnail_path')?->store('public/image'); // storage内に保存
-        $thumbnailPath = $thumbnail ? str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
-
         $article->title = $param->post('title');
         $article->description = $param->post('description');
-        $thumbnailPath ? $article->thumbnail_path = $thumbnailPath : '';
         $article->source = $param->post('source');
         $article->is_publish = $isPublish;
 
