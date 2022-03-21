@@ -52,7 +52,7 @@
               />
               <p class="title">{{ article.title }}</p>
               <p class="date">
-                {{ parseDate(article.updated_at, 'yyyy年M月d日 mm:dd') }}
+                {{ parseDate(article.updated_at, 'yyyy年M月d日 hh:mm') }}
               </p>
             </div>
           </template>
