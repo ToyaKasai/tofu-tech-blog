@@ -125,6 +125,10 @@ final class ArticleService
         return $this->repository->saveArticle($article);
     }
 
+    /**
+     * @param array $changedStatuses
+     * @return void
+     */
     public function updateIsPickup(array $changedStatuses): void
     {
         foreach ($changedStatuses as $value) {
