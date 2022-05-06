@@ -24,7 +24,6 @@
 import { ref } from 'vue';
 import Icon from '../Icon';
 
-/** アコーディオンラッパー */
 export default {
   name: 'Accordion',
   components: { Icon },
@@ -46,7 +45,6 @@ export default {
       isOpen.value = !isOpen.value;
     };
 
-    /** スライドアニメーション用 */
     const beforeEnter = (e) => {
       e.style.height = '0';
     };

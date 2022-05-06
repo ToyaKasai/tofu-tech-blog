@@ -33,7 +33,6 @@
           <!-- articles -->
           <template v-for="article in filteredArticles" :key="article.id">
             <div class="article">
-              <!-- TODO: チェックボックスコンポーネント化-->
               <input
                 type="checkbox"
                 class="checkbox"
@@ -65,7 +64,6 @@ import Accordion from '../../common/Accordion.vue';
 import CsrfToken from '../../common/form/CsrfToken.vue';
 import CommonButton from '../CommonButton';
 
-/** ピックアップ記事設定セクション */
 export default {
   name: 'PickupSection',
   components: {

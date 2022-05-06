@@ -13,7 +13,6 @@
 <script>
 import VueMarkdown from 'vue3-markdown-it';
 
-/** マークダウンプレビュー */
 export default {
   name: 'MarkdownPreview',
   components: {

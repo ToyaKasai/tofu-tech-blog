@@ -58,7 +58,6 @@ import SwitchToggleButton from '../common/SwitchToggleButton.vue';
 import CsrfToken from '../common/form/CsrfToken.vue';
 import Icon from '../Icon.vue';
 
-/** 新規登録 */
 export default {
   name: 'BlogFormPage',
   components: {
@@ -104,7 +103,6 @@ export default {
         return;
       }
 
-      // insert default value
       state.title = props.defaultValues?.title;
       state.description = props.defaultValues?.description;
       state.image = props.defaultValues?.thumbnail_path;
@@ -124,7 +122,6 @@ export default {
       props.mode === 'register' ? '保存する' : '更新する',
     );
 
-    /** ページバックのハンドリング */
     const handleClickLink = () => {
       history.back();
     };

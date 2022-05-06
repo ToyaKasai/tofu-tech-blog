@@ -64,7 +64,6 @@ import parseDate from '../../lib/parseDate';
 import CsrfToken from '../common/form/CsrfToken.vue';
 import axios from 'axios';
 
-/** 記事閲覧ページ */
 export default {
   name: 'ViewPage',
   components: {
@@ -116,7 +115,6 @@ export default {
       }
     };
 
-    /** お気に入り更新 */
     const updateFavorite = async () => {
       isSaving.value = true;
       try {

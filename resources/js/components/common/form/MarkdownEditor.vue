@@ -56,7 +56,6 @@ import { computed, ref } from 'vue';
 import VueMarkdown from 'vue3-markdown-it';
 import Icon from '../../Icon.vue';
 
-/** マークダウンエディタ */
 export default {
   name: 'MarkdownEditor',
   components: {

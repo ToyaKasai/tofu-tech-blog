@@ -12,7 +12,6 @@
 <script>
 import { computed } from 'vue';
 
-/** テキストエリアフォーム */
 export default {
   name: 'FormTextarea',
   props: {
