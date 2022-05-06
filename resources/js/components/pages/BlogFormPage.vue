@@ -12,7 +12,6 @@
         class="form"
       >
         <CsrfToken :csrf="csrf" />
-        <!-- TODO: language 選択できるようにしたい -->
         <FormTitleInput
           name="title"
           :value="state.title"
@@ -127,10 +126,6 @@ export default {
 
     /** ページバックのハンドリング */
     const handleClickLink = () => {
-      if (!window.confirm('保存せずに終了しますか？')) {
-        return;
-      }
-
       history.back();
     };
 

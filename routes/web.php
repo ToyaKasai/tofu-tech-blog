@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/** ブログ関連 */
 Route::get('/', 'App\Http\Controllers\ArticleController@index')->name('blog.top');
 Route::get('/create', 'App\Http\Controllers\ArticleController@create')->name('blog.create');
 Route::post('/store', 'App\Http\Controllers\ArticleController@store')->name('blog.store');
@@ -22,9 +21,7 @@ Route::get('/edit/{id}', 'App\Http\Controllers\ArticleController@edit')->name('b
 Route::post('/update/{id}', 'App\Http\Controllers\ArticleController@update')->name('blog.update');
 Route::post('/delete/{id}', 'App\Http\Controllers\ArticleController@delete')->name('blog.delete');
 
-/** お気に入り */
 Route::post('/favorite/{id}', 'App\Http\Controllers\FavoriteController@updateFavorite')->name('favorite.update');
 
-/** 設定画面 */
 Route::get('/setting', 'App\Http\Controllers\SettingController@index')->name('setting.index');
 Route::post('/setting/pickup', 'App\Http\Controllers\SettingController@updatePickupArticle')->name('setting.updatePickup');

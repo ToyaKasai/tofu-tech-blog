@@ -4,7 +4,6 @@
       <HeadingLv1 :heading="heading" />
       <section class="articles">
         <template v-for="article in displayArticles" :key="article.id">
-          <!-- TODO: 公開記事のみ表示するようにする -->
           <ArticleCard
             :id="article.id"
             :isSave="article.is_save"
