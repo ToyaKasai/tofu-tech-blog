@@ -126,10 +126,6 @@ export default {
 
     /** ページバックのハンドリング */
     const handleClickLink = () => {
-      if (!window.confirm('保存せずに終了しますか？')) {
-        return;
-      }
-
       history.back();
     };
 
