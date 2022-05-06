@@ -37,6 +37,7 @@ export default {
   font-weight: 500;
   font-size: 1.8rem;
   border-top: 1px solid var(--gray-500);
+  margin-top: auto;
 
   > .links > .link {
     display: flex;

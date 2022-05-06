@@ -11,9 +11,9 @@
     <!-- Head Section -->
     @section('head')
         <title>{{ config('app.name') }}</title>
-    @show
+@show
 
-    <!-- Scripts -->
+<!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Favicon -->
@@ -28,20 +28,22 @@
 </head>
 
 <body>
-    <div id="app">
-        {{-- ヘッダー --}}
-        @section('header')
-            <global-header create-path="{{ route('blog.create') }}"></global-header>
-        @show
+<div id="app" class="global-wrapper">
+    {{-- ヘッダー --}}
+    @section('header')
+        <global-header create-path="{{ route('blog.create') }}"></global-header>
+    @show
 
-        {{-- コンテンツ --}}
+    {{-- コンテンツ --}}
+    <main>
         @yield('content')
+    </main>
 
-        {{-- フッター --}}
-        @section('footer')
-            <global-footer></global-footer>
-        @show
-    </div>
+    {{-- フッター --}}
+    @section('footer')
+        <global-footer></global-footer>
+    @show
+</div>
 </body>
 
 </html>
