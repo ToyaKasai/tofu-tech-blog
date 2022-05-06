@@ -33,7 +33,6 @@
 import Icon from '../../Icon.vue';
 import CommonButton from '../CommonButton.vue';
 
-/** 画像アップローダー */
 export default {
   components: {
     CommonButton,

@@ -31,7 +31,6 @@ import PickupSection from '../common/setting/PickupSection.vue';
 import { ref } from 'vue';
 import parseDate from '../../lib/parseDate.js';
 
-/** 設定ページ */
 export default {
   name: 'SettingPage',
   components: {

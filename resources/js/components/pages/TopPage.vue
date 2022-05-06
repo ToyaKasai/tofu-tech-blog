@@ -34,7 +34,6 @@ import ArticleCard from '../common/ArticleCard.vue';
 import CommonButton from '../common/CommonButton.vue';
 import { computed, ref } from 'vue';
 
-/** トップページ */
 export default {
   name: 'TopPage',
   components: {

@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: レスポンシブ対応 -->
   <div class="global-header-wrapper">
     <header class="header">
       <div class="title">

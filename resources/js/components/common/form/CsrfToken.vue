@@ -3,7 +3,6 @@
 </template>
 
 <script>
-// csrf token埋め込み用コンポーネント
 export default {
   name: 'CsrfToken',
   props: {

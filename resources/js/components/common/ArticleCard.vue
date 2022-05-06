@@ -35,7 +35,6 @@ import {
 import parseArticlePath from '../../lib/parseArticlePath.js';
 import parseDate from '../../lib/parseDate.js';
 
-/** 記事カード */
 export default {
   components: { Icon },
   name: 'ArticleCard',

@@ -3,9 +3,6 @@
 </template>
 
 <script>
-/**
- * svgアイコンのVueコンポーネント
- */
 export default {
   name: 'Icon',
   props: {

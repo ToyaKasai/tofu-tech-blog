@@ -13,7 +13,6 @@
 <script>
 import { computed } from 'vue';
 
-/** タイトルフォーム */
 export default {
   name: 'FormTitleInput',
   props: {
