@@ -83,7 +83,7 @@ export default {
     box-sizing: border-box;
     width: var(--width-pc);
     margin: auto;
-    margin-top: var(--margin-xs);
+    margin-top: var(--margin-s);
     padding: var(--margin-xxs) var(--margin-s);
     background-color: var(--base-bg-color);
     border: 1px solid var(--base-border-color);
