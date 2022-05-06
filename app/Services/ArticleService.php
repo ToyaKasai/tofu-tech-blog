@@ -67,7 +67,7 @@ final class ArticleService
         $thumbnailPath = $thumbnail ? str_replace('public/image/', '', $thumbnail) : null; // public/image/を除外
 
         $isSave = 0; // お気に入りは別でロジック切り出すので無条件でfalseにする
-        $isPickup = 0; // TODO: 保存時どうしようね
+        $isPickup = 0;
 
         $article = Article::make(
             $param->post('title'),

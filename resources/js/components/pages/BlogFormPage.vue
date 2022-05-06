@@ -12,7 +12,6 @@
         class="form"
       >
         <CsrfToken :csrf="csrf" />
-        <!-- TODO: language 選択できるようにしたい -->
         <FormTitleInput
           name="title"
           :value="state.title"
