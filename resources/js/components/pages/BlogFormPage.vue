@@ -17,6 +17,11 @@
           :value="state.title"
           @update:title="state.title = $event"
         />
+        <MarkdownEditor
+          name="source"
+          :value="state.source"
+          @update:source="state.source = $event"
+        />
         <FormTextarea
           name="description"
           :value="state.description"
@@ -26,11 +31,6 @@
           name="thumbnail_path"
           :value="state.image"
           @update:image="updateImage"
-        />
-        <MarkdownEditor
-          name="source"
-          :value="state.source"
-          @update:source="state.source = $event"
         />
         <div class="form-footer">
           <SwitchToggleButton
