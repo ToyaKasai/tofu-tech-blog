@@ -9,8 +9,8 @@
       <a :href="settingPath" class="icon">
         <Icon name="setting" width="20px" />
       </a>
-      <a :href="searchPath" class="icon">
-        <Icon name="search" />
+      <a :href="favoritePath" class="icon">
+        <Icon name="heart" />
       </a>
       <div class="register">
         <CommonButton :href="createPath">Add Article</CommonButton>
@@ -43,9 +43,9 @@ export default {
       type: String,
       default: '/setting',
     },
-    searchPath: {
+    favoritePath: {
       type: String,
-      default: '/search',
+      default: '/favorite',
     },
   },
   setup() {
