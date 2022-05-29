@@ -7,75 +7,67 @@
     <div class="content">
       <div class="heading">
         <HeadingLv1 heading="Setting" />
-      </div>
-
-      <!-- ピックアップ記事設定 -->
-      <div class="pickup">
-        <PickupSection
-          :csrf="csrf"
-          :articles="articles"
-          :update-pickup-path="updatePickupPath"
-          :mode="mode"
-        />
+        <div class="article-list-wrapper">
+          <div class="header">
+            <p>ID</p>
+            <p>タイトル</p>
+            <p>作成日時</p>
+            <p>更新日時</p>
+            <p>公開状態</p>
+            <p></p>
+          </div>
+          <div class="list">
+            <template
+              v-for="{
+                id,
+                title,
+                created_at,
+                updated_at,
+                is_publish,
+              } in articles"
+            >
+              <div class="row">
+                <div>{{ id }}</div>
+                <div>{{ title }}</div>
+                <div>
+                  {{ parseDate(created_at, DATE_FORMAT_PATTERN) }}
+                </div>
+                <div>
+                  {{ parseDate(updated_at, DATE_FORMAT_PATTERN) }}
+                </div>
+                <div>{{ is_publish ? '公開済' : '非公開' }}</div>
+                <div>
+                  <button type="button">編集</button>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import HeadingLv1 from '../common/HeadingLv1.vue';
 import Icon from '../Icon.vue';
-import Accordion from '../common/Accordion.vue';
-import CsrfToken from '../common/form/CsrfToken.vue';
-import PickupSection from '../common/setting/PickupSection.vue';
-import { ref } from 'vue';
-import parseDate from '../../lib/parseDate.js';
+import HeadingLv1 from '../common/HeadingLv1.vue';
+import parseDate from '../../lib/parseDate';
 
 export default {
   name: 'SettingPage',
   components: {
-    CsrfToken,
-    Accordion,
-    HeadingLv1,
-    PickupSection,
     Icon,
+    HeadingLv1,
   },
   props: {
-    csrf: {
-      type: String,
-      required: true,
-    },
     articles: {
       type: Array,
       default: () => [],
     },
-    updatePickupPath: {
-      type: String,
-      required: true,
-    },
-    mode: {
-      type: String,
-      default: '',
-    },
   },
   setup() {
-    const changedStatusArticles = ref([]);
-
-    const changeStatus = (id, status) => {
-      changedStatusArticles.value = [
-        ...changedStatusArticles.value,
-        {
-          id,
-          status,
-        },
-      ];
-    };
-
-    return {
-      changedStatusArticles,
-      changeStatus,
-      parseDate,
-    };
+    const DATE_FORMAT_PATTERN = 'yyyy年M月d日 hh:mm';
+    return { parseDate, DATE_FORMAT_PATTERN };
   },
 };
 </script>
@@ -128,8 +120,35 @@ export default {
     margin-top: var(--margin-xl);
   }
 
-  > .content > .pickup {
-    margin-top: var(--margin-l);
+  .article-list-wrapper {
+    margin-top: var(--margin-xl);
+
+    > .header,
+    > .list > .row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    > .header {
+      padding: 0 var(--margin-xxs);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    > .list {
+      display: grid;
+      row-gap: var(--margin-xxs);
+      margin-top: var(--margin-xxs);
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    > .list > .row {
+      padding: var(--margin-xxs);
+      background-color: var(--gray-100);
+      border: solid 1px var(--gray-400);
+      border-radius: var(--border-radius-xxs);
+    }
   }
 }
 </style>
