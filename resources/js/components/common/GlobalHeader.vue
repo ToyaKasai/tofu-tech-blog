@@ -10,7 +10,7 @@
         <Icon name="setting" width="20px" />
       </a>
       <a :href="favoritePath" class="icon">
-        <Icon name="heart" />
+        <Icon name="heart" width="20px" />
       </a>
       <div class="register">
         <CommonButton :href="createPath">Add Article</CommonButton>
