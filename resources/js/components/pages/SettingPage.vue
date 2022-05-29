@@ -8,74 +8,28 @@
       <div class="heading">
         <HeadingLv1 heading="Setting" />
       </div>
-
-      <!-- ピックアップ記事設定 -->
-      <div class="pickup">
-        <PickupSection
-          :csrf="csrf"
-          :articles="articles"
-          :update-pickup-path="updatePickupPath"
-          :mode="mode"
-        />
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import HeadingLv1 from '../common/HeadingLv1.vue';
 import Icon from '../Icon.vue';
-import Accordion from '../common/Accordion.vue';
-import CsrfToken from '../common/form/CsrfToken.vue';
-import PickupSection from '../common/setting/PickupSection.vue';
-import { ref } from 'vue';
-import parseDate from '../../lib/parseDate.js';
+import HeadingLv1 from '../common/HeadingLv1.vue';
 
 export default {
   name: 'SettingPage',
   components: {
-    CsrfToken,
-    Accordion,
-    HeadingLv1,
-    PickupSection,
     Icon,
+    HeadingLv1,
   },
   props: {
-    csrf: {
-      type: String,
-      required: true,
-    },
     articles: {
       type: Array,
       default: () => [],
     },
-    updatePickupPath: {
-      type: String,
-      required: true,
-    },
-    mode: {
-      type: String,
-      default: '',
-    },
   },
   setup() {
-    const changedStatusArticles = ref([]);
-
-    const changeStatus = (id, status) => {
-      changedStatusArticles.value = [
-        ...changedStatusArticles.value,
-        {
-          id,
-          status,
-        },
-      ];
-    };
-
-    return {
-      changedStatusArticles,
-      changeStatus,
-      parseDate,
-    };
+    return {};
   },
 };
 </script>
@@ -126,10 +80,6 @@ export default {
 
   > .content > .heading {
     margin-top: var(--margin-xl);
-  }
-
-  > .content > .pickup {
-    margin-top: var(--margin-l);
   }
 }
 </style>
